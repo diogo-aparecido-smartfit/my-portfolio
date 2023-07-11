@@ -15,13 +15,3 @@
   font-weight: 600;
   font-style: normal;
 }
-
-.light-mode {
-  background-color: #111010;
-  color: #d4d4d4;
-}
-
-.dark-mode {
-  background-color: #d4d4d4;
-  color: #111010;
-}
