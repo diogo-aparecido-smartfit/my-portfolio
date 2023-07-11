@@ -14,9 +14,9 @@ export default function NavBar() {
         <a className="opacity-50 hover:opacity-80" href="#contact">
           Contato
         </a>
-        <a href="">
+        <button>
           <BsFillSunFill />
-        </a>
+        </button>
       </nav>
     </header>
   );

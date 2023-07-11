@@ -9,18 +9,12 @@ import { AiOutlineCloudDownload } from "react-icons/ai";
 export default function Home() {
   return (
     <section id="home" className="flex flex-col text-left mt-28 gap-4">
-      <h1 className="text-white font-medium text-lg">
-        Olá, eu me chamo Diogo.
-      </h1>
+      <h1 className="font-medium text-lg">Olá, eu me chamo Diogo.</h1>
       <p>
         Eu tenho 18 anos e sou um desenvolvedor Full-Stack! Moro em Uberlândia
         MG e atualmente estou cursando Análise e Desenvolvimento de Sistemas
         pela{" "}
-        <a
-          href="https://uniube.br/"
-          target="_blank"
-          className="text-white underline"
-        >
+        <a href="https://uniube.br/" target="_blank" className="underline">
           UNIUBE
         </a>
         , além de estar estudando C# e ASP.NET em cursos por fora.
@@ -48,15 +42,12 @@ export default function Home() {
           <SiDotnet />
         </li>
       </ul>
-      <a
-        href=""
-        className="flex flex-row items-center gap-2 text-white hover:brightness-50"
-      >
-        <span className="underline">Baixar currículo</span>
+      <button className="flex flex-row w-fit items-center gap-2 hover:brightness-50 hover:underline">
+        <span>Baixar currículo</span>
         <span className="text-xl">
           <AiOutlineCloudDownload />
         </span>
-      </a>
+      </button>
     </section>
   );
 }

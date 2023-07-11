@@ -16,7 +16,12 @@
   font-style: normal;
 }
 
-html {
+.light-mode {
   background-color: #111010;
   color: #d4d4d4;
+}
+
+.dark-mode {
+  background-color: #d4d4d4;
+  color: #111010;
 }
