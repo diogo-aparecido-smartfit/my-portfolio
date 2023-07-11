@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "GraphikRegular";
+  src: url("../public/fonts/Graphik-Regular.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GraphikMedium";
+  src: url("../public/fonts/Graphik-Medium.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+html {
+  background-color: #111010;
+  color: #d4d4d4;
+}
