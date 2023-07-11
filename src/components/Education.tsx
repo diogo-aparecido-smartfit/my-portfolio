@@ -1,7 +1,7 @@
 export default function Education() {
   return (
     <section className="flex flex-col text-left gap-8" id="education">
-      <h1 className="text-white font-medium text-lg">Minha educação</h1>
+      <h1 className="font-medium text-lg">Minha educação</h1>
 
       <div className="flex flex-col gap-8">
         <article className="flex flex-col md:flex-row gap-4">

@@ -1,7 +1,9 @@
+import { PiEyeClosedBold, PiEyeBold } from "react-icons/pi";
+
 export default function Projects() {
   return (
     <section className="flex flex-col text-left gap-8" id="projects">
-      <h1 className=" font-medium text-lg">Alguns dos meus projetos</h1>
+      <h1 className="font-medium text-lg">Alguns dos meus projetos</h1>
 
       <div className="flex flex-col gap-8">
         <article className="flex flex-col md:flex-row gap-2">
@@ -17,8 +19,18 @@ export default function Projects() {
               project, or some success metrics, or a cheesy tagline.
             </p>
             <footer>
-              <a className="underline" target="_blank" href="">
-                Try it out
+              <a
+                className="group/edit underline flex flex-row items-center gap-2 max-w-fit transition-all"
+                target="_blank"
+                href=""
+              >
+                Visualizar{" "}
+                <span className="group-hover/edit:hidden">
+                  <PiEyeClosedBold />
+                </span>
+                <span className="hidden group-hover/edit:flex">
+                  <PiEyeBold />
+                </span>
               </a>
             </footer>
           </div>
@@ -33,8 +45,12 @@ export default function Projects() {
         </article>
       </div>
 
-      <a href="" className="text-white font-medium text-base ">
-        Ver todos os projetos →
+      <a
+        href=""
+        className="group/edit flex flex-row font-medium text-base max-w-fit hover:brightness-50 transition-all gap-2"
+      >
+        Ver todos os projetos
+        <span className="group-hover/edit:translate-x-1 transition-all">→</span>
       </a>
     </section>
   );
