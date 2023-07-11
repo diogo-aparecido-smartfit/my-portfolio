@@ -1,6 +1,11 @@
-import { BsFillSunFill } from "react-icons/bs";
+import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 
-export default function NavBar() {
+interface NavBarProps {
+  toggleDarkMode: () => void;
+  darkMode: boolean;
+}
+
+export default function NavBar({ toggleDarkMode, darkMode }: NavBarProps) {
   return (
     <header>
       <nav className="hidden md:flex px-8 mt-16 items-center flex-row gap-10">
@@ -14,8 +19,8 @@ export default function NavBar() {
         <a className="opacity-50 hover:opacity-80" href="#contact">
           Contato
         </a>
-        <button>
-          <BsFillSunFill />
+        <button className="transition-all" onClick={toggleDarkMode}>
+          {darkMode ? <BsFillMoonFill /> : <BsFillSunFill />}
         </button>
       </nav>
     </header>
