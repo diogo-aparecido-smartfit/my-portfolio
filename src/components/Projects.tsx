@@ -6,7 +6,7 @@ import {
   BiLogoJavascript,
   BiLogoReact,
 } from "react-icons/bi";
-import { SiDotnet, SiCsharp, SiNextdotjs, SiNodedotjs } from "react-icons/si";
+import { SiDotnet } from "react-icons/si";
 
 export default function Projects() {
   const language = useContext(LanguageContext);

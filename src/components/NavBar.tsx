@@ -23,8 +23,9 @@ export default function NavBar({
 }: NavBarProps) {
   const [isNavbarOpen, setIsNavbarOpen] = useState(true);
   const language = useContext(LanguageContext);
-  const navbarRef = useRef(null);
+  const navbarRef = useRef<HTMLDivElement | null>(null);
 
+  // closes the mobile navbar if the user clicks outside of it
   useEffect(() => {
     const handleClickOutside = (event: { target: any }) => {
       if (navbarRef.current && !navbarRef.current.contains(event.target)) {
@@ -39,6 +40,7 @@ export default function NavBar({
     };
   }, []);
 
+  // open/close the mobile navbar
   const toggleNavbar = () => {
     setIsNavbarOpen(!isNavbarOpen);
   };

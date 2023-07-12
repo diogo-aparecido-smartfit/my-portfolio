@@ -1,12 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { PiEyeClosedBold, PiEyeBold } from "react-icons/pi";
-import {
-  BiLogoTypescript,
-  BiLogoJavascript,
-  BiLogoReact,
-} from "react-icons/bi";
-import { SiDotnet, SiCsharp, SiNextdotjs, SiNodedotjs } from "react-icons/si";
-
 interface ProjectCardProps {
   language: string;
   projects: {
