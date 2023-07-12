@@ -8,7 +8,7 @@ export default function Education() {
           <div className="hidden md:flex flex-col relative">
             <img
               className="w-[145px] h-[145px] rounded-2xl relative"
-              src="https://source.unsplash.com/random"
+              src="../../public/uniube.png"
               alt="Imagem do projeto"
             />
           </div>
@@ -16,7 +16,7 @@ export default function Education() {
             <header>
               <p className="text-xs opacity-50">2023 - present</p>
               <h1 className="font-medium text-base">
-                Project Name! Nome legal...
+                Análise e Desenvolvimento de Sistemas
               </h1>
             </header>
             <p className="font-normal text-base opacity-70">
@@ -29,7 +29,7 @@ export default function Education() {
           <div className="hidden md:flex flex-col relative">
             <img
               className="w-[145px] h-[145px] rounded-2xl relative"
-              src="https://source.unsplash.com/random"
+              src="../../public/jstack.png"
               alt="Imagem do projeto"
             />
           </div>
@@ -37,7 +37,7 @@ export default function Education() {
             <header>
               <p className="text-xs opacity-50">2023 - present</p>
               <h1 className="font-medium text-base">
-                Project Name! Nome legal...
+                JStack - Curso FullStack
               </h1>
             </header>
             <p className="font-normal text-base opacity-70">
@@ -50,7 +50,7 @@ export default function Education() {
           <div className="hidden md:flex flex-col relative">
             <img
               className="w-[145px] h-[145px] rounded-2xl relative"
-              src="https://source.unsplash.com/random"
+              src="../../public/rocketseat.jpg"
               alt="Imagem do projeto"
             />
           </div>
@@ -58,7 +58,7 @@ export default function Education() {
             <header>
               <p className="text-xs opacity-50">2023 - present</p>
               <h1 className="font-medium text-base">
-                Project Name! Nome legal...
+                Ignite ReactJS - RocketSeat
               </h1>
             </header>
             <p className="font-normal text-base opacity-70">
