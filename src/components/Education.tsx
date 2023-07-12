@@ -1,3 +1,7 @@
+import rocketseat from "../../public/rocketseat.jpg";
+import uniube from "../../public/uniube.png";
+import jstack from "../../public/jstack.png";
+
 export default function Education() {
   return (
     <section className="flex flex-col text-left gap-8" id="education">
@@ -8,7 +12,7 @@ export default function Education() {
           <div className="hidden md:flex flex-col relative">
             <img
               className="w-[145px] h-[145px] rounded-2xl relative"
-              src="./public/uniube.png"
+              src={uniube}
               alt="Logo da instiuição"
             />
           </div>
@@ -29,7 +33,7 @@ export default function Education() {
           <div className="hidden md:flex flex-col relative">
             <img
               className="w-[145px] h-[145px] rounded-2xl relative"
-              src="./public/jstack.png"
+              src={jstack}
               alt="Logo da instiuição"
             />
           </div>
@@ -50,7 +54,7 @@ export default function Education() {
           <div className="hidden md:flex flex-col relative">
             <img
               className="w-[145px] h-[145px] rounded-2xl relative"
-              src="./public/rocketseat.jpg"
+              src={rocketseat}
               alt="Logo da instiuição"
             />
           </div>
