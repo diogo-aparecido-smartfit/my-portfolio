@@ -8,8 +8,8 @@ export default function Education() {
           <div className="hidden md:flex flex-col relative">
             <img
               className="w-[145px] h-[145px] rounded-2xl relative"
-              src="../../public/uniube.png"
-              alt="Imagem do projeto"
+              src="./public/uniube.png"
+              alt="Logo da instiuição"
             />
           </div>
           <div className="flex flex-col gap-2 md:w-[380px]">
@@ -29,8 +29,8 @@ export default function Education() {
           <div className="hidden md:flex flex-col relative">
             <img
               className="w-[145px] h-[145px] rounded-2xl relative"
-              src="../../public/jstack.png"
-              alt="Imagem do projeto"
+              src="./public/jstack.png"
+              alt="Logo da instiuição"
             />
           </div>
           <div className="flex flex-col gap-2 md:w-[380px]">
@@ -50,8 +50,8 @@ export default function Education() {
           <div className="hidden md:flex flex-col relative">
             <img
               className="w-[145px] h-[145px] rounded-2xl relative"
-              src="../../public/rocketseat.jpg"
-              alt="Imagem do projeto"
+              src="./public/rocketseat.jpg"
+              alt="Logo da instiuição"
             />
           </div>
           <div className="flex flex-col gap-2 md:w-[380px]">
