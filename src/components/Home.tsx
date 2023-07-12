@@ -3,6 +3,7 @@ import { SiDotnet, SiCsharp, SiNextdotjs, SiNodedotjs } from "react-icons/si";
 import { AiOutlineCloudDownload } from "react-icons/ai";
 import { LanguageContext } from "../App";
 import { useContext } from "react";
+import CV from "../../public/DiogoResume.pdf";
 
 export default function Home() {
   const language = useContext(LanguageContext);
@@ -50,12 +51,17 @@ export default function Home() {
           <SiDotnet />
         </li>
       </ul>
-      <button className="flex flex-row w-fit items-center gap-2 hover:brightness-50 hover:underline">
+      <a
+        href={CV}
+        download
+        target="_blank"
+        className="flex flex-row w-fit items-center gap-2 hover:brightness-50 hover:underline"
+      >
         <span>{language === "pt-BR" ? data[0].cv : data[1].cv}</span>
         <span className="text-xl">
           <AiOutlineCloudDownload />
         </span>
-      </button>
+      </a>
     </section>
   );
 }

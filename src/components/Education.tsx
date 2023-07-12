@@ -1,11 +1,26 @@
 import rocketseat from "../../public/rocketseat.jpg";
 import uniube from "../../public/uniube.png";
 import jstack from "../../public/jstack.png";
+import { useContext } from "react";
+import { LanguageContext } from "../App";
 
 export default function Education() {
+  const language = useContext(LanguageContext);
+
+  const data = [
+    {
+      name: "Minha educação",
+    },
+    {
+      name: "My education",
+    },
+  ];
+
   return (
     <section className="flex flex-col text-left gap-8" id="education">
-      <h1 className="font-medium text-lg">Minha educação</h1>
+      <h1 className="font-medium text-lg">
+        {language === "pt-BR" ? data[0].name : data[1].name}
+      </h1>
 
       <div className="flex flex-col gap-8">
         <article className="flex flex-col md:flex-row gap-4">
