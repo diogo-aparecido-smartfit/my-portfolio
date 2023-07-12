@@ -4,6 +4,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      boxShadow: {
+        navShadow: "0 -1px 4px rgba(0, 0, 0, .5 );",
+      },
       animationDelay: {
         "3s": "3s",
       },
