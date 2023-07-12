@@ -22,7 +22,7 @@ export default function StartLoading({ darkMode }: StartLoadingProps) {
         <div
           className={`${
             darkMode ? "bg-[#111010]" : "bg-white"
-          } flex justify-center items-center h-screen w-full fixed z-10 animate-fade`}
+          } flex justify-center items-center h-screen w-full fixed z-20 animate-fade`}
           style={{ animationDelay: "1s" }}
         >
           <h1 className="overflow-hidden text-2xl font-poppins font-bold leading-6 ">
