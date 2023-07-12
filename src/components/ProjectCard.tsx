@@ -9,71 +9,56 @@ import { SiDotnet, SiCsharp, SiNextdotjs, SiNodedotjs } from "react-icons/si";
 
 interface ProjectCardProps {
   language: string;
-  data: {
-    title: string;
-    footer: string;
-    firstProject: {
-      date: string;
-      name: string;
-      description: string;
-      view: string;
-    };
-  }[];
+  projects: {
+    id: number;
+    portugueseDate: string;
+    portugueseName: string;
+    portugueseDescription: string;
+    portugueseView: string;
+    date: string;
+    name: string;
+    description: string;
+    view: string;
+    deploy: string;
+    technologies: JSX.Element[];
+  };
 }
 
-export default function ProjectCard({ language, data }: ProjectCardProps) {
+export default function ProjectCard({ language, projects }: ProjectCardProps) {
   return (
     <article className="flex flex-col md:flex-row gap-2">
       <div className="flex flex-col gap-2 md:w-[380px]">
         <header>
           <p className="text-xs opacity-50">
-            {language === "pt-BR"
-              ? data[0].firstProject.date
-              : data[1].firstProject.date}
+            {language === "pt-BR" ? projects.portugueseDate : projects.date}
           </p>
           <h1 className="font-medium text-base">
-            {language === "pt-BR"
-              ? data[0].firstProject.name
-              : data[1].firstProject.name}
+            {language === "pt-BR" ? projects.portugueseName : projects.name}
           </h1>
         </header>
         <p className="font-normal text-base opacity-70">
           {language === "pt-BR"
-            ? data[0].firstProject.description
-            : data[1].firstProject.description}
+            ? projects.portugueseDescription
+            : projects.description}
         </p>
         <footer className="flex flex-col gap-2">
           <ul className="flex flex-row list-none text-xl gap-4 ">
-            <li className="hover:scale-150 hover:text-yellow-400 opacity-70 hover:opacity-100 hover:cursor-pointer transition-all">
-              <BiLogoJavascript />
-            </li>
-            <li className="hover:scale-150 hover:text-blue-500 opacity-70 hover:opacity-100  hover:cursor-pointer transition-all">
-              <BiLogoTypescript />
-            </li>
-            <li className="hover:scale-150 hover:text-blue-500 opacity-70 hover:opacity-100  hover:cursor-pointer transition-all">
-              <BiLogoReact />
-            </li>
-            <li className="hover:scale-150 hover:text-gray-600 opacity-70 hover:opacity-100  hover:cursor-pointer transition-all">
-              <SiNextdotjs />
-            </li>
-            <li className="hover:scale-150 hover:text-green-300 opacity-70 hover:opacity-100  hover:cursor-pointer transition-all">
-              <SiNodedotjs />
-            </li>
-            <li className="hover:scale-150 hover:text-purple-500 opacity-70 hover:opacity-100  hover:cursor-pointer transition-all">
-              <SiCsharp />
-            </li>
-            <li className="hover:scale-150 hover:bg-purple-800 opacity-70 hover:opacity-100  hover:cursor-pointer transition-all">
-              <SiDotnet />
-            </li>
+            {" "}
+            {projects.technologies.map((Icon, index) => (
+              <li
+                className="hover:scale-150 hover:text-white opacity-70 hover:opacity-100 hover:cursor-pointer transition-all"
+                key={index}
+              >
+                {Icon}
+              </li>
+            ))}
           </ul>
           <a
             className="group/edit underline flex flex-row items-center gap-2 max-w-fit transition-all"
             target="_blank"
-            href=""
+            href={projects.deploy}
           >
-            {language === "pt-BR"
-              ? data[0].firstProject.view
-              : data[1].firstProject.view}{" "}
+            {language === "pt-BR" ? projects.portugueseView : projects.view}
             <span className="group-hover/edit:hidden">
               <PiEyeClosedBold />
             </span>

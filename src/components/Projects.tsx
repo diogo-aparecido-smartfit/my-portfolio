@@ -1,32 +1,48 @@
 import { LanguageContext } from "../App";
 import { useContext } from "react";
 import ProjectCard from "./ProjectCard";
+import {
+  BiLogoTypescript,
+  BiLogoJavascript,
+  BiLogoReact,
+} from "react-icons/bi";
+import { SiDotnet, SiCsharp, SiNextdotjs, SiNodedotjs } from "react-icons/si";
 
 export default function Projects() {
   const language = useContext(LanguageContext);
 
   const data = [
     {
+      id: 1,
       title: "Alguns dos meus projetos",
       footer: "Ver todos os projetos",
-      firstProject: {
-        date: "2023 - present",
-        name: "Nome do projeto",
-        description:
-          "Fill your project brief here. It can be the outcome of the project, or some success metrics, or a cheesy tagline.",
-        view: "Visualizar",
-      },
     },
     {
       title: "Some of my projects",
       footer: "See all projects",
-      firstProject: {
-        date: "2023 - present",
-        name: "Name of project",
-        description:
-          "Fill your project brief here. It can be the outcome of the project, or some success metrics, or a cheesy tagline.",
-        view: "View",
-      },
+    },
+  ];
+
+  const projects = [
+    {
+      id: 1,
+      portugueseDate: "2023 - present",
+      portugueseName: "Nome do projeto",
+      portugueseDescription:
+        "Fill your project brief here. It can be the outcome of the project, or some success metrics, or a cheesy tagline.",
+      portugueseView: "Visualizar",
+      date: "2023 - present",
+      name: "Name of project",
+      description:
+        "Fill your project brief here. It can be the outcome of the project, or some success metrics, or a cheesy tagline.",
+      view: "View",
+      deploy: "https://google.com",
+      technologies: [
+        <BiLogoTypescript />,
+        <BiLogoJavascript />,
+        <BiLogoReact />,
+        <SiDotnet />,
+      ],
     },
   ];
 
@@ -37,7 +53,14 @@ export default function Projects() {
       </h1>
 
       <div className="flex flex-col gap-8">
-        <ProjectCard language={language} data={data} />
+        {/* <ProjectCard language={language} projects={projects} /> */}
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.id}
+            projects={project}
+            language={language}
+          />
+        ))}
       </div>
 
       <a
