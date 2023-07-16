@@ -1,5 +1,6 @@
 import { LanguageContext } from "../App";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import ProjectCard from "./ProjectCard";
 import {
   BiLogoTypescript,
@@ -63,14 +64,14 @@ export default function Projects() {
         ))}
       </div>
 
-      <a
-        href="https://github.com/DiogoAMV?tab=repositories"
-        target="_blank"
-        className="group/edit flex flex-row font-medium text-base max-w-fit hover:brightness-50 transition-all gap-2"
-      >
-        {language === "pt-BR" ? data[0].footer : data[1].footer}
-        <span className="group-hover/edit:translate-x-1 transition-all">→</span>
-      </a>
+      <Link to={`projects`}>
+        <a className="group/edit flex flex-row font-medium text-base max-w-fit hover:brightness-50 transition-all gap-2">
+          {language === "pt-BR" ? data[0].footer : data[1].footer}
+          <span className="group-hover/edit:translate-x-1 transition-all">
+            →
+          </span>
+        </a>
+      </Link>
     </section>
   );
 }
