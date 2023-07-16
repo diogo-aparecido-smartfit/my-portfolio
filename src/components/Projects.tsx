@@ -1,6 +1,5 @@
 import { LanguageContext } from "../App";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 import ProjectCard from "./ProjectCard";
 import {
   BiLogoTypescript,
@@ -8,6 +7,29 @@ import {
   BiLogoReact,
 } from "react-icons/bi";
 import { SiDotnet } from "react-icons/si";
+
+const projects = [
+  {
+    id: 1,
+    portugueseDate: "2023 - present",
+    portugueseName: "Nome do projeto",
+    portugueseDescription:
+      "Fill your project brief here. It can be the outcome of the project, or some success metrics, or a cheesy tagline.",
+    portugueseView: "Visualizar",
+    date: "2023 - present",
+    name: "Name of project",
+    description:
+      "Fill your project brief here. It can be the outcome of the project, or some success metrics, or a cheesy tagline.",
+    view: "View",
+    deploy: "https://google.com",
+    technologies: [
+      <BiLogoTypescript />,
+      <BiLogoJavascript />,
+      <BiLogoReact />,
+      <SiDotnet />,
+    ],
+  },
+];
 
 export default function Projects() {
   const language = useContext(LanguageContext);
@@ -21,29 +43,6 @@ export default function Projects() {
     {
       title: "Some of my projects",
       footer: "See all projects",
-    },
-  ];
-
-  const projects = [
-    {
-      id: 1,
-      portugueseDate: "2023 - present",
-      portugueseName: "Nome do projeto",
-      portugueseDescription:
-        "Fill your project brief here. It can be the outcome of the project, or some success metrics, or a cheesy tagline.",
-      portugueseView: "Visualizar",
-      date: "2023 - present",
-      name: "Name of project",
-      description:
-        "Fill your project brief here. It can be the outcome of the project, or some success metrics, or a cheesy tagline.",
-      view: "View",
-      deploy: "https://google.com",
-      technologies: [
-        <BiLogoTypescript />,
-        <BiLogoJavascript />,
-        <BiLogoReact />,
-        <SiDotnet />,
-      ],
     },
   ];
 
@@ -64,14 +63,10 @@ export default function Projects() {
         ))}
       </div>
 
-      <Link to={`projects`}>
-        <a className="group/edit flex flex-row font-medium text-base max-w-fit hover:brightness-50 transition-all gap-2">
-          {language === "pt-BR" ? data[0].footer : data[1].footer}
-          <span className="group-hover/edit:translate-x-1 transition-all">
-            →
-          </span>
-        </a>
-      </Link>
+      <a className="group/edit flex flex-row font-medium text-base max-w-fit hover:brightness-50 transition-all gap-2">
+        {language === "pt-BR" ? data[0].footer : data[1].footer}
+        <span className="group-hover/edit:translate-x-1 transition-all">→</span>
+      </a>
     </section>
   );
 }
