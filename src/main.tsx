@@ -5,12 +5,17 @@ import "./global.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage.tsx";
+import ProjectsPage from "./pages/ProjectsPage.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: "projects",
+    element: <ProjectsPage />,
   },
 ]);
 
