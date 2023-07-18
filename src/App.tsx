@@ -69,13 +69,7 @@ export default function App() {
 
   return (
     <LanguageContext.Provider value={language}>
-      <html
-        className={
-          darkMode
-            ? "bg-[#111010] text-[#fff] transition-all"
-            : "bg-white text-[#111010] transition-all"
-        }
-      >
+      <html className={darkMode ? "dark" : "light"}>
         <StartLoading darkMode={darkMode} />
         <div className="flex flex-col justify-center my-0 mx-auto sm:w-[610px]">
           <NavBar

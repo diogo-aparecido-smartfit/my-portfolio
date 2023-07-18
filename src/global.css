@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+.dark {
+  min-height: 100vh;
+  background-color: #111010;
+  color: #fff;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.light {
+  min-height: 100vh;
+  background-color: #fff;
+  color: #111010;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 @font-face {
   font-family: "GraphikRegular";
   src: url("../public/fonts/Graphik-Regular.ttf");
