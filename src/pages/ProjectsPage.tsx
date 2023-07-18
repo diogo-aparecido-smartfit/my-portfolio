@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useContext, useEffect, useState } from "react";
 import { LanguageContext } from "../App";
-import ProjectCard from "../components/ProjectCard";
 import { projects } from "../data/projects";
 import { Link } from "react-router-dom";
 import ProjectList from "../components/ProjectList";
