@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { PiEyeClosedBold, PiEyeBold } from "react-icons/pi";
 interface ProjectCardProps {
   language: string;
@@ -17,7 +18,33 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ language, projects }: ProjectCardProps) {
-  return (
+  const [isLoading, setIsLoading] = useState(false);
+
+  return isLoading ? (
+    <div className=" shadow rounded-md p-4 h-[180px] w-[533px] mx-auto">
+      <div className="animate-pulse flex space-x-4">
+        <div className="flex-1 space-y-6 py-1">
+          <div className="h-2 w-10 bg-gray-400 rounded"></div>
+          <div className="space-y-3">
+            <div className="grid grid-cols-3 gap-4">
+              <div className="h-2 bg-gray-400 rounded col-span-2"></div>
+              <div className="h-2 bg-gray-400 rounded col-span-2"></div>
+              <div className="h-2 bg-gray-400 rounded"></div>
+            </div>
+            <div className="h-2 bg-gray-400 rounded"></div>
+            <div className="grid grid-cols-10 gap-4">
+              <div className="h-4 bg-gray-400 rounded col-span-1"></div>
+              <div className="h-4 bg-gray-400 rounded col-span-1"></div>
+              <div className="h-4 bg-gray-400 rounded col-span-1"></div>
+              <div className="h-4 bg-gray-400 rounded col-span-1"></div>
+            </div>
+            <div className="h-2 w-16 bg-gray-400 rounded"></div>
+          </div>
+        </div>
+        <div className="rounded-2xl bg-gray-400 h-[145px] w-[145px]"></div>
+      </div>
+    </div>
+  ) : (
     <article className="flex flex-col md:flex-row gap-2">
       <div className="flex flex-col gap-2 md:w-[380px]">
         <header>
