@@ -5,9 +5,20 @@ interface StartLoadingProps {
 }
 
 export default function StartLoading({ darkMode }: StartLoadingProps) {
+  const [isNewVisitor, setIsNewVisitor] = useState(true);
   const [isVisible, setIsVisible] = useState(true);
   const text = "Diogo Marques 👑";
 
+  useEffect(() => {
+    const newVisitor = localStorage.getItem("visitor");
+    if (newVisitor) {
+      setIsNewVisitor(true);
+    } else {
+      setIsNewVisitor(false);
+    }
+  }, []);
+
+  // A tipografia de começo desaparecerá depois de 3900ms
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false);
@@ -16,7 +27,7 @@ export default function StartLoading({ darkMode }: StartLoadingProps) {
     return () => clearTimeout(timer);
   }, []);
 
-  return (
+  return isNewVisitor ? (
     <div>
       {isVisible && (
         <div
@@ -39,5 +50,7 @@ export default function StartLoading({ darkMode }: StartLoadingProps) {
         </div>
       )}
     </div>
+  ) : (
+    <></>
   );
 }
