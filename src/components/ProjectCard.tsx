@@ -20,6 +20,16 @@ interface ProjectCardProps {
 export default function ProjectCard({ language, projects }: ProjectCardProps) {
   const [isLoading, setIsLoading] = useState(false);
 
+  function handleIsLoading() {
+    if (isLoading === true) {
+      setIsLoading(true);
+    } else {
+      setIsLoading(false);
+    }
+  }
+
+  handleIsLoading();
+
   return isLoading ? (
     <div className=" shadow rounded-md p-4 h-[180px] w-[533px] mx-auto">
       <div className="animate-pulse flex space-x-4">
