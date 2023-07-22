@@ -96,8 +96,8 @@ export default function NavBar({
       </nav>
       <nav
         ref={navbarRef}
-        className={`flex sm:hidden h-12 bottom-0 z-10 w-screen items-center justify-between  fixed ${
-          darkMode ? "bg-[#191719] transition-all" : "bg-white  transition-all"
+        className={`flex sm:hidden h-12 bottom-0 z-10 w-screen items-center justify-between  fixed shadow-navShadow ${
+          darkMode ? "bg-[#2a2a2a] transition-all" : "bg-white  transition-all"
         }`}
       >
         <div className="flex flex-row items-center justify-between w-full z-20 p-4">
@@ -114,7 +114,7 @@ export default function NavBar({
             isNavbarOpen ? "-bottom-full" : "bottom-0"
           } flex flex-row transition-all duration-500 w-screen fixed h-72 pt-8 px-6 pb-16 rounded-t-2xl justify-center shadow-navShadow z-10 ${
             darkMode
-              ? "bg-[#191719] text-[#fff] transition-all"
+              ? "bg-[#2a2a2a] text-[#fff] transition-all"
               : "bg-white text-[#111010] transition-all"
           } `}
         >
