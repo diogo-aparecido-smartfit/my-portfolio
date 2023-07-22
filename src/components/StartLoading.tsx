@@ -5,16 +5,19 @@ interface StartLoadingProps {
 }
 
 export default function StartLoading({ darkMode }: StartLoadingProps) {
-  const [isNewVisitor, setIsNewVisitor] = useState(true);
   const [isVisible, setIsVisible] = useState(true);
+  const [showWelcome, setShowWelcome] = useState(false);
+
   const text = "Diogo Marques 👑";
 
   useEffect(() => {
-    const newVisitor = localStorage.getItem("visitor");
-    if (newVisitor) {
-      setIsNewVisitor(true);
-    } else {
-      setIsNewVisitor(false);
+    const lastShownTime = localStorage.getItem("lastShownTime");
+    const currentTime = new Date().getTime();
+
+    // Se não há registro no localStorage ou se já passaram 10 minutos, mostrar a tela de início
+    if (!lastShownTime || currentTime - lastShownTime >= 10 * 60 * 1000) {
+      setShowWelcome(true);
+      localStorage.setItem("lastShownTime", currentTime);
     }
   }, []);
 
@@ -27,12 +30,12 @@ export default function StartLoading({ darkMode }: StartLoadingProps) {
     return () => clearTimeout(timer);
   }, []);
 
-  return isNewVisitor ? (
+  return showWelcome ? (
     <div>
       {isVisible && (
         <div
           className={`${
-            darkMode ? "bg-[#111010]" : "bg-white"
+            darkMode ? "bg-[#2a2a2a]" : "bg-white"
           } flex justify-center items-center h-screen w-full fixed z-20 animate-fade`}
           style={{ animationDelay: "1s" }}
         >
