@@ -4,6 +4,7 @@ import { AiOutlineCloudDownload } from "react-icons/ai";
 import { LanguageContext } from "../App";
 import { useContext } from "react";
 import CV from "../../public/DiogoResume.pdf";
+import ProfilePhoto from "./ProfilePhoto";
 
 export default function Home() {
   const language = useContext(LanguageContext);
@@ -25,6 +26,7 @@ export default function Home() {
 
   return (
     <section id="home" className="flex flex-col text-left mt-28 gap-4">
+      <ProfilePhoto />
       <h1 className="font-medium text-lg ">
         {language === "pt-BR" ? data[0].name : data[1].name}
       </h1>
