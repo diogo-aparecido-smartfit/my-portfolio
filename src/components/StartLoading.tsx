@@ -11,8 +11,8 @@ export default function StartLoading({ darkMode }: StartLoadingProps) {
   const text = "Diogo Marques 👑";
 
   useEffect(() => {
-    const lastShownTime = localStorage.getItem("lastShownTime");
-    const currentTime = new Date().getTime();
+    const lastShownTime: any = localStorage.getItem("lastShownTime");
+    const currentTime: any = new Date().getTime();
 
     // Se não há registro no localStorage ou se já passaram 10 minutos, mostrar a tela de início
     if (!lastShownTime || currentTime - lastShownTime >= 10 * 60 * 1000) {
