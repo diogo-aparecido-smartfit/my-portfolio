@@ -4,17 +4,8 @@
 
 .dark {
   min-height: 100vh;
-  background-color: #111010;
+  background-color: #2a2a2a;
   color: #fff;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.light {
-  min-height: 100vh;
-  background-color: #fff;
-  color: #111010;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
