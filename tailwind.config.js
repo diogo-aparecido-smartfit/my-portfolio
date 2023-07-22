@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       boxShadow: {
         navShadow: "0 -1px 4px rgba(0, 0, 0, .5 );",
+        photoShadow: "0 1px 20px rgba(0, 0, 0, 0.7)",
       },
       animationDelay: {
         "3s": "3s",
