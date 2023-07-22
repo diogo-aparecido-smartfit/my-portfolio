@@ -21,7 +21,7 @@ export default function ProjectCard({ language, projects }: ProjectCardProps) {
   const [isLoading] = useState(false);
 
   return isLoading ? (
-    <div className=" shadow rounded-md p-4 h-[180px] w-[533px] mx-auto">
+    <div className="flex flex-col shadow rounded-md p-4 h-[180px] sm:w-[533px] mx-auto">
       <div className="animate-pulse flex space-x-4">
         <div className="flex-1 space-y-6 py-1">
           <div className="h-2 w-10 bg-gray-400 rounded"></div>
@@ -41,7 +41,7 @@ export default function ProjectCard({ language, projects }: ProjectCardProps) {
             <div className="h-2 w-16 bg-gray-400 rounded"></div>
           </div>
         </div>
-        <div className="rounded-2xl bg-gray-400 h-[145px] w-[145px]"></div>
+        <div className="hidden md:flex rounded-2xl bg-gray-400 h-[145px] w-[145px]"></div>
       </div>
     </div>
   ) : (
