@@ -72,13 +72,22 @@ export default function NavBar({
     <header>
       <nav className="hidden sm:flex px-8 mt-16 items-center flex-row gap-10">
         <a href="#home">Diogo Marques</a>
-        <a className="opacity-50 hover:opacity-80" href="#projects">
+        <a
+          className="opacity-50 hover:opacity-80 hover:underline"
+          href="#projects"
+        >
           {language === "pt-BR" ? data[0].projects : data[1].projects}
         </a>
-        <a className="opacity-50 hover:opacity-80" href="#education">
+        <a
+          className="opacity-50 hover:opacity-80 hover:underline"
+          href="#education"
+        >
           {language === "pt-BR" ? data[0].education : data[1].education}
         </a>
-        <a className="opacity-50 hover:opacity-80" href="#contact">
+        <a
+          className="opacity-50 hover:opacity-80 hover:underline"
+          href="#contact"
+        >
           {language === "pt-BR" ? data[0].contact : data[1].contact}
         </a>
         <button
