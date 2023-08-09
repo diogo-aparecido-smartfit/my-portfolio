@@ -9,7 +9,6 @@ export const Category = model(
     },
     icon: {
       type: String,
-      required: true,
     },
   })
 );
