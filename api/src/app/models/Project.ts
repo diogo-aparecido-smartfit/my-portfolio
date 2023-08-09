@@ -21,18 +21,7 @@ export const Project = model(
     },
     technologies: {
       required: true,
-      type: [
-        {
-          name: {
-            type: String,
-            required: true,
-          },
-          icon: {
-            type: String,
-            required: true,
-          },
-        },
-      ],
+      type: [String],
     },
     deployLink: {
       type: String,
