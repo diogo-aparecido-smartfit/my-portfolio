@@ -15,12 +15,11 @@ export const Project = model(
       type: String,
       required: true,
     },
-    imagePath: {
+    image: {
       type: String,
       required: true,
     },
     technologies: {
-      required: true,
       type: [String],
     },
     deployLink: {
