@@ -3,6 +3,10 @@ import { model, now, Schema } from "mongoose";
 export const Project = model(
   "Project",
   new Schema({
+    date: {
+      type: Date,
+      default: Date.now,
+    },
     name: {
       type: String,
       required: true,
@@ -30,13 +34,14 @@ export const Project = model(
         },
       ],
     },
-    Date: {
-      type: Date,
-      default: Date.now,
+    deployLink: {
+      type: String,
+    },
+    githubLink: {
+      type: String,
     },
     category: {
       type: Schema.Types.ObjectId,
-      required: true,
       ref: "Category",
     },
   })
