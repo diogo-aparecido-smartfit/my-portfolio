@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { listProjects } from "./app/useCases/projects/listProjects";
+import { createProject } from "./app/useCases/projects/createProject";
 
 export const router = Router();
 
@@ -7,9 +8,7 @@ export const router = Router();
 router.get("/projects", listProjects);
 
 // Create project
-router.post("/projects", (req, res) => {
-  res.send("OK");
-});
+router.post("/projects", createProject);
 
 // Update project
 router.put("/projects/:id", (req, res) => {
