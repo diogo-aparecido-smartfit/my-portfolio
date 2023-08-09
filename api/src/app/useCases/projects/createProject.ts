@@ -26,7 +26,7 @@ export async function createProject(req: Request, res: Response) {
       category,
     });
 
-    res.json(project);
+    res.status(201).json(project);
   } catch (error) {
     console.log(error);
     res.sendStatus(500);
