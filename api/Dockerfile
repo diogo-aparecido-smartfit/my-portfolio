@@ -10,6 +10,8 @@ COPY package*.json ./
 # Instale as dependências do projeto
 RUN npm install
 
+RUN npm build
+
 # Copie o restante dos arquivos da aplicação para o diretório de trabalho
 COPY . .
 
