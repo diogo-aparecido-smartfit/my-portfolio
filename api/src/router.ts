@@ -3,6 +3,9 @@ import path from "node:path";
 import { listProjects } from "./app/useCases/projects/listProjects";
 import { createProject } from "./app/useCases/projects/createProject";
 import multer from "multer";
+import { listProjectsByCategory } from "./app/useCases/projects/listProjectsByCategory";
+import { deleteProject } from "./app/useCases/projects/deleteProject";
+import { updateProject } from "./app/useCases/projects/updateProject";
 
 export const router = Router();
 
@@ -24,16 +27,10 @@ router.get("/projects", listProjects);
 router.post("/projects", upload.single("image"), createProject);
 
 // Update project
-router.put("/projects/:id", (req, res) => {
-  res.send("OK");
-});
+router.put("/projects/:id", updateProject);
 
 // Delete project
-router.get("/projects/:id", (req, res) => {
-  res.send("OK");
-});
+router.delete("/projects/:id", deleteProject);
 
 // List projects by category
-router.get("/categories/:categoryId/products", (req, res) => {
-  res.send("OK");
-});
+router.get("/categories/:categoryId/products", listProjectsByCategory);
