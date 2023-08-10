@@ -4,31 +4,12 @@ import { Project } from "../../models/Project";
 
 export async function createProject(req: Request, res: Response) {
   try {
-    // const {
-    //   date,
-    //   name,
-    //   description,
-    //   imagePath,
-    //   technologies,
-    //   deployLink,
-    //   githubLink,
-    //   category,
-    // } = req.body;
-
-    // const project = await Project.create({
-    //   date,
-    //   name,
-    //   description,
-    //   imagePath,
-    //   technologies,
-    //   deployLink,
-    //   githubLink,
-    //   category,
-    // });
-
-    // res.status(201).json(project);
-
     const image = req.file?.filename;
+
+    const technologiesInput = req.body.technologies;
+    const technologiesArray = technologiesInput
+      .split(",")
+      .map((tech: string) => tech.trim());
 
     const {
       date,
@@ -45,7 +26,7 @@ export async function createProject(req: Request, res: Response) {
       name,
       description,
       image,
-      technologies,
+      technologies: technologiesArray,
       deployLink,
       githubLink,
       category,
