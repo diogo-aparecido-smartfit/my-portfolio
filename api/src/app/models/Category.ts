@@ -7,8 +7,5 @@ export const Category = model(
       type: String,
       required: true,
     },
-    icon: {
-      type: String,
-    },
   })
 );
