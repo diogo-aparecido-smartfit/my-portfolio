@@ -7,13 +7,25 @@ export const Project = model(
       type: Date,
       default: Date.now,
     },
+    time: {
+      type: String,
+    },
+    englishTime: {
+      type: String,
+    },
     name: {
       type: String,
       required: true,
     },
+    englishName: {
+      type: String,
+    },
     description: {
       type: String,
       required: true,
+    },
+    englishDescription: {
+      type: String,
     },
     image: {
       type: String,
