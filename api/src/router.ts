@@ -9,15 +9,19 @@ import { updateProject } from "./app/useCases/projects/updateProject";
 
 export const router = Router();
 
+// const upload = multer({
+//   storage: multer.diskStorage({
+//     destination(req, file, callback) {
+//       callback(null, path.resolve(__dirname, "..", "uploads"));
+//     },
+//     filename(req, file, callback) {
+//       callback(null, `${Date.now()}-${file.originalname}`);
+//     },
+//   }),
+// });
+
 const upload = multer({
-  storage: multer.diskStorage({
-    destination(req, file, callback) {
-      callback(null, path.resolve(__dirname, "..", "uploads"));
-    },
-    filename(req, file, callback) {
-      callback(null, `${Date.now()}-${file.originalname}`);
-    },
-  }),
+  storage: multer.memoryStorage(), // Use memoryStorage para lidar com o buffer da imagem
 });
 
 // List projects
