@@ -6,9 +6,9 @@ import { router } from "./router";
 
 mongoose
   .connect(
-    process.env.MONGODB_URL
+    /*  process.env.MONGODB_URL
       ? String(process.env.MONGODB_URL)
-      : "mongodb://localhost:27017"
+      :  */ "mongodb://localhost:27017"
   )
   .then(() => {
     const port = 3001;
