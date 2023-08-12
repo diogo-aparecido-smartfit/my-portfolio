@@ -1,6 +1,7 @@
 import express from "express";
 import path from "node:path";
 import mongoose from "mongoose";
+import cors from "cors";
 
 import { router } from "./router";
 
@@ -14,6 +15,7 @@ mongoose
     const port = 3001;
     const app = express();
 
+    app.use(cors());
     app.use(
       "/uploads",
       express.static(path.resolve(__dirname, "..", "uploads"))
