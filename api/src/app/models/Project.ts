@@ -3,19 +3,19 @@ import { model, now, Schema } from "mongoose";
 export const Project = model(
   "Project",
   new Schema({
-    portugueseDate: {
-      type: String,
-      default: Date.now,
-    },
     date: {
       type: String,
+    },
+    portugueseDate: {
+      type: String,
+    },
+    name: {
+      type: String,
+      required: true,
     },
     portugueseName: {
       type: String,
       required: true,
-    },
-    name: {
-      type: String,
     },
     description: {
       type: String,
@@ -23,6 +23,7 @@ export const Project = model(
     },
     portugueseDescription: {
       type: String,
+      required: true,
     },
     image: {
       type: String,
