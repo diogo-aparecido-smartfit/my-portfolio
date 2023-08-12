@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { PiEyeClosedBold, PiEyeBold } from "react-icons/pi";
 interface ProjectCardProps {
   language: string;
@@ -19,8 +18,6 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ language, projects }: ProjectCardProps) {
-  // const [isLoading] = useState(true);
-
   return (
     <article className="flex flex-col md:flex-row gap-2">
       <div className="flex flex-col gap-2 md:w-[380px]">
