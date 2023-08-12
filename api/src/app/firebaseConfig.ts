@@ -13,7 +13,7 @@ admin.initializeApp({
     auth_provider_x509_cert_url: process.env.FIREBASE_AUTH_PROVIDER,
     client_x509_cert_url: process.env.FIREBASE_CLIENT,
   }),
-  storageBucket: "gs://portfolio-9535c.appspot.com",
+  storageBucket: process.env.STORAGE_BUCKET,
 });
 
 const storage = admin.storage();
