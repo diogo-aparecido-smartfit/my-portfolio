@@ -17,8 +17,11 @@ export async function createProject(req: Request, res: Response) {
 
     const {
       date,
+      portugueseDate,
       name,
+      portugueseName,
       description,
+      portugueseDescription,
       technologies,
       deployLink,
       githubLink,
@@ -41,8 +44,11 @@ export async function createProject(req: Request, res: Response) {
 
     const product = await Project.create({
       date,
+      portugueseDate,
       name,
+      portugueseName,
       description,
+      portugueseDescription,
       image: imageUrl,
       technologies: technologiesArray,
       deployLink,
