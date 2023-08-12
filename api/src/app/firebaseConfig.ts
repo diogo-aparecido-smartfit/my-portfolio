@@ -1,9 +1,5 @@
 var admin = require("firebase-admin");
-// import serviceAccount from "./serviceKey.js";
-
-// const { firebase } = require("../serviceKey.js"); // Importe o objeto de configuração
-// const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
-const serviceAccount = require("./serviceKey.js");
+import serviceAccount from "../../serviceKey.json";
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
