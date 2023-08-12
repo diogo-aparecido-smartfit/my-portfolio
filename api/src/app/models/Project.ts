@@ -4,11 +4,8 @@ export const Project = model(
   "Project",
   new Schema({
     date: {
-      type: Date,
-      default: Date.now,
-    },
-    time: {
       type: String,
+      default: Date.now,
     },
     englishTime: {
       type: String,
