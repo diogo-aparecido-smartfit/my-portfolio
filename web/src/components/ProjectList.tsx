@@ -3,6 +3,7 @@ import { LanguageContext } from "../App";
 import ProjectCard from "./ProjectCard";
 import api from "../services/api";
 import ProjectCardLoading from "./ProjectCardLoading";
+import { ToastContainer, toast } from "react-toastify";
 
 interface ProjectListProps {
   renderNumber: number;
@@ -36,10 +37,33 @@ export default function ProjectList({ renderNumber }: ProjectListProps) {
         setLoading(false);
       })
       .catch((err) => {
-        console.error("ops! ocorreu um erro" + err);
+        toast.error(err, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />;
         setLoading(false);
       });
   }, []);
+
+  console.log(loading);
 
   return (
     <article className="flex flex-col gap-8">
@@ -47,7 +71,7 @@ export default function ProjectList({ renderNumber }: ProjectListProps) {
         <ProjectCardLoading />
       ) : (
         data
-          .slice(0, renderNumber)
+          ?.slice(0, renderNumber)
           .map((project) => (
             <ProjectCard
               key={project.id}
