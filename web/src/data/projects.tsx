@@ -7,7 +7,7 @@ import { SiDotnet } from "react-icons/si";
 
 export const projects = [
   {
-    id: 1,
+    id: "aaa",
     portugueseDate: "2023 - present",
     portugueseName: "Nome do projeto",
     portugueseDescription:
@@ -27,7 +27,7 @@ export const projects = [
     ],
   },
   {
-    id: 2,
+    id: "teste",
     portugueseDate: "2023 - present",
     portugueseName: "Nome do projeto",
     portugueseDescription:
@@ -47,7 +47,7 @@ export const projects = [
     ],
   },
   {
-    id: 3,
+    id: "aaaa",
     portugueseDate: "2023 - present",
     portugueseName: "Nome do projeto",
     portugueseDescription:

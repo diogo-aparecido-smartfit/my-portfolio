@@ -3,7 +3,7 @@ import { PiEyeClosedBold, PiEyeBold } from "react-icons/pi";
 interface ProjectCardProps {
   language: string;
   projects: {
-    id: number;
+    id: string;
     portugueseDate: string;
     portugueseName: string;
     portugueseDescription: string;
@@ -77,7 +77,7 @@ export default function ProjectCard({ language, projects }: ProjectCardProps) {
             target="_blank"
             href={projects.deploy}
           >
-            {language === "pt-BR" ? projects.portugueseView : projects.view}
+            {language === "pt-BR" ? "Visualizar" : "View"}
             <span className="group-hover/edit:hidden">
               <PiEyeClosedBold />
             </span>
