@@ -8,7 +8,8 @@ import {
 import { MdOutlineWorkOutline } from "react-icons/md";
 import { LanguageContext } from "../App";
 import { useContext, useEffect, useRef, useState } from "react";
-import { BsGrid, BsMoon, BsSun } from "react-icons/bs";
+import { BsArrowRight, BsGrid, BsMoon, BsSun } from "react-icons/bs";
+import { useKBar } from "kbar";
 
 interface NavBarProps {
   toggleDarkMode: () => void;
@@ -24,6 +25,11 @@ export default function NavBar({
   const [isNavbarOpen, setIsNavbarOpen] = useState(true);
   const language = useContext(LanguageContext);
   const navbarRef = useRef<HTMLDivElement | null>(null);
+
+  const { query } = useKBar();
+
+  const isMac = /(Mac)/i.test(navigator.userAgent);
+  const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
 
   // closes the mobile navbar if the user clicks outside of it
   useEffect(() => {
@@ -70,7 +76,31 @@ export default function NavBar({
 
   return (
     <header>
-      <nav className="hidden sm:flex px-8 mt-16 items-center flex-row gap-10">
+      <nav className="hidden sm:flex px-8 mt-16 items-center justify-center flex-row gap-10">
+        {isMobile ? (
+          <button
+            onClick={query.toggle}
+            className="group/edit flex flex-row font-medium text-base max-w-fit hover:brightness-50 transition-all gap-2"
+          >
+            Clique aqui para iniciar
+          </button>
+        ) : isMac ? (
+          <button
+            onClick={query.toggle}
+            className="group/edit flex flex-row font-medium text-base max-w-fit hover:brightness-50 transition-all gap-2"
+          >
+            Pressione <kbd>⌘</kbd> <kbd>K</kbd> para iniciar
+          </button>
+        ) : (
+          <button
+            onClick={query.toggle}
+            className="group/edit flex flex-row font-medium text-base max-w-fit hover:brightness-50 transition-all gap-2"
+          >
+            Pressione <kbd>ctrl</kbd> <kbd>K</kbd> para iniciar
+          </button>
+        )}
+      </nav>
+      {/* <nav className="hidden sm:flex px-8 mt-16 items-center flex-row gap-10">
         <a href="#home">Diogo Marques</a>
         <a
           className="opacity-50 hover:opacity-80 hover:underline"
@@ -102,7 +132,9 @@ export default function NavBar({
         >
           {darkMode ? <BsMoon /> : <BsSun />}
         </button>
-      </nav>
+      </nav> */}
+
+      {/* mobile navbar */}
       <nav
         ref={navbarRef}
         className={`flex sm:hidden h-12 bottom-0 z-10 w-screen items-center justify-between  fixed shadow-navShadow ${
@@ -114,7 +146,7 @@ export default function NavBar({
             Diogo Marques
           </a>
 
-          <button onClick={toggleNavbar}>
+          <button onClick={query.toggle}>
             <BsGrid />
           </button>
         </div>
