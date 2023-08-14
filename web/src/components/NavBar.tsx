@@ -8,7 +8,7 @@ import {
 import { MdOutlineWorkOutline } from "react-icons/md";
 import { LanguageContext } from "../App";
 import { useContext, useEffect, useRef, useState } from "react";
-import { BsArrowRight, BsGrid, BsMoon, BsSun } from "react-icons/bs";
+import { BsGrid, BsMoon, BsSun } from "react-icons/bs";
 import { useKBar } from "kbar";
 import { BiCommand } from "react-icons/bi";
 
@@ -28,9 +28,6 @@ export default function NavBar({
   const navbarRef = useRef<HTMLDivElement | null>(null);
 
   const { query } = useKBar();
-
-  const isMac = /(Mac)/i.test(navigator.userAgent);
-  const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
 
   // closes the mobile navbar if the user clicks outside of it
   useEffect(() => {

@@ -1,12 +1,5 @@
-import {
-  useRef,
-  useState,
-  forwardRef,
-  useEffect,
-  Dispatch,
-  SetStateAction,
-} from "react";
-import Lottie from "lottie-react";
+import { useRef, forwardRef, useEffect } from "react";
+import Lottie, { LottieRefCurrentProps } from "lottie-react";
 
 import {
   KBarProvider,
@@ -15,7 +8,6 @@ import {
   KBarAnimator,
   KBarSearch,
   useMatches,
-  NO_GROUP,
   KBarResults,
   ActionImpl,
 } from "kbar";
@@ -28,13 +20,7 @@ import toolIcon from "../../public/icons/tool-icon.json";
 import lightIcon from "../../public/icons/light-icon.json";
 import nightIcon from "../../public/icons/night-icon.json";
 
-import {
-  HiHome as HomeIcon,
-  HiCollection as CollectionIcon,
-  HiUserCircle as UserCircleIcon,
-  HiOutlineFolder as FolderIcon,
-  HiOutlineNewspaper as NewspaperIcon,
-} from "react-icons/hi";
+import { HiCollection as CollectionIcon } from "react-icons/hi";
 import React from "react";
 
 interface CommandBarProps {
@@ -48,28 +34,19 @@ interface CommandBarProps {
 export default function CommandBar({
   darkMode,
   children,
-  toggleDarkMode,
   handleLightTheme,
   handleDarkTheme,
 }: CommandBarProps) {
-  const copyLinkRef = useRef();
-  const cvRef = useRef();
-  const emailRef = useRef();
-  const homeRef = useRef();
-  const aboutRef = useRef();
-  const projectsRef = useRef();
-  const usesRef = useRef();
-  const themeRef = useRef();
-  const lightRef = useRef();
-  const darkRef = useRef();
-
-  const [showToast, setShowToast] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [language, setLanguage] = useState("");
+  const copyLinkRef = useRef<LottieRefCurrentProps | null>(null);
+  const cvRef = useRef<LottieRefCurrentProps | null>(null);
+  const emailRef = useRef<LottieRefCurrentProps | null>(null);
+  const homeRef = useRef<LottieRefCurrentProps | null>(null);
+  const themeRef = useRef<LottieRefCurrentProps | null>(null);
+  const lightRef = useRef<LottieRefCurrentProps | null>(null);
+  const darkRef = useRef<LottieRefCurrentProps | null>(null);
 
   const copyLink = () => {
     navigator.clipboard.writeText(window.location.href);
-    setShowToast(true);
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -282,7 +259,7 @@ const ResultItem = forwardRef(function ResultItem(
   { action, active }: { action: ActionImpl; active: boolean },
   ref: React.Ref<HTMLDivElement>
 ) {
-  const lottieRef = useRef(null);
+  const lottieRef = useRef<LottieRefCurrentProps | null>(null);
 
   useEffect(() => {
     if (lottieRef.current) {
