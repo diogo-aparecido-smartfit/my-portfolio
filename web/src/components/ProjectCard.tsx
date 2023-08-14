@@ -47,7 +47,7 @@ export default function ProjectCard({ language, projects }: ProjectCardProps) {
             ))}
           </ul>
           <a
-            className="group/edit underline flex flex-row items-center gap-2 max-w-fit transition-all"
+            className="group/edit underline flex flex-row items-center gap-2 max-w-fit transition-all cursor-pointer"
             target="_blank"
             href={projects.deploy}
           >
