@@ -10,6 +10,7 @@ import { LanguageContext } from "../App";
 import { useContext, useEffect, useRef, useState } from "react";
 import { BsArrowRight, BsGrid, BsMoon, BsSun } from "react-icons/bs";
 import { useKBar } from "kbar";
+import { BiCommand } from "react-icons/bi";
 
 interface NavBarProps {
   toggleDarkMode: () => void;
@@ -76,7 +77,7 @@ export default function NavBar({
 
   return (
     <header>
-      <nav className="hidden sm:flex px-8 mt-16 items-center justify-center flex-row gap-10">
+      {/* <nav className="hidden sm:flex px-8 mt-16 items-center justify-center flex-row gap-10">
         {isMobile ? (
           <button
             onClick={query.toggle}
@@ -99,40 +100,18 @@ export default function NavBar({
             Pressione <kbd>ctrl</kbd> <kbd>K</kbd> para iniciar
           </button>
         )}
-      </nav>
-      {/* <nav className="hidden sm:flex px-8 mt-16 items-center flex-row gap-10">
-        <a href="#home">Diogo Marques</a>
-        <a
-          className="opacity-50 hover:opacity-80 hover:underline"
-          href="#projects"
-        >
-          {language === "pt-BR" ? data[0].projects : data[1].projects}
-        </a>
-        <a
-          className="opacity-50 hover:opacity-80 hover:underline"
-          href="#education"
-        >
-          {language === "pt-BR" ? data[0].education : data[1].education}
-        </a>
-        <a
-          className="opacity-50 hover:opacity-80 hover:underline"
-          href="#contact"
-        >
-          {language === "pt-BR" ? data[0].contact : data[1].contact}
-        </a>
-        <button
-          className="hover:scale-125 transition-all"
-          onClick={handleChangeLanguage}
-        >
-          {language === "en-US" ? <LiaFlagUsaSolid /> : <GiBrazilFlag />}
-        </button>
-        <button
-          className="hover:scale-125 transition-all"
-          onClick={toggleDarkMode}
-        >
-          {darkMode ? <BsMoon /> : <BsSun />}
-        </button>
       </nav> */}
+      <nav className="hidden sm:flex px-8 mt-16 items-center justify-between flex-row gap-10">
+        <a className="font-medium hover:underline" href="#home">
+          Diogo Marques
+        </a>
+        <button
+          onClick={query.toggle}
+          className="flex flex-row font-medium text-xl max-w-fit hover:brightness-50 transition-all gap-2"
+        >
+          <BiCommand />
+        </button>
+      </nav>
 
       {/* mobile navbar */}
       <nav
