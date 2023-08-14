@@ -1,4 +1,5 @@
 import { PiEyeClosedBold, PiEyeBold } from "react-icons/pi";
+import { FaReact, FaNodeJs, FaMobileAlt, FaJsSquare } from "react-icons/fa";
 interface ProjectCardProps {
   language: string;
   projects: {
@@ -18,6 +19,20 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ language, projects }: ProjectCardProps) {
+  function getTechnologyIcon(techName: string): React.ReactNode {
+    if (techName === "reactjs") {
+      return <FaReact />;
+    } else if (techName === "reactnative") {
+      return <FaMobileAlt />;
+    } else if (techName === "javascript") {
+      return <FaJsSquare />;
+    } else if (techName === "nodejs") {
+      return <FaNodeJs />;
+    } else {
+      return null;
+    }
+  }
+
   return (
     <article className="flex flex-col md:flex-row gap-2">
       <div className="flex flex-col gap-2 md:w-[380px]">
@@ -37,12 +52,12 @@ export default function ProjectCard({ language, projects }: ProjectCardProps) {
         <footer className="flex flex-col gap-2">
           <ul className="flex flex-row list-none text-xl gap-4 ">
             {" "}
-            {projects.technologies.map((Icon, index) => (
+            {projects.technologies.map((icon, index) => (
               <li
                 className="hover:scale-150 hover:text-white opacity-70 hover:opacity-100 hover:cursor-pointer transition-all"
                 key={index}
               >
-                {Icon}
+                {getTechnologyIcon(icon)}
               </li>
             ))}
           </ul>
