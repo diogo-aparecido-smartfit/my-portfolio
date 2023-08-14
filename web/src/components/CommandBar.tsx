@@ -38,7 +38,8 @@ import {
 import React from "react";
 
 interface CommandBarProps {
-  handleChangeTheme: () => void;
+  handleLightTheme: () => void;
+  handleDarkTheme: () => void;
   toggleDarkMode: () => void;
   darkMode: boolean;
   children: React.ReactNode;
@@ -48,8 +49,8 @@ export default function CommandBar({
   darkMode,
   children,
   toggleDarkMode,
-  setDarkMode,
-  handleChangeTheme,
+  handleLightTheme,
+  handleDarkTheme,
 }: CommandBarProps) {
   const copyLinkRef = useRef();
   const cvRef = useRef();
@@ -78,8 +79,6 @@ export default function CommandBar({
       window.scrollTo({ top: offsetTop, behavior: "smooth" });
     }
   };
-
-  console.log(darkMode);
 
   const actions = [
     {
@@ -181,12 +180,30 @@ export default function CommandBar({
       shortcut: ["T", "D"],
       keywords: "escuro dark",
       section: "PREFERÊNCIAS",
-      perform: () => handleChangeTheme(),
+      perform: () => handleDarkTheme(),
       icon: (
         <Lottie
           lottieRef={darkRef}
           className="w-6 h-6"
-          animationData={darkMode ? lightIcon : nightIcon}
+          animationData={nightIcon}
+          loop={false}
+          autoplay={false}
+        />
+      ),
+      parent: "theme",
+    },
+    {
+      id: "darkTheme",
+      name: "Tema claro",
+      shortcut: ["T", "L"],
+      keywords: "claro light",
+      section: "PREFERÊNCIAS",
+      perform: () => handleLightTheme(),
+      icon: (
+        <Lottie
+          lottieRef={lightRef}
+          className="w-6 h-6"
+          animationData={lightIcon}
           loop={false}
           autoplay={false}
         />
@@ -199,7 +216,7 @@ export default function CommandBar({
       shortcut: ["T", "I"],
       keywords: "idioma language",
       section: "PREFERÊNCIAS",
-      perform: () => handleChangeTheme(),
+      perform: () => handleLightTheme(),
       icon: (
         <Lottie
           lottieRef={lightRef}
@@ -225,7 +242,7 @@ export default function CommandBar({
             className={`max-w-xl w-full sm:w-3/6 rounded-lg ${
               darkMode
                 ? "bg-[#2a2a2a]/70 text-zinc-400"
-                : "bg-gray-300/70 text-black"
+                : "bg-zinc-100/70 text-black"
             } overflow-hidden shadow-white backdrop-blur-sm`}
           >
             <KBarSearch

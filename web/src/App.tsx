@@ -68,14 +68,16 @@ export default function App() {
     localStorage.setItem("darkMode", JSON.stringify(newDarkMode));
   }
 
-  function handleChangeTheme() {
-    if (darkMode) {
-      const newDarkMode = !darkMode;
-      setDarkMode(newDarkMode);
-      localStorage.setItem("darkMode", JSON.stringify(newDarkMode));
-    } else {
-      setDarkMode(darkMode);
-    }
+  function handleLightTheme() {
+    const newDarkMode = false;
+    setDarkMode(newDarkMode);
+    localStorage.setItem("darkMode", JSON.stringify(newDarkMode));
+  }
+
+  function handleDarkTheme() {
+    const newDarkMode = true;
+    setDarkMode(newDarkMode);
+    localStorage.setItem("darkMode", JSON.stringify(newDarkMode));
   }
 
   return (
@@ -83,7 +85,8 @@ export default function App() {
       <CommandBar
         darkMode={darkMode}
         toggleDarkMode={toggleDarkMode}
-        handleChangeTheme={handleChangeTheme}
+        handleLightTheme={handleLightTheme}
+        handleDarkTheme={handleDarkTheme}
       >
         <html className={darkMode ? "dark" : "light"}>
           <StartLoading darkMode={darkMode} />
