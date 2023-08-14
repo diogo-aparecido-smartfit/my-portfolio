@@ -63,8 +63,6 @@ export default function ProjectList({ renderNumber }: ProjectListProps) {
       });
   }, []);
 
-  console.log(loading);
-
   return (
     <article className="flex flex-col gap-8">
       {loading ? (
