@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import Projects from "./components/Projects";
 import StartLoading from "./components/StartLoading";
+import CommandBar from "./components/CommandBar";
 
 export const LanguageContext = createContext("");
 
@@ -67,24 +68,40 @@ export default function App() {
     localStorage.setItem("darkMode", JSON.stringify(newDarkMode));
   }
 
+  function handleChangeTheme() {
+    if (darkMode) {
+      const newDarkMode = !darkMode;
+      setDarkMode(newDarkMode);
+      localStorage.setItem("darkMode", JSON.stringify(newDarkMode));
+    } else {
+      setDarkMode(darkMode);
+    }
+  }
+
   return (
     <LanguageContext.Provider value={language}>
-      <html className={darkMode ? "dark" : "light"}>
-        <StartLoading darkMode={darkMode} />
-        <div className="flex flex-col justify-center my-0 mx-auto sm:w-[610px]">
-          <NavBar
-            toggleDarkMode={toggleDarkMode}
-            handleChangeLanguage={handleChangeLanguage}
-            darkMode={darkMode}
-          />
-          <main className="px-8 flex flex-col gap-28">
-            <Home />
-            <Projects />
-            <Education />
-            <Contact />
-          </main>
-        </div>
-      </html>
+      <CommandBar
+        darkMode={darkMode}
+        toggleDarkMode={toggleDarkMode}
+        handleChangeTheme={handleChangeTheme}
+      >
+        <html className={darkMode ? "dark" : "light"}>
+          <StartLoading darkMode={darkMode} />
+          <div className="flex flex-col justify-center my-0 mx-auto sm:w-[610px]">
+            <NavBar
+              toggleDarkMode={toggleDarkMode}
+              handleChangeLanguage={handleChangeLanguage}
+              darkMode={darkMode}
+            />
+            <main className="px-8 flex flex-col gap-28">
+              <Home />
+              <Projects />
+              <Education />
+              <Contact />
+            </main>
+          </div>
+        </html>
+      </CommandBar>
     </LanguageContext.Provider>
   );
 }
