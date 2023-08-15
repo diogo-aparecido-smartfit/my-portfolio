@@ -154,7 +154,7 @@ export default function CommandBar({
       shortcut: ["H"],
       keywords: "home index início inicio",
       section: "NAVEGAR",
-      perform: () => (window.location.pathname = "/"),
+      perform: () => scrollToSection("home"),
       icon: (
         <Lottie
           lottieRef={homeRef}
