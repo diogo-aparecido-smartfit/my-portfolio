@@ -1,4 +1,5 @@
 import { useRef, forwardRef } from "react";
+import "react-toastify/dist/ReactToastify.css";
 import Lottie from "lottie-react";
 import { GiBrazilFlag } from "react-icons/gi";
 import { LiaFlagUsaSolid } from "react-icons/lia";
@@ -27,6 +28,7 @@ import projectsIcon from "../../public/icons/projects-icon.json";
 import educationIcon from "../../public/icons/education-icon.json";
 import contactIcon from "../../public/icons/contact-icon.json";
 import React from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 interface CommandBarProps {
   handlePortugueseLanguage: () => void;
@@ -59,8 +61,21 @@ export default function CommandBar({
   const educationRef = useRef(null);
   const contactRef = useRef(null);
 
+  const notify = () =>
+    toast.success("Link copiado!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: darkMode ? "dark" : "light",
+    });
+
   const copyLink = () => {
     navigator.clipboard.writeText(window.location.href);
+    notify();
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -324,6 +339,8 @@ export default function CommandBar({
         </KBarPositioner>
       </KBarPortal>
       {children}
+
+      <ToastContainer />
     </KBarProvider>
   );
 
