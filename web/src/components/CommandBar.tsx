@@ -322,6 +322,8 @@ export default function CommandBar({
     },
   ];
 
+  console.log();
+
   return (
     <KBarProvider actions={actions}>
       <KBarPortal>
