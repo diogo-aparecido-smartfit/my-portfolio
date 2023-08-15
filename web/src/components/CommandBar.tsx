@@ -1,5 +1,7 @@
 import { useRef, forwardRef } from "react";
-import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import Lottie from "lottie-react";
+import { GiBrazilFlag } from "react-icons/gi";
+import { LiaFlagUsaSolid } from "react-icons/lia";
 
 import {
   KBarProvider,
@@ -19,11 +21,18 @@ import mailIcon from "../../public/icons/mail-icon.json";
 import toolIcon from "../../public/icons/tool-icon.json";
 import lightIcon from "../../public/icons/light-icon.json";
 import nightIcon from "../../public/icons/night-icon.json";
+import languageIcon from "../../public/icons/language-icon.json";
+import themeIcon from "../../public/icons/theme-icon.json";
+import projectsIcon from "../../public/icons/projects-icon.json";
+import educationIcon from "../../public/icons/education-icon.json";
+import contactIcon from "../../public/icons/contact-icon.json";
 
 import { HiCollection as CollectionIcon } from "react-icons/hi";
 import React from "react";
 
 interface CommandBarProps {
+  handlePortugueseLanguage: () => void;
+  handleEnglishLanguage: () => void;
   handleLightTheme: () => void;
   handleDarkTheme: () => void;
   toggleDarkMode: () => void;
@@ -35,15 +44,22 @@ export default function CommandBar({
   darkMode,
   children,
   handleLightTheme,
+  handleEnglishLanguage,
+  handlePortugueseLanguage,
   handleDarkTheme,
 }: CommandBarProps) {
   const copyLinkRef = useRef(null);
   const cvRef = useRef(null);
-  const emailRef = useRef<LottieRefCurrentProps | null>(null);
-  const homeRef = useRef<LottieRefCurrentProps | null>(null);
-  const themeRef = useRef<LottieRefCurrentProps | null>(null);
-  const lightRef = useRef<LottieRefCurrentProps | null>(null);
-  const darkRef = useRef<LottieRefCurrentProps | null>(null);
+  const emailRef = useRef(null);
+  const homeRef = useRef(null);
+  const settingsRef = useRef(null);
+  const themeRef = useRef(null);
+  const lightRef = useRef(null);
+  const darkRef = useRef(null);
+  const languageRef = useRef(null);
+  const projectsRef = useRef(null);
+  const educationRef = useRef(null);
+  const contactRef = useRef(null);
 
   const copyLink = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -127,29 +143,88 @@ export default function CommandBar({
       ),
     },
     {
-      id: "Contact",
-      name: "Teste",
-      shortcut: ["T"],
-      keywords: "teste",
+      id: "projects",
+      name: "Projetos",
+      shortcut: ["P"],
+      keywords: "projetos projects",
       section: "NAVEGAR",
-      perform: () => scrollToSection("contact"),
-      icon: <CollectionIcon className="w-6 h-6" />,
+      perform: () => scrollToSection("projects"),
+      icon: (
+        <Lottie
+          lottieRef={projectsRef}
+          className="w-6 h-6"
+          animationData={projectsIcon}
+          loop={false}
+          autoplay={false}
+        />
+      ),
     },
     {
-      id: "theme",
+      id: "education",
+      name: "Educação",
+      shortcut: ["E"],
+      keywords: "education educação",
+      section: "NAVEGAR",
+      perform: () => scrollToSection("education"),
+      icon: (
+        <Lottie
+          lottieRef={educationRef}
+          className="w-6 h-6"
+          animationData={educationIcon}
+          loop={false}
+          autoplay={false}
+        />
+      ),
+    },
+    {
+      id: "contact",
+      name: "Contato",
+      shortcut: ["C", "M"],
+      keywords: "contact contato",
+      section: "NAVEGAR",
+      perform: () => scrollToSection("contact"),
+      icon: (
+        <Lottie
+          lottieRef={contactRef}
+          className="w-6 h-6"
+          animationData={contactIcon}
+          loop={false}
+          autoplay={false}
+        />
+      ),
+    },
+    {
+      id: "settings",
       name: "Configurações",
       shortcut: ["T"],
-      keywords: "preferences preferências configurações settings theme",
+      keywords: "preferences preferências configurações settings theme tema",
       section: "PREFERÊNCIAS",
       icon: (
         <Lottie
-          lottieRef={themeRef}
+          lottieRef={settingsRef}
           className="w-6 h-6"
           animationData={toolIcon}
           loop={false}
           autoplay={false}
         />
       ),
+    },
+    {
+      id: "theme",
+      name: "Alterar tema",
+      shortcut: ["C", "T"],
+      keywords: "preferences preferências configurações settings theme tema",
+      section: "PREFERÊNCIAS",
+      icon: (
+        <Lottie
+          lottieRef={themeRef}
+          className="w-6 h-6"
+          animationData={themeIcon}
+          loop={false}
+          autoplay={false}
+        />
+      ),
+      parent: "settings",
     },
     {
       id: "darkTheme",
@@ -193,17 +268,34 @@ export default function CommandBar({
       shortcut: ["T", "I"],
       keywords: "idioma language",
       section: "PREFERÊNCIAS",
-      perform: () => handleLightTheme(),
       icon: (
         <Lottie
-          lottieRef={lightRef}
+          lottieRef={languageRef}
           className="w-6 h-6"
-          animationData={lightIcon}
+          animationData={languageIcon}
           loop={false}
           autoplay={false}
         />
       ),
-      parent: "theme",
+      parent: "settings",
+    },
+    {
+      id: "english",
+      name: "English",
+      keywords: "english inglês",
+      section: "PREFERÊNCIAS",
+      perform: () => handleEnglishLanguage(),
+      icon: <LiaFlagUsaSolid />,
+      parent: "language",
+    },
+    {
+      id: "portuguese",
+      name: "Português",
+      keywords: "portuguese português",
+      section: "PREFERÊNCIAS",
+      perform: () => handlePortugueseLanguage(),
+      icon: <GiBrazilFlag />,
+      parent: "language",
     },
   ];
 
@@ -219,14 +311,14 @@ export default function CommandBar({
             className={`max-w-xl w-full sm:w-3/6 rounded-lg ${
               darkMode
                 ? "bg-[#2a2a2a]/70 text-zinc-400"
-                : "bg-zinc-100/70 text-black"
+                : "bg-zinc-100/80 text-black"
             } overflow-hidden shadow-white backdrop-blur-sm`}
           >
             <KBarSearch
               className={`py-4 px-3 text-base w-full outline-none border-none ${
                 darkMode
                   ? "bg-[#2a2a2a]/0 text-zinc-400"
-                  : "bg-gray-300/0 text-black"
+                  : "bg-zinc-100/80 text-black"
               } backdrop-blur-sm`}
             />
             <RenderResults />
