@@ -1,4 +1,4 @@
-import { useRef, forwardRef } from "react";
+import { useRef, forwardRef, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import Lottie from "lottie-react";
 import { GiBrazilFlag } from "react-icons/gi";
@@ -49,6 +49,8 @@ export default function CommandBar({
   handlePortugueseLanguage,
   handleDarkTheme,
 }: CommandBarProps) {
+  const [readOnly, setReadOnly] = useState(true);
+
   const copyLinkRef = useRef(null);
   const cvRef = useRef(null);
   const emailRef = useRef(null);
@@ -71,7 +73,7 @@ export default function CommandBar({
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: darkMode ? "dark" : "light",
+      theme: "light",
     });
 
   const copyLink = () => {
@@ -338,6 +340,8 @@ export default function CommandBar({
             } overflow-hidden shadow-white`}
           >
             <KBarSearch
+              readOnly={readOnly}
+              onClick={() => setReadOnly(false)}
               className={`py-4 px-3 text-base w-full outline-none border-none ${
                 darkMode
                   ? "bg-[#2a2a2a]/0 text-zinc-400"
