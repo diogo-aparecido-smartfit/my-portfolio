@@ -333,16 +333,16 @@ export default function CommandBar({
           <KBarAnimator
             className={`max-w-xl w-full sm:w-3/6 rounded-lg ${
               darkMode
-                ? "bg-[#2a2a2a]/70 text-zinc-400"
-                : "bg-zinc-100/80 text-black"
-            } overflow-hidden shadow-white backdrop-blur-sm`}
+                ? "bg-[#2a2a2a]/80 text-zinc-400"
+                : "bg-zinc-100/100 text-black"
+            } overflow-hidden shadow-white`}
           >
             <KBarSearch
               className={`py-4 px-3 text-base w-full outline-none border-none ${
                 darkMode
                   ? "bg-[#2a2a2a]/0 text-zinc-400"
-                  : "bg-zinc-100/80 text-black"
-              } backdrop-blur-sm`}
+                  : "bg-zinc-100 text-black"
+              } `}
             />
             <RenderResults />
           </KBarAnimator>
