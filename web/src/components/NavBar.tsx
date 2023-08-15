@@ -74,37 +74,13 @@ export default function NavBar({
 
   return (
     <header>
-      {/* <nav className="hidden sm:flex px-8 mt-16 items-center justify-center flex-row gap-10">
-        {isMobile ? (
-          <button
-            onClick={query.toggle}
-            className="group/edit flex flex-row font-medium text-base max-w-fit hover:brightness-50 transition-all gap-2"
-          >
-            Clique aqui para iniciar
-          </button>
-        ) : isMac ? (
-          <button
-            onClick={query.toggle}
-            className="group/edit flex flex-row font-medium text-base max-w-fit hover:brightness-50 transition-all gap-2"
-          >
-            Pressione <kbd>⌘</kbd> <kbd>K</kbd> para iniciar
-          </button>
-        ) : (
-          <button
-            onClick={query.toggle}
-            className="group/edit flex flex-row font-medium text-base max-w-fit hover:brightness-50 transition-all gap-2"
-          >
-            Pressione <kbd>ctrl</kbd> <kbd>K</kbd> para iniciar
-          </button>
-        )}
-      </nav> */}
       <nav className="hidden sm:flex px-8 mt-16 items-center justify-between flex-row gap-10">
         <a className="font-medium hover:underline" href="#home">
           Diogo Marques
         </a>
         <button
           onClick={query.toggle}
-          className="flex flex-row font-medium text-xl max-w-fit hover:brightness-50 transition-all gap-2"
+          className="flex flex-row font-medium text-xl max-w-fit transition-all gap-2 p-2 hover:bg-zinc-500/30  rounded-lg"
         >
           <BiCommand />
         </button>

@@ -66,7 +66,7 @@ export default function ProjectCard({ language, projects }: ProjectCardProps) {
             ))}
           </ul>
           <a
-            className="group/edit underline flex flex-row items-center gap-2 max-w-fit transition-all cursor-pointer"
+            className="group/edit hover:underline flex flex-row items-center gap-2 max-w-fit transition-all cursor-pointer"
             target="_blank"
             onMouseEnter={() => (lottieRef as any)?.current?.play()}
             onMouseLeave={() => (lottieRef as any)?.current?.stop()}
