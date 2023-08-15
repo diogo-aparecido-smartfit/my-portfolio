@@ -21,7 +21,7 @@ interface Project {
   description: string;
   view: string;
   deploy: string;
-  technologies: JSX.Element[];
+  technologies: [];
 }
 
 export default function ProjectList({ renderNumber }: ProjectListProps) {
