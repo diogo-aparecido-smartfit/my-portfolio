@@ -1,4 +1,4 @@
-import { useRef, forwardRef, useEffect } from "react";
+import { useRef, forwardRef } from "react";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 
 import {
@@ -37,8 +37,8 @@ export default function CommandBar({
   handleLightTheme,
   handleDarkTheme,
 }: CommandBarProps) {
-  const copyLinkRef = useRef<LottieRefCurrentProps | null>(null);
-  const cvRef = useRef<LottieRefCurrentProps | null>(null);
+  const copyLinkRef = useRef(null);
+  const cvRef = useRef(null);
   const emailRef = useRef<LottieRefCurrentProps | null>(null);
   const homeRef = useRef<LottieRefCurrentProps | null>(null);
   const themeRef = useRef<LottieRefCurrentProps | null>(null);
@@ -259,21 +259,17 @@ const ResultItem = forwardRef(function ResultItem(
   { action, active }: { action: ActionImpl; active: boolean },
   ref: React.Ref<HTMLDivElement>
 ) {
-  const lottieRef = useRef<LottieRefCurrentProps | null>(null);
-
-  useEffect(() => {
-    if (lottieRef.current) {
-      if (active) {
-        lottieRef.current.play();
-      } else {
-        lottieRef.current.goToAndStop(0);
-      }
-    }
-  }, [active]);
-
   return (
     <div
       ref={ref}
+      onMouseEnter={() =>
+        //@ts-ignore
+        action.icon && action.icon.props.lottieRef?.current?.play()
+      }
+      onMouseLeave={() =>
+        //@ts-ignore
+        action.icon && action.icon.props.lottieRef?.current?.stop()
+      }
       className={
         active
           ? `cursor-pointer px-3 py-2 leading-none text-violet11 flex items-center justify-between bg-zinc-600/30`
@@ -281,7 +277,9 @@ const ResultItem = forwardRef(function ResultItem(
       }
     >
       <header className="flex items-center text-center gap-2">
-        {React.cloneElement(action.icon, { lottieRef })}
+        {/* {React.cloneElement(action.icon, { lottieRef })} */}
+        {action.icon && action.icon}
+        {/* <LottieIconWrapper lottieRef={lottieRef} icon={action.icon} /> */}
         <div className="flex flex-col items-start justify-center relative select-none outline-none hover:bg-violet4">
           <h1 className="text-lg"> {action.name} </h1>
           <p className="text-md"> {action.subtitle} </p>
