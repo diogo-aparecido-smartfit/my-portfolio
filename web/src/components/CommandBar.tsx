@@ -87,6 +87,7 @@ export default function CommandBar({
       const offsetTop = section.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({ top: offsetTop, behavior: "smooth" });
     }
+    setReadOnly(true);
   };
 
   function downloadFileFunction() {
@@ -341,6 +342,7 @@ export default function CommandBar({
           >
             <KBarSearch
               readOnly={readOnly}
+              autoFocus
               onClick={() => setReadOnly(false)}
               className={`py-4 px-3 text-base w-full outline-none border-none ${
                 darkMode
