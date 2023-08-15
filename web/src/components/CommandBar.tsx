@@ -277,9 +277,7 @@ const ResultItem = forwardRef(function ResultItem(
       }
     >
       <header className="flex items-center text-center gap-2">
-        {/* {React.cloneElement(action.icon, { lottieRef })} */}
         {action.icon && action.icon}
-        {/* <LottieIconWrapper lottieRef={lottieRef} icon={action.icon} /> */}
         <div className="flex flex-col items-start justify-center relative select-none outline-none hover:bg-violet4">
           <h1 className="text-lg"> {action.name} </h1>
           <p className="text-md"> {action.subtitle} </p>
