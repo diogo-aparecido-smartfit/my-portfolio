@@ -68,6 +68,18 @@ export default function App() {
     localStorage.setItem("darkMode", JSON.stringify(newDarkMode));
   }
 
+  function handleEnglishLanguage() {
+    const newLanguage = "en-US";
+    setLanguage(newLanguage);
+    localStorage.setItem("language", newLanguage);
+  }
+
+  function handlePortugueseLanguage() {
+    const newLanguage = "pt-BR";
+    setLanguage(newLanguage);
+    localStorage.setItem("language", newLanguage);
+  }
+
   function handleLightTheme() {
     const newDarkMode = false;
     setDarkMode(newDarkMode);
@@ -87,6 +99,8 @@ export default function App() {
         toggleDarkMode={toggleDarkMode}
         handleLightTheme={handleLightTheme}
         handleDarkTheme={handleDarkTheme}
+        handleEnglishLanguage={handleEnglishLanguage}
+        handlePortugueseLanguage={handlePortugueseLanguage}
       >
         <html className={darkMode ? "dark" : "light"}>
           <StartLoading darkMode={darkMode} />
