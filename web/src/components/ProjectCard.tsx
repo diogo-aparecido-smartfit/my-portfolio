@@ -14,7 +14,7 @@ interface ProjectCardProps {
     description: string;
     view: string;
     deploy: string;
-    technologies: JSX.Element[];
+    technologies: [];
   };
 }
 
