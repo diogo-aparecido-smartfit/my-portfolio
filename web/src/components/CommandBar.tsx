@@ -3,6 +3,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Lottie from "lottie-react";
 import { GiBrazilFlag } from "react-icons/gi";
 import { LiaFlagUsaSolid } from "react-icons/lia";
+import CV from "../../public/DiogoResume.pdf";
 
 import {
   KBarProvider,
@@ -86,6 +87,15 @@ export default function CommandBar({
     }
   };
 
+  function downloadFileFunction() {
+    const link = document.createElement("a");
+    link.download = "Diogo Resume";
+
+    link.href = CV;
+
+    link.click();
+  }
+
   const actions = [
     {
       id: "url",
@@ -127,7 +137,7 @@ export default function CommandBar({
       shortcut: ["C", "V"],
       keywords: "cv curriculo curriculum",
       section: "GERAL",
-      perform: () => scrollToSection("projects"),
+      perform: () => downloadFileFunction(),
       icon: (
         <Lottie
           lottieRef={cvRef}
@@ -140,7 +150,7 @@ export default function CommandBar({
     },
     {
       id: "home",
-      name: "Home",
+      name: "Início",
       shortcut: ["H"],
       keywords: "home index início inicio",
       section: "NAVEGAR",
