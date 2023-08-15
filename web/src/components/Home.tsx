@@ -1,6 +1,5 @@
 import { BiLogoTypescript, BiLogoReact } from "react-icons/bi";
 import { SiDotnet, SiCsharp, SiNextdotjs, SiNodedotjs } from "react-icons/si";
-import { AiOutlineCloudDownload } from "react-icons/ai";
 import downloadIcon from "../../public/icons/download-icon.json";
 import { LanguageContext } from "../App";
 import { useContext, useRef } from "react";

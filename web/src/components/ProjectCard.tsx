@@ -1,4 +1,3 @@
-import { PiEyeClosedBold, PiEyeBold } from "react-icons/pi";
 import eyeIcon from "../../public/icons/eye-icon.json";
 import { FaReact, FaNodeJs, FaMobileAlt, FaJsSquare } from "react-icons/fa";
 import Lottie from "lottie-react";

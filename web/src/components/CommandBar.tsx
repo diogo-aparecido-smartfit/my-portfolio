@@ -26,8 +26,6 @@ import themeIcon from "../../public/icons/theme-icon.json";
 import projectsIcon from "../../public/icons/projects-icon.json";
 import educationIcon from "../../public/icons/education-icon.json";
 import contactIcon from "../../public/icons/contact-icon.json";
-
-import { HiCollection as CollectionIcon } from "react-icons/hi";
 import React from "react";
 
 interface CommandBarProps {
