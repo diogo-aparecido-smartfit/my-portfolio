@@ -1,5 +1,8 @@
 import { PiEyeClosedBold, PiEyeBold } from "react-icons/pi";
+import eyeIcon from "../../public/icons/eye-icon.json";
 import { FaReact, FaNodeJs, FaMobileAlt, FaJsSquare } from "react-icons/fa";
+import Lottie from "lottie-react";
+import { useRef } from "react";
 interface ProjectCardProps {
   language: string;
   projects: {
@@ -19,6 +22,8 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ language, projects }: ProjectCardProps) {
+  const lottieRef = useRef(null);
+
   function getTechnologyIcon(techName: string): React.ReactNode {
     if (techName === "reactjs") {
       return <FaReact />;
@@ -64,14 +69,25 @@ export default function ProjectCard({ language, projects }: ProjectCardProps) {
           <a
             className="group/edit underline flex flex-row items-center gap-2 max-w-fit transition-all cursor-pointer"
             target="_blank"
+            onMouseEnter={() => (lottieRef as any)?.current?.play()}
+            onMouseLeave={() => (lottieRef as any)?.current?.stop()}
             href={projects.deploy}
           >
             {language === "pt-BR" ? "Visualizar" : "View"}
-            <span className="group-hover/edit:hidden">
-              <PiEyeClosedBold />
-            </span>
-            <span className="hidden group-hover/edit:flex">
-              <PiEyeBold />
+            <span
+              className={`${
+                localStorage.getItem("darkMode") === "true"
+                  ? "brightness-200" // Classe de estilo para o modo escuro
+                  : "brightness-50" // Classe de estilo para o modo claro
+              }`}
+            >
+              <Lottie
+                lottieRef={lottieRef}
+                className="w-6 h-6"
+                animationData={eyeIcon}
+                loop={false}
+                autoplay={false}
+              />
             </span>
           </a>
         </footer>
