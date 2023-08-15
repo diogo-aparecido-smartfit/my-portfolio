@@ -1,13 +1,16 @@
 import { BiLogoTypescript, BiLogoReact } from "react-icons/bi";
 import { SiDotnet, SiCsharp, SiNextdotjs, SiNodedotjs } from "react-icons/si";
 import { AiOutlineCloudDownload } from "react-icons/ai";
+import downloadIcon from "../../public/icons/download-icon.json";
 import { LanguageContext } from "../App";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import CV from "../../public/DiogoResume.pdf";
 import ProfilePhoto from "./ProfilePhoto";
+import Lottie from "lottie-react";
 
 export default function Home() {
   const language = useContext(LanguageContext);
+  const lottieRef = useRef(null);
 
   const data = [
     {
@@ -55,13 +58,27 @@ export default function Home() {
       </ul>
       <a
         href={CV}
+        onMouseEnter={() => (lottieRef as any)?.current?.play()}
+        onMouseLeave={() => (lottieRef as any)?.current?.stop()}
         download
         target="_blank"
         className="flex flex-row w-fit items-center gap-2 hover:brightness-50 hover:underline"
       >
         <span>{language === "pt-BR" ? data[0].cv : data[1].cv}</span>
-        <span className="text-xl">
-          <AiOutlineCloudDownload />
+        <span
+          className={`${
+            localStorage.getItem("darkMode") === "true"
+              ? "brightness-200" // Classe de estilo para o modo escuro
+              : "brightness-50" // Classe de estilo para o modo claro
+          }`}
+        >
+          <Lottie
+            lottieRef={lottieRef}
+            className="w-6 h-6"
+            animationData={downloadIcon}
+            loop={false}
+            autoplay={false}
+          />
         </span>
       </a>
     </section>
