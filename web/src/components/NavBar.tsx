@@ -80,7 +80,7 @@ export default function NavBar({
         </a>
         <button
           onClick={query.toggle}
-          className="flex flex-row font-medium text-xl max-w-fit transition-all gap-2 p-2 hover:bg-zinc-500/30  rounded-lg"
+          className="flex flex-row font-medium text-xl max-w-fit transition-all gap-2 p-2 hover:bg-zinc-500/30 outline-none hover:border-zinc-500/50 border-transparent border-[1px] rounded-lg"
         >
           <BiCommand />
         </button>
