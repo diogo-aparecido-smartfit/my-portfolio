@@ -58,7 +58,7 @@ export default function ProjectCard({ language, projects }: ProjectCardProps) {
             {" "}
             {projects.technologies.map((icon, index) => (
               <li
-                className="hover:scale-150 hover:text-white opacity-70 hover:opacity-100 hover:cursor-pointer transition-all"
+                className={`hover:scale-150 hover:text-zinc-500 opacity-70 hover:opacity-100 hover:cursor-pointer transition-all`}
                 key={index}
               >
                 {getTechnologyIcon(icon)}
