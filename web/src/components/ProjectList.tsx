@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from "react";
-import { LanguageContext } from "../App";
+import { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import api from "../services/api";
 import ProjectCardLoading from "./ProjectCardLoading";
 import { ToastContainer, toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 interface ProjectListProps {
   renderNumber: number;
@@ -27,7 +27,9 @@ interface Project {
 export default function ProjectList({ renderNumber }: ProjectListProps) {
   const [data, setData] = useState<Project[]>();
   const [loading, setLoading] = useState(true);
-  const language = useContext(LanguageContext);
+
+  const { i18n } = useTranslation();
+  const language = i18n.language;
 
   useEffect(() => {
     api
