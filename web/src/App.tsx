@@ -7,12 +7,15 @@ import Projects from "./components/Projects";
 import StartLoading from "./components/StartLoading";
 import CommandBar from "./components/CommandBar";
 
+import { useTranslation } from "react-i18next";
+
 export const LanguageContext = createContext("");
 
 export default function App() {
+  const { i18n } = useTranslation();
   const [darkMode, setDarkMode] = useState(false);
-  const [language, setLanguage] = useState("");
 
+  // Altera o tema da aplicação
   useEffect(() => {
     const storedDarkMode = localStorage.getItem("darkMode");
     if (storedDarkMode) {
@@ -25,6 +28,7 @@ export default function App() {
     }
   }, []);
 
+  // Altera o idioma da aplicação
   useEffect(() => {
     // Função para obter o idioma do navegador
     const getBrowserLanguage = () => {
@@ -36,48 +40,24 @@ export default function App() {
     const savedLanguage = localStorage.getItem("language");
 
     if (savedLanguage) {
-      setLanguage(savedLanguage);
+      i18n.changeLanguage(savedLanguage);
     } else {
       // Obtém o idioma do navegador e atualiza o estado
       const browserLanguage = getBrowserLanguage();
       if (browserLanguage === "pt-BR" || browserLanguage === "pt") {
-        setLanguage("pt-BR");
+        i18n.changeLanguage("pt-BR");
       } else if (browserLanguage === "en-US" || browserLanguage === "en") {
-        setLanguage("en-US");
+        i18n.changeLanguage("en-US");
       } else {
-        setLanguage("pt-BR");
+        i18n.changeLanguage("pt-BR");
       }
     }
-  }, []);
-
-  function handleChangeLanguage() {
-    if (language === "en-US") {
-      setLanguage("pt-BR");
-    } else {
-      setLanguage("en-US");
-    }
-
-    const newLanguage = language === "pt-BR" ? "en-US" : "pt-BR";
-    setLanguage(newLanguage);
-    localStorage.setItem("language", newLanguage);
-  }
+  }, [i18n]);
 
   function toggleDarkMode() {
     const newDarkMode = !darkMode;
     setDarkMode(newDarkMode);
     localStorage.setItem("darkMode", JSON.stringify(newDarkMode));
-  }
-
-  function handleEnglishLanguage() {
-    const newLanguage = "en-US";
-    setLanguage(newLanguage);
-    localStorage.setItem("language", newLanguage);
-  }
-
-  function handlePortugueseLanguage() {
-    const newLanguage = "pt-BR";
-    setLanguage(newLanguage);
-    localStorage.setItem("language", newLanguage);
   }
 
   function handleLightTheme() {
@@ -93,32 +73,25 @@ export default function App() {
   }
 
   return (
-    <LanguageContext.Provider value={language}>
-      <CommandBar
-        darkMode={darkMode}
-        toggleDarkMode={toggleDarkMode}
-        handleLightTheme={handleLightTheme}
-        handleDarkTheme={handleDarkTheme}
-        handleEnglishLanguage={handleEnglishLanguage}
-        handlePortugueseLanguage={handlePortugueseLanguage}
-      >
-        <html className={darkMode ? "dark" : "light"}>
-          <StartLoading darkMode={darkMode} />
-          <div className="flex flex-col justify-center my-0 mx-auto sm:w-[610px]">
-            <NavBar
-              toggleDarkMode={toggleDarkMode}
-              handleChangeLanguage={handleChangeLanguage}
-              darkMode={darkMode}
-            />
-            <main className="px-8 flex flex-col gap-28">
-              <Home />
-              <Projects />
-              <Education />
-              <Contact />
-            </main>
-          </div>
-        </html>
-      </CommandBar>
-    </LanguageContext.Provider>
+    <CommandBar
+      language={i18n.language}
+      darkMode={darkMode}
+      toggleDarkMode={toggleDarkMode}
+      handleLightTheme={handleLightTheme}
+      handleDarkTheme={handleDarkTheme}
+    >
+      <html className={darkMode ? "dark" : "light"}>
+        <StartLoading darkMode={darkMode} />
+        <div className="flex flex-col justify-center my-0 mx-auto sm:w-[610px]">
+          <NavBar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+          <main className="px-8 flex flex-col gap-28">
+            <Home />
+            <Projects />
+            <Education />
+            <Contact />
+          </main>
+        </div>
+      </html>
+    </CommandBar>
   );
 }

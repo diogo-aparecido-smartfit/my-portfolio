@@ -14,7 +14,7 @@ import { BiCommand } from "react-icons/bi";
 
 interface NavBarProps {
   toggleDarkMode: () => void;
-  handleChangeLanguage: () => void;
+  handleChangeLanguage?: () => void;
   darkMode: boolean;
 }
 

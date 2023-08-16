@@ -31,9 +31,13 @@ import contactIcon from "../../public/icons/contact-icon.json";
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 
+import { useTranslation } from "react-i18next";
+import {
+  handleEnglishLanguage,
+  handlePortugueseLanguage,
+} from "../../i18n/i18n";
 interface CommandBarProps {
-  handlePortugueseLanguage: () => void;
-  handleEnglishLanguage: () => void;
+  language: string;
   handleLightTheme: () => void;
   handleDarkTheme: () => void;
   toggleDarkMode: () => void;
@@ -45,10 +49,11 @@ export default function CommandBar({
   darkMode,
   children,
   handleLightTheme,
-  handleEnglishLanguage,
-  handlePortugueseLanguage,
   handleDarkTheme,
 }: CommandBarProps) {
+  const { t } = useTranslation();
+  // const language = useContext(LanguageContext);
+
   const [readOnly, setReadOnly] = useState(true);
 
   const copyLinkRef = useRef(null);
@@ -99,14 +104,22 @@ export default function CommandBar({
     link.click();
   }
 
+  function changeToEnglish() {
+    handleEnglishLanguage();
+  }
+
+  function changeToPortuguese() {
+    handlePortugueseLanguage();
+  }
+
   const actions = [
     {
       id: "url",
-      name: "Copiar URL",
+      name: t("kbar.url"),
       shortcut: ["U"],
       keywords: "link url",
       section: "GERAL",
-      perform: () => copyLink(),
+      perform: copyLink,
       icon: (
         <Lottie
           lottieRef={copyLinkRef}
@@ -119,7 +132,7 @@ export default function CommandBar({
     },
     {
       id: "email",
-      name: "Mandar email",
+      name: t("kbar.sendMail"),
       shortcut: ["M"],
       keywords: "mail email mailto",
       section: "GERAL",
@@ -136,7 +149,7 @@ export default function CommandBar({
     },
     {
       id: "cv",
-      name: "Baixar currículo",
+      name: t("kbar.cv"),
       shortcut: ["C", "V"],
       keywords: "cv curriculo curriculum",
       section: "GERAL",
@@ -153,7 +166,7 @@ export default function CommandBar({
     },
     {
       id: "home",
-      name: "Início",
+      name: t("kbar.home"),
       shortcut: ["H"],
       keywords: "home index início inicio",
       section: "NAVEGAR",
@@ -170,7 +183,7 @@ export default function CommandBar({
     },
     {
       id: "projects",
-      name: "Projetos",
+      name: t("kbar.projects"),
       shortcut: ["P"],
       keywords: "projetos projects",
       section: "NAVEGAR",
@@ -187,7 +200,7 @@ export default function CommandBar({
     },
     {
       id: "education",
-      name: "Educação",
+      name: t("kbar.education"),
       shortcut: ["E"],
       keywords: "education educação",
       section: "NAVEGAR",
@@ -204,7 +217,7 @@ export default function CommandBar({
     },
     {
       id: "contact",
-      name: "Contato",
+      name: t("kbar.contact"),
       shortcut: ["C", "M"],
       keywords: "contact contato",
       section: "NAVEGAR",
@@ -221,7 +234,7 @@ export default function CommandBar({
     },
     {
       id: "settings",
-      name: "Configurações",
+      name: t("kbar.settings"),
       shortcut: ["T"],
       keywords: "preferences preferências configurações settings theme tema",
       section: "PREFERÊNCIAS",
@@ -237,7 +250,7 @@ export default function CommandBar({
     },
     {
       id: "theme",
-      name: "Alterar tema",
+      name: t("kbar.theme"),
       shortcut: ["C", "T"],
       keywords: "preferences preferências configurações settings theme tema",
       section: "PREFERÊNCIAS",
@@ -254,7 +267,7 @@ export default function CommandBar({
     },
     {
       id: "darkTheme",
-      name: "Tema escuro",
+      name: t("kbar.darkTheme"),
       shortcut: ["T", "D"],
       keywords: "escuro dark",
       section: "PREFERÊNCIAS",
@@ -272,7 +285,7 @@ export default function CommandBar({
     },
     {
       id: "darkTheme",
-      name: "Tema claro",
+      name: t("kbar.lightTheme"),
       shortcut: ["T", "L"],
       keywords: "claro light",
       section: "PREFERÊNCIAS",
@@ -290,7 +303,7 @@ export default function CommandBar({
     },
     {
       id: "language",
-      name: "Alterar Idioma",
+      name: t("kbar.language"),
       shortcut: ["T", "I"],
       keywords: "idioma language",
       section: "PREFERÊNCIAS",
@@ -307,19 +320,19 @@ export default function CommandBar({
     },
     {
       id: "english",
-      name: "English",
+      name: t("kbar.english"),
       keywords: "english inglês",
       section: "PREFERÊNCIAS",
-      perform: () => handleEnglishLanguage(),
+      perform: () => changeToEnglish(),
       icon: <LiaFlagUsaSolid />,
       parent: "language",
     },
     {
       id: "portuguese",
-      name: "Português",
+      name: t("kbar.portuguese"),
       keywords: "portuguese português",
       section: "PREFERÊNCIAS",
-      perform: () => handlePortugueseLanguage(),
+      perform: () => changeToPortuguese(),
       icon: <GiBrazilFlag />,
       parent: "language",
     },
