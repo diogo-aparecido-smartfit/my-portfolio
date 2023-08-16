@@ -52,8 +52,6 @@ export default function CommandBar({
   handleDarkTheme,
 }: CommandBarProps) {
   const { t } = useTranslation();
-  // const language = useContext(LanguageContext);
-
   const [readOnly, setReadOnly] = useState(true);
 
   const copyLinkRef = useRef(null);
