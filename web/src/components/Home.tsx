@@ -1,33 +1,15 @@
 import { BiLogoTypescript, BiLogoReact } from "react-icons/bi";
 import { SiDotnet, SiCsharp, SiNextdotjs, SiNodedotjs } from "react-icons/si";
 import downloadIcon from "../../public/icons/download-icon.json";
-import { LanguageContext } from "../App";
-import { useContext, useRef } from "react";
+import { useRef } from "react";
 import CV from "../../public/DiogoResume.pdf";
 import ProfilePhoto from "./ProfilePhoto";
 import Lottie from "lottie-react";
 import { useTranslation } from "react-i18next";
 
 export default function Home() {
-  // const language = useContext(LanguageContext);
+  const { t } = useTranslation();
   const lottieRef = useRef(null);
-
-  const { t } = useTranslation(); // Usando o hook de tradução
-
-  // const data = [
-  //   {
-  //     name: "Olá, eu me chamo Diogo.",
-  //     about:
-  //       "Eu tenho 18 anos e sou um desenvolvedor Full-Stack! Moro em Uberlândia MG e atualmente estou cursando Análise e Desenvolvimento de Sistemas pela UNIUBE, além de estar estudando C# e ASP.NET em cursos por fora.",
-  //     cv: "Baixar Currículo",
-  //   },
-  //   {
-  //     name: "Hello, my name is Diogo.",
-  //     about:
-  //       "I'm 18 years old and a full-stack developer! I live in Uberlândia MG and I'm currently studying Systems Analysis and Development at UNIUBE, in addition to studying C# and ASP.NET in courses abroad.",
-  //     cv: "Download CV",
-  //   },
-  // ];
 
   return (
     <section id="home" className="flex flex-col text-left mt-28 gap-4">
