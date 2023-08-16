@@ -1,0 +1,32 @@
+{
+  "greeting": "Olá, eu me chamo Diogo.",
+  "about": "Eu tenho 18 anos e sou um desenvolvedor Full-Stack! Moro em Uberlândia MG e atualmente estou cursando Análise e Desenvolvimento de Sistemas pela UNIUBE, além de estar estudando C# e ASP.NET em cursos por fora.",
+  "cv": "Baixar Currículo",
+  "kbar": {
+    "url": "Copiar URL",
+    "sendMail": "Enviar Email",
+    "cv": "Baixar Currículo",
+    "home": "Início",
+    "projects": "Projetos",
+    "education": "Educação",
+    "contact": "Contato",
+    "settings": "Configurações",
+    "theme": "Alterar tema",
+    "darkTheme": "Tema escuro",
+    "lightTheme": "Tema claro",
+    "language": "Alterar Idioma",
+    "english": "English",
+    "portuguese": "Português"
+  },
+  "projects": {
+    "title": "Alguns dos meus projetos",
+    "footer": "Ver todos os projetos",
+    "noData": "Nenhum projeto disponível."
+  },
+  "education": {
+    "title": "Minha formação"
+  },
+  "contact": {
+    "title": "Contato"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "greeting": "Hello, my name is Diogo.",
+  "about": "I'm 18 years old and a full-stack developer! I live in Uberlândia MG and I'm currently studying Systems Analysis and Development at UNIUBE, in addition to studying C# and ASP.NET in courses abroad.",
+  "cv": "Download CV",
+  "kbar": {
+    "url": "Copy URL",
+    "sendMail": "Send Email",
+    "cv": "Download CV",
+    "home": "Home",
+    "projects": "Projects",
+    "education": "Education",
+    "contact": "Contact",
+    "settings": "Settings",
+    "theme": "Change theme",
+    "darkTheme": "Dark theme",
+    "lightTheme": "Light theme",
+    "language": "Change language",
+    "english": "English",
+    "portuguese": "Portuguese"
+  },
+  "projects": {
+    "title": "Some of my projects",
+    "footer": "See all projects",
+    "noData": "Nenhum projeto disponível."
+  },
+  "education": {
+    "title": "My education"
+  },
+  "contact": {
+    "title": "Contact"
+  }
+}
