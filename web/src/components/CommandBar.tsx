@@ -93,6 +93,10 @@ export default function CommandBar({
     setReadOnly(true);
   };
 
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   function downloadFileFunction() {
     const link = document.createElement("a");
     link.download = "Diogo Resume";
@@ -168,7 +172,7 @@ export default function CommandBar({
       shortcut: ["H"],
       keywords: "home index início inicio",
       section: "NAVEGAR",
-      perform: () => scrollToSection("home"),
+      perform: () => scrollToTop(),
       icon: (
         <Lottie
           lottieRef={homeRef}
