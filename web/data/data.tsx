@@ -18,7 +18,7 @@ export const projects = [
       "Fill your project brief here. It can be the outcome of the project, or some success metrics, or a cheesy tagline.",
     view: "Visualizar",
     enView: "View",
-    image: "/public/education-images/uniube.png",
+    image: "public/education-images/uniube.png",
     github: "",
     deploy: "https://google.com",
     technologies: [
@@ -40,7 +40,7 @@ export const projects = [
       "Fill your project brief here. It can be the outcome of the project, or some success metrics, or a cheesy tagline.",
     view: "Visualizar",
     enView: "View",
-    image: "/public/education-images/jstack.png",
+    image: "public/education-images/jstack.png",
     github: "",
     deploy: "https://google.com",
     technologies: [
@@ -63,6 +63,6 @@ export const experience = [
       "Fill your project brief here. It can be the outcome of the project, or some success metrics, or a cheesy tagline.",
     enDescription:
       "Fill your project brief here. It can be the outcome of the project, or some success metrics, or a cheesy tagline.",
-    image: "/public/experience-images/rener-force.svg",
+    image: "public/experience-images/rener-force.svg",
   },
 ];
