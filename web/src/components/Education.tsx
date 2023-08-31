@@ -1,6 +1,6 @@
-import rocketseat from "../../public/rocketseat.jpg";
-import uniube from "../../public/uniube.png";
-import jstack from "../../public/jstack.png";
+import rocketseat from "../../public/education-images/rocketseat.jpg";
+import uniube from "../../public/education-images/uniube.png";
+import jstack from "../../public/education-images/jstack.png";
 import { useTranslation } from "react-i18next";
 
 export default function Education() {
