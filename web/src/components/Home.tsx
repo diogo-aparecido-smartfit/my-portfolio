@@ -48,7 +48,7 @@ export default function Home() {
         <span
           className={`${
             localStorage.getItem("darkMode") === "true"
-              ? "brightness-200"
+              ? "brightness-150"
               : "brightness-50"
           }`}
         >
