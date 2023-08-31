@@ -5,10 +5,6 @@ import {
 } from "react-icons/bi";
 import { SiDotnet } from "react-icons/si";
 
-import renerForce from "./public/experience-images/rener-force.svg";
-import uniube from "./public/education-images/uniube.png";
-import jstack from "./public/education-images/jstack.png";
-
 export const projects = [
   {
     id: "pr1",
@@ -22,7 +18,7 @@ export const projects = [
       "Fill your project brief here. It can be the outcome of the project, or some success metrics, or a cheesy tagline.",
     view: "Visualizar",
     enView: "View",
-    image: { uniube },
+    image: "/public/education-images/uniube.png",
     github: "",
     deploy: "https://google.com",
     technologies: [
@@ -44,7 +40,7 @@ export const projects = [
       "Fill your project brief here. It can be the outcome of the project, or some success metrics, or a cheesy tagline.",
     view: "Visualizar",
     enView: "View",
-    image: { jstack },
+    image: "/public/education-images/jstack.png",
     github: "",
     deploy: "https://google.com",
     technologies: [
@@ -67,6 +63,6 @@ export const experience = [
       "Fill your project brief here. It can be the outcome of the project, or some success metrics, or a cheesy tagline.",
     enDescription:
       "Fill your project brief here. It can be the outcome of the project, or some success metrics, or a cheesy tagline.",
-    image: { renerForce },
+    image: "/public/experience-images/rener-force.svg",
   },
 ];
