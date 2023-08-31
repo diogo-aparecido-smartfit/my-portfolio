@@ -125,7 +125,11 @@ export default function CommandBar({
       icon: (
         <Lottie
           lottieRef={copyLinkRef}
-          className="w-6 h-6"
+          className={`w-6 h-6 ${
+            localStorage.getItem("darkMode") === "true"
+              ? "brightness-150"
+              : "brightness-50"
+          }`}
           animationData={copyLinkIcon}
           loop={false}
           autoplay={false}
@@ -142,7 +146,11 @@ export default function CommandBar({
       icon: (
         <Lottie
           lottieRef={emailRef}
-          className="w-6 h-6"
+          className={`w-6 h-6 ${
+            localStorage.getItem("darkMode") === "true"
+              ? "brightness-150"
+              : "brightness-50"
+          }`}
           animationData={mailIcon}
           loop={false}
           autoplay={false}
@@ -159,7 +167,11 @@ export default function CommandBar({
       icon: (
         <Lottie
           lottieRef={cvRef}
-          className="w-6 h-6"
+          className={`w-6 h-6 ${
+            localStorage.getItem("darkMode") === "true"
+              ? "brightness-150"
+              : "brightness-50"
+          }`}
           animationData={cvIcon}
           loop={false}
           autoplay={false}
@@ -176,7 +188,11 @@ export default function CommandBar({
       icon: (
         <Lottie
           lottieRef={homeRef}
-          className="w-6 h-6"
+          className={`w-6 h-6 ${
+            localStorage.getItem("darkMode") === "true"
+              ? "brightness-150"
+              : "brightness-50"
+          }`}
           animationData={homeIcon}
           loop={false}
           autoplay={false}
@@ -193,7 +209,11 @@ export default function CommandBar({
       icon: (
         <Lottie
           lottieRef={projectsRef}
-          className="w-6 h-6"
+          className={`w-6 h-6 ${
+            localStorage.getItem("darkMode") === "true"
+              ? "brightness-150"
+              : "brightness-50"
+          }`}
           animationData={projectsIcon}
           loop={false}
           autoplay={false}
@@ -210,7 +230,11 @@ export default function CommandBar({
       icon: (
         <Lottie
           lottieRef={educationRef}
-          className="w-6 h-6"
+          className={`w-6 h-6 ${
+            localStorage.getItem("darkMode") === "true"
+              ? "brightness-150"
+              : "brightness-50"
+          }`}
           animationData={educationIcon}
           loop={false}
           autoplay={false}
@@ -227,7 +251,11 @@ export default function CommandBar({
       icon: (
         <Lottie
           lottieRef={contactRef}
-          className="w-6 h-6"
+          className={`w-6 h-6 ${
+            localStorage.getItem("darkMode") === "true"
+              ? "brightness-150"
+              : "brightness-50"
+          }`}
           animationData={contactIcon}
           loop={false}
           autoplay={false}
@@ -243,7 +271,11 @@ export default function CommandBar({
       icon: (
         <Lottie
           lottieRef={settingsRef}
-          className="w-6 h-6"
+          className={`w-6 h-6 ${
+            localStorage.getItem("darkMode") === "true"
+              ? "brightness-150"
+              : "brightness-50"
+          }`}
           animationData={toolIcon}
           loop={false}
           autoplay={false}
@@ -259,7 +291,11 @@ export default function CommandBar({
       icon: (
         <Lottie
           lottieRef={themeRef}
-          className="w-6 h-6"
+          className={`w-6 h-6 ${
+            localStorage.getItem("darkMode") === "true"
+              ? "brightness-150"
+              : "brightness-50"
+          }`}
           animationData={themeIcon}
           loop={false}
           autoplay={false}
@@ -277,7 +313,11 @@ export default function CommandBar({
       icon: (
         <Lottie
           lottieRef={darkRef}
-          className="w-6 h-6"
+          className={`w-6 h-6 ${
+            localStorage.getItem("darkMode") === "true"
+              ? "brightness-150"
+              : "brightness-50"
+          }`}
           animationData={nightIcon}
           loop={false}
           autoplay={false}
@@ -295,7 +335,11 @@ export default function CommandBar({
       icon: (
         <Lottie
           lottieRef={lightRef}
-          className="w-6 h-6"
+          className={`w-6 h-6 ${
+            localStorage.getItem("darkMode") === "true"
+              ? "brightness-150"
+              : "brightness-50"
+          }`}
           animationData={lightIcon}
           loop={false}
           autoplay={false}
@@ -312,7 +356,11 @@ export default function CommandBar({
       icon: (
         <Lottie
           lottieRef={languageRef}
-          className="w-6 h-6"
+          className={`w-6 h-6 ${
+            localStorage.getItem("darkMode") === "true"
+              ? "brightness-150"
+              : "brightness-50"
+          }`}
           animationData={languageIcon}
           loop={false}
           autoplay={false}
