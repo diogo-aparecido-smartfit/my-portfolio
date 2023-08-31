@@ -10,7 +10,7 @@ import CommandBar from "./components/CommandBar";
 import { useTranslation } from "react-i18next";
 import Experience from "./components/Experience";
 
-export const LanguageContext = createContext("");
+export const DarkModeContext = createContext(false);
 
 export default function App() {
   const { i18n } = useTranslation();
@@ -76,26 +76,28 @@ export default function App() {
   }
 
   return (
-    <CommandBar
-      language={i18n.language}
-      darkMode={darkMode}
-      toggleDarkMode={toggleDarkMode}
-      handleLightTheme={handleLightTheme}
-      handleDarkTheme={handleDarkTheme}
-    >
-      <html className={darkMode ? "dark" : "light"}>
-        <StartLoading darkMode={darkMode} />
-        <div className="flex flex-col justify-center my-0 mx-auto sm:w-[610px]">
-          <NavBar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
-          <main className="px-8 flex flex-col gap-28">
-            <Home />
-            <Experience />
-            <Projects />
-            <Education />
-            <Contact />
-          </main>
-        </div>
-      </html>
-    </CommandBar>
+    <DarkModeContext.Provider value={darkMode}>
+      <CommandBar
+        language={i18n.language}
+        darkMode={darkMode}
+        toggleDarkMode={toggleDarkMode}
+        handleLightTheme={handleLightTheme}
+        handleDarkTheme={handleDarkTheme}
+      >
+        <html className={darkMode ? "dark" : "light"}>
+          <StartLoading darkMode={darkMode} />
+          <div className="flex flex-col justify-center my-0 mx-auto sm:w-[610px]">
+            <NavBar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+            <main className="px-8 flex flex-col gap-28">
+              <Home />
+              <Experience />
+              <Projects />
+              <Education />
+              <Contact />
+            </main>
+          </div>
+        </html>
+      </CommandBar>
+    </DarkModeContext.Provider>
   );
 }
