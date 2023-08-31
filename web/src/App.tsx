@@ -8,6 +8,7 @@ import StartLoading from "./components/StartLoading";
 import CommandBar from "./components/CommandBar";
 
 import { useTranslation } from "react-i18next";
+import Experience from "./components/Experience";
 
 export const LanguageContext = createContext("");
 
@@ -64,12 +65,14 @@ export default function App() {
     const newDarkMode = false;
     setDarkMode(newDarkMode);
     localStorage.setItem("darkMode", JSON.stringify(newDarkMode));
+    window.location.reload();
   }
 
   function handleDarkTheme() {
     const newDarkMode = true;
     setDarkMode(newDarkMode);
     localStorage.setItem("darkMode", JSON.stringify(newDarkMode));
+    window.location.reload();
   }
 
   return (
@@ -86,6 +89,7 @@ export default function App() {
           <NavBar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
           <main className="px-8 flex flex-col gap-28">
             <Home />
+            <Experience />
             <Projects />
             <Education />
             <Contact />
