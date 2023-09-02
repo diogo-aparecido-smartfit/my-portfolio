@@ -75,7 +75,7 @@ export default function ProjectDetailsModal({
           >
             {/*header*/}
             <header
-              className={`hidden md:flex items-center justify-around h-[52px] rounded-t-xl ${
+              className={`hidden md:flex md:min-w-[752px] lg:min-w-[810px] items-center justify-around h-[52px] rounded-t-xl ${
                 theme === true ? "bg-[#363636]" : "bg-white"
               }`}
             >
@@ -166,7 +166,7 @@ export default function ProjectDetailsModal({
                   </h1>
                 </div>
               </header>
-              <p className="my-4 text-base leading-relaxed">
+              <p className="my-4 text-base leading-relaxed max-w-xs">
                 {language === "pt-BR"
                   ? projects.description
                   : projects.enDescription}
