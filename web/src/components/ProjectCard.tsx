@@ -11,13 +11,15 @@ interface ProjectCardProps {
     enDate: string;
     name: string;
     enName: string;
-    description: string;
-    enDescription: string;
-    view: string;
-    enView: string;
+    description: JSX.Element;
+    enDescription: JSX.Element;
+    shortDescription: string;
+    enShortDescription: string;
     image: string;
+    mockupImage: string;
     github: string;
     deploy: string;
+    exampleUrl: string;
     technologies: JSX.Element[];
   };
 }
@@ -35,7 +37,7 @@ export default function ProjectCard({ projects }: ProjectCardProps) {
 
   return (
     <>
-      <article className="flex flex-col md:flex-row gap-2">
+      <article className="flex flex-col md:flex-row gap-2 hover:bg-zinc-500/30 outline-none hover:border-zinc-500/50 border-transparent border-[1px] rounded-lg p-2 transition-all">
         <div className="flex flex-col gap-2 md:w-[380px]">
           <header>
             <p className="text-xs opacity-50">
@@ -47,8 +49,8 @@ export default function ProjectCard({ projects }: ProjectCardProps) {
           </header>
           <p className="font-normal text-base opacity-70">
             {language === "pt-BR"
-              ? projects.description
-              : projects.enDescription}
+              ? projects.shortDescription
+              : projects.enShortDescription}
           </p>
           <footer className="flex flex-col gap-2">
             <ul className="flex flex-row list-none text-xl gap-4 ">
@@ -91,7 +93,7 @@ export default function ProjectCard({ projects }: ProjectCardProps) {
 
         <div className="flex flex-col relative">
           <img
-            className="w-[145px] h-[145px] rounded-2xl relative"
+            className="min-w-[145px] w-[145px] h-[145px] rounded-2xl relative"
             src={projects.image}
             alt="Imagem do projeto"
           />
