@@ -6,17 +6,11 @@ import "../i18n/i18n.ts";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage.tsx";
-import ProjectsPage from "./pages/ProjectsPage.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "projects",
-    element: <ProjectsPage />,
     errorElement: <ErrorPage />,
   },
 ]);
