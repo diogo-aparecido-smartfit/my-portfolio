@@ -50,3 +50,29 @@ kbd {
   border-radius: 4px;
   font-size: 0.875rem; // 14px
 }
+
+.data-styles {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  > h1 {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+
+  > h2 {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+
+  > ul {
+    text-align: left;
+    list-style: disc;
+    margin-left: 2rem;
+  }
+
+  > strong {
+    font-weight: bold;
+  }
+}
