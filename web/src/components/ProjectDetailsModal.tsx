@@ -25,13 +25,15 @@ interface ProjectDetailsModalProps {
     enDate: string;
     name: string;
     enName: string;
-    description: string;
-    enDescription: string;
-    view: string;
-    enView: string;
+    description: JSX.Element;
+    enDescription: JSX.Element;
+    shortDescription: string;
+    enShortDescription: string;
     image: string;
+    mockupImage: string;
     github: string;
     deploy: string;
+    exampleUrl: string;
     technologies: JSX.Element[];
   };
 }
@@ -87,7 +89,7 @@ export default function ProjectDetailsModal({
                 } max-w-md rounded-md  h-[28px]`}
               >
                 <h1 className="flex items-center gap-1 text-sm font-normal ">
-                  {language === "pt-BR" ? projects.name : projects.enName}{" "}
+                  {projects.exampleUrl}
                   <BiSolidLockAlt />
                 </h1>
               </div>
@@ -145,15 +147,16 @@ export default function ProjectDetailsModal({
             </header>
             {/*body*/}
             <div
-              className={`relative p-6 flex-auto max-h-[70vh] xl:max-h-[35rem]  overflow-y-auto rounded-t-xl md:rounded-t-none md:rounded-b-xl ${
+              className={`relative p-6 flex-auto max-h-[70vh] xl:max-h-[35rem]  overflow-y-auto rounded-t-xl md:rounded-t-none md:rounded-b-xl justify-center items-center text-center ${
                 theme === true ? "" : "bg-[#f8f8f8]"
               }`}
             >
               <header>
-                <div className="flex max-w-sm">
+                <div className="flex justify-center max-w-sm md:max-w-none">
                   <img
-                    className="rounded-2xl"
-                    src="https://source.unsplash.com/random"
+                    className="rounded-2xl md:max-w-sm"
+                    src={projects.mockupImage}
+                    max-width="100%"
                     alt="Imagem do projeto"
                   />
                 </div>
@@ -166,13 +169,15 @@ export default function ProjectDetailsModal({
                   </h1>
                 </div>
               </header>
-              <p className="my-4 text-base leading-relaxed max-w-xs">
-                {language === "pt-BR"
-                  ? projects.description
-                  : projects.enDescription}
-              </p>
+              <div className="flex items-center justify-center mt-4 w-full ">
+                <p className="max-w-xs leading-relaxed text-left">
+                  {language === "pt-BR"
+                    ? projects.description
+                    : projects.enDescription}
+                </p>
+              </div>
               {/*footer*/}
-              <footer className="flex flex-col gap-2">
+              <footer className="flex flex-col gap-2 justify-center items-center mt-4">
                 <ul className="flex flex-row list-none text-2xl gap-4 ">
                   {projects.technologies.map((icon, index) => (
                     <li
@@ -202,7 +207,7 @@ export default function ProjectDetailsModal({
                         : "hover:underline hover:brightness-50 cursor-pointer"
                     }`}
                     target="_blank"
-                    href={projects.github}
+                    href={projects.deploy}
                   >
                     Deploy <TbWorldShare />
                   </a>
@@ -231,7 +236,7 @@ export default function ProjectDetailsModal({
                   <span className="text-[#ABABB0] mr-1">
                     <BiSolidLockAlt />
                   </span>
-                  <h1 className="text-base">teste.com</h1>
+                  <h1 className="text-base">{projects.exampleUrl}</h1>
                 </div>
                 <button
                   onClick={() => setIsModalOpen(false)}
