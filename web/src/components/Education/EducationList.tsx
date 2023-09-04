@@ -1,4 +1,4 @@
-import { educations } from "../../data/data";
+import { educations } from "../../../data/data";
 import EducationCard from "./EducationCard";
 
 export default function EducationList() {

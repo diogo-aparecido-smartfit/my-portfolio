@@ -1,5 +1,5 @@
 import ProjectCard from "./ProjectCard";
-import { projects } from "../../data/data";
+import { projects } from "../../../data/data";
 import { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { useTranslation } from "react-i18next";

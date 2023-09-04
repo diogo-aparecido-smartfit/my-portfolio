@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ProjectDetailsModal from "./ProjectDetailsModal";
 import { useTranslation } from "react-i18next";
-import MoreDetailsButton from "./MoreDetailsButton";
+import MoreDetailsButton from "../MoreDetailsButton";
 
 interface ProjectCardProps {
   projects: {

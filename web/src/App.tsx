@@ -2,13 +2,13 @@ import { useEffect, useState, createContext } from "react";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
-import Projects from "./components/Projects";
 import StartLoading from "./components/StartLoading";
 import CommandBar from "./components/CommandBar";
 
 import { useTranslation } from "react-i18next";
-import Experience from "./components/Experience";
-import Education from "./components/Education";
+import Experience from "./components/Experience/Experience";
+import Education from "./components/Education/Education";
+import Projects from "./components/Projects/Projects";
 
 export const DarkModeContext = createContext(false);
 

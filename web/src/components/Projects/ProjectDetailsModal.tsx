@@ -9,17 +9,17 @@ import { IoShareOutline } from "react-icons/io5";
 import { HiOutlineBookOpen } from "react-icons/hi";
 import { FiCopy, FiGithub } from "react-icons/fi";
 import { BiSolidLockAlt } from "react-icons/bi";
-import safariIcon from "../../public/icons/safari-icon.svg";
+import safariIcon from "../../../public/icons/safari-icon.svg";
 import { LiaArrowCircleDownSolid } from "react-icons/lia";
 import { AiOutlinePlus } from "react-icons/ai";
 import { TbWorldShare } from "react-icons/tb";
 import { useTranslation } from "react-i18next";
 import { Dispatch, SetStateAction, useContext } from "react";
-import { DarkModeContext } from "../App";
+import { DarkModeContext } from "../../App";
 
-interface ExperienceDetailsModalProps {
+interface ProjectDetailsModalProps {
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
-  experience: {
+  projects: {
     id: string;
     date: string;
     enDate: string;
@@ -29,19 +29,19 @@ interface ExperienceDetailsModalProps {
     enDescription: JSX.Element;
     shortDescription: string;
     enShortDescription: string;
+    image: string;
+    mockupImage: string;
     github: string;
     deploy: string;
-    image: string;
     exampleUrl: string;
-    mockupImage?: string;
-    technologies?: JSX.Element[];
+    technologies: JSX.Element[];
   };
 }
 
-export default function ExperienceDetailsModal({
+export default function ProjectDetailsModal({
   setIsModalOpen,
-  experience,
-}: ExperienceDetailsModalProps) {
+  projects,
+}: ProjectDetailsModalProps) {
   const theme = useContext(DarkModeContext);
   const { i18n } = useTranslation();
   const language = i18n.language;
@@ -89,7 +89,7 @@ export default function ExperienceDetailsModal({
                 } max-w-md rounded-md  h-[28px]`}
               >
                 <h1 className="flex items-center gap-1 text-sm font-normal ">
-                  {experience.exampleUrl}
+                  {projects.exampleUrl}
                   <BiSolidLockAlt />
                 </h1>
               </div>
@@ -147,7 +147,7 @@ export default function ExperienceDetailsModal({
             </header>
             {/*body*/}
             <div
-              className={`relative p-6 flex-auto max-h-[70vh] xl:max-h-[35rem] overflow-y-auto rounded-t-xl md:rounded-t-none md:rounded-b-xl justify-center items-center text-center ${
+              className={`relative p-6 flex-auto max-h-[70vh] xl:max-h-[35rem]  overflow-y-auto rounded-t-xl md:rounded-t-none md:rounded-b-xl justify-center items-center text-center ${
                 theme === true ? "" : "bg-[#f8f8f8]"
               }`}
             >
@@ -155,71 +155,62 @@ export default function ExperienceDetailsModal({
                 <div className="flex justify-center max-w-sm md:max-w-none">
                   <img
                     className="rounded-2xl md:max-w-sm"
-                    src={
-                      experience.mockupImage
-                        ? experience.mockupImage
-                        : experience.image
-                    }
+                    src={projects.mockupImage}
+                    max-width="100%"
                     alt="Imagem do projeto"
                   />
                 </div>
                 <div className="mt-6">
                   <p className="text-xs opacity-50">
-                    {language === "pt-BR" ? experience.date : experience.enDate}
+                    {language === "pt-BR" ? projects.date : projects.enDate}
                   </p>
                   <h1 className="font-medium text-lg">
-                    {language === "pt-BR" ? experience.name : experience.enName}
+                    {language === "pt-BR" ? projects.name : projects.enName}
                   </h1>
                 </div>
               </header>
               <div className="flex items-center justify-center mt-4 w-full ">
                 <p className="max-w-xs leading-relaxed text-left">
                   {language === "pt-BR"
-                    ? experience.description
-                    : experience.enDescription}
+                    ? projects.description
+                    : projects.enDescription}
                 </p>
               </div>
               {/*footer*/}
-              <footer className="flex flex-col gap-2">
-                {experience.technologies ? (
-                  <ul className="flex flex-row list-none text-2xl gap-4 ">
-                    {experience.technologies.map((icon, index) => (
-                      <li
-                        className={`hover:scale-150 hover:text-zinc-500 opacity-70 hover:opacity-100 hover:cursor-pointer transition-all`}
-                        key={index}
-                      >
-                        {icon}
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
+              <footer className="flex flex-col gap-2 justify-center items-center mt-4">
+                <ul className="flex flex-row list-none text-2xl gap-4 ">
+                  {projects.technologies.map((icon, index) => (
+                    <li
+                      className={`hover:scale-150 hover:text-zinc-500 opacity-70 hover:opacity-100 hover:cursor-pointer transition-all`}
+                      key={index}
+                    >
+                      {icon}
+                    </li>
+                  ))}
+                </ul>
                 <div className="flex flex-row gap-3 mt-4">
-                  {experience.deploy ? (
-                    <a
-                      className={`flex flex-row items-center gap-2 max-w-fit mt-4 text-base  transition-all ${
-                        experience.github === ""
-                          ? "cursor-not-allowed brightness-[.2]"
-                          : "hover:underline hover:brightness-50 cursor-pointer"
-                      }`}
-                      target="_blank"
-                      href={experience.github}
-                    >
-                      Github <FiGithub />
-                    </a>
-                  ) : null}
-                  {experience.github ? (
-                    <a
-                      className={`flex flex-row items-center gap-2 max-w-fit  mt-4 text-base  transition-all ${
-                        experience.deploy === ""
-                          ? "cursor-not-allowed text-white/10"
-                          : "hover:underline hover:brightness-50 cursor-pointer"
-                      }`}
-                      target="_blank"
-                      href={experience.github}
-                    >
-                      Deploy <TbWorldShare />
-                    </a>
-                  ) : null}
+                  <a
+                    className={`flex flex-row items-center gap-2 max-w-fit mt-4 text-base  transition-all ${
+                      projects.github === ""
+                        ? "cursor-not-allowed brightness-[.2]"
+                        : "hover:underline hover:brightness-50 cursor-pointer"
+                    }`}
+                    target="_blank"
+                    href={projects.github}
+                  >
+                    Github <FiGithub />
+                  </a>
+                  <a
+                    className={`flex flex-row items-center gap-2 max-w-fit  mt-4 text-base  transition-all ${
+                      projects.deploy === ""
+                        ? "cursor-not-allowed text-white/10"
+                        : "hover:underline hover:brightness-50 cursor-pointer"
+                    }`}
+                    target="_blank"
+                    href={projects.deploy}
+                  >
+                    Deploy <TbWorldShare />
+                  </a>
                 </div>
               </footer>
             </div>
@@ -245,7 +236,7 @@ export default function ExperienceDetailsModal({
                   <span className="text-[#ABABB0] mr-1">
                     <BiSolidLockAlt />
                   </span>
-                  <h1 className="text-base">{experience.exampleUrl}</h1>
+                  <h1 className="text-base">{projects.exampleUrl}</h1>
                 </div>
                 <button
                   onClick={() => setIsModalOpen(false)}

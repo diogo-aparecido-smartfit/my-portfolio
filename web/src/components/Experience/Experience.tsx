@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 
-import { experience } from "../../data/data";
+import { experience } from "../../../data/data";
 import { useState } from "react";
 import ExperienceDetailsModal from "./ExperienceDetailsModal";
-import MoreDetailsButton from "./MoreDetailsButton";
+import MoreDetailsButton from "../MoreDetailsButton";
 
 export default function Experience() {
   const [isModalOpen, setIsModalOpen] = useState(false);

@@ -7,19 +7,18 @@ import {
 } from "react-icons/io";
 import { IoShareOutline } from "react-icons/io5";
 import { HiOutlineBookOpen } from "react-icons/hi";
-import { FiCopy, FiGithub } from "react-icons/fi";
+import { FiCopy } from "react-icons/fi";
 import { BiSolidLockAlt } from "react-icons/bi";
-import safariIcon from "../../public/icons/safari-icon.svg";
+import safariIcon from "../../../public/icons/safari-icon.svg";
 import { LiaArrowCircleDownSolid } from "react-icons/lia";
 import { AiOutlinePlus } from "react-icons/ai";
-import { TbWorldShare } from "react-icons/tb";
 import { useTranslation } from "react-i18next";
 import { Dispatch, SetStateAction, useContext } from "react";
-import { DarkModeContext } from "../App";
+import { DarkModeContext } from "../../App";
 
-interface ProjectDetailsModalProps {
+interface EducationDetailsModalProps {
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
-  projects: {
+  education: {
     id: string;
     date: string;
     enDate: string;
@@ -29,19 +28,15 @@ interface ProjectDetailsModalProps {
     enDescription: JSX.Element;
     shortDescription: string;
     enShortDescription: string;
-    image: string;
-    mockupImage: string;
-    github: string;
-    deploy: string;
     exampleUrl: string;
-    technologies: JSX.Element[];
+    image: string;
   };
 }
 
-export default function ProjectDetailsModal({
+export default function EducationDetails({
   setIsModalOpen,
-  projects,
-}: ProjectDetailsModalProps) {
+  education,
+}: EducationDetailsModalProps) {
   const theme = useContext(DarkModeContext);
   const { i18n } = useTranslation();
   const language = i18n.language;
@@ -89,7 +84,7 @@ export default function ProjectDetailsModal({
                 } max-w-md rounded-md  h-[28px]`}
               >
                 <h1 className="flex items-center gap-1 text-sm font-normal ">
-                  {projects.exampleUrl}
+                  {education.exampleUrl}
                   <BiSolidLockAlt />
                 </h1>
               </div>
@@ -155,64 +150,27 @@ export default function ProjectDetailsModal({
                 <div className="flex justify-center max-w-sm md:max-w-none">
                   <img
                     className="rounded-2xl md:max-w-sm"
-                    src={projects.mockupImage}
+                    src={education.image}
                     max-width="100%"
                     alt="Imagem do projeto"
                   />
                 </div>
                 <div className="mt-6">
                   <p className="text-xs opacity-50">
-                    {language === "pt-BR" ? projects.date : projects.enDate}
+                    {language === "pt-BR" ? education.date : education.enDate}
                   </p>
                   <h1 className="font-medium text-lg">
-                    {language === "pt-BR" ? projects.name : projects.enName}
+                    {language === "pt-BR" ? education.name : education.enName}
                   </h1>
                 </div>
               </header>
               <div className="flex items-center justify-center mt-4 w-full ">
                 <p className="max-w-xs leading-relaxed text-left">
                   {language === "pt-BR"
-                    ? projects.description
-                    : projects.enDescription}
+                    ? education.description
+                    : education.enDescription}
                 </p>
               </div>
-              {/*footer*/}
-              <footer className="flex flex-col gap-2 justify-center items-center mt-4">
-                <ul className="flex flex-row list-none text-2xl gap-4 ">
-                  {projects.technologies.map((icon, index) => (
-                    <li
-                      className={`hover:scale-150 hover:text-zinc-500 opacity-70 hover:opacity-100 hover:cursor-pointer transition-all`}
-                      key={index}
-                    >
-                      {icon}
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex flex-row gap-3 mt-4">
-                  <a
-                    className={`flex flex-row items-center gap-2 max-w-fit mt-4 text-base  transition-all ${
-                      projects.github === ""
-                        ? "cursor-not-allowed brightness-[.2]"
-                        : "hover:underline hover:brightness-50 cursor-pointer"
-                    }`}
-                    target="_blank"
-                    href={projects.github}
-                  >
-                    Github <FiGithub />
-                  </a>
-                  <a
-                    className={`flex flex-row items-center gap-2 max-w-fit  mt-4 text-base  transition-all ${
-                      projects.deploy === ""
-                        ? "cursor-not-allowed text-white/10"
-                        : "hover:underline hover:brightness-50 cursor-pointer"
-                    }`}
-                    target="_blank"
-                    href={projects.deploy}
-                  >
-                    Deploy <TbWorldShare />
-                  </a>
-                </div>
-              </footer>
             </div>
 
             {/* mobile header */}
@@ -236,7 +194,7 @@ export default function ProjectDetailsModal({
                   <span className="text-[#ABABB0] mr-1">
                     <BiSolidLockAlt />
                   </span>
-                  <h1 className="text-base">{projects.exampleUrl}</h1>
+                  <h1 className="text-base">{education.exampleUrl}</h1>
                 </div>
                 <button
                   onClick={() => setIsModalOpen(false)}
