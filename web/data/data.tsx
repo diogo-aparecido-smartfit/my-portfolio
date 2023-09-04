@@ -386,3 +386,181 @@ export const experience = [
     technologies: [],
   },
 ];
+
+export const educations = [
+  {
+    id: "uniube",
+    date: "2023 - agora",
+    enDate: "2023 - now",
+    name: "Análise e Desenvolvimento de Sistemas",
+    enName: "Analysis and Systems Development",
+    description: (
+      <div className="data-styles">
+        <p>
+          Estou matriculado no curso de Tecnólogo em Análise e Desenvolvimento
+          de Sistemas na Universidade de Uberlândia (UNIUBE), com início em
+          fevereiro de 2023 e previsão de conclusão para julho de 2025. Este
+          curso representa uma oportunidade emocionante para aprimorar minhas
+          habilidades e conhecimentos na área de tecnologia da informação e
+          desenvolvimento de software.
+        </p>
+        <p>
+          Atualmente, estou focado em várias disciplinas e tópicos que estão
+          moldando minha base de conhecimento. Estes incluem SQL Server, onde
+          estou aprendendo a gerenciar bancos de dados relacionais, programação
+          em C, que me permite explorar os fundamentos da programação de baixo
+          nível, e programação em Python, que é uma linguagem versátil
+          amplamente utilizada em diversas aplicações.
+        </p>
+        <p>
+          Além disso, estou estudando gestão de projetos, o que me dará as
+          habilidades necessárias para liderar e coordenar projetos de
+          desenvolvimento de software de forma eficaz, e sistemas distribuídos,
+          que envolvem a compreensão de como aplicativos funcionam em ambientes
+          distribuídos e em rede.
+        </p>
+      </div>
+    ),
+    enDescription: (
+      <div className="data-styles">
+        <p>
+          I am enrolled in the Bachelor's program in Analysis and Systems
+          Development at the University of Uberlândia (UNIUBE), with a start
+          date in February 2023 and an expected completion date in July 2025.
+          This course represents an exciting opportunity to enhance my skills
+          and knowledge in the field of information technology and software
+          development.
+        </p>
+        <p>
+          Currently, I am focused on various subjects and topics that are
+          shaping my knowledge base. These include SQL Server, where I am
+          learning to manage relational databases, programming in C, which
+          allows me to explore the fundamentals of low-level programming, and
+          programming in Python, which is a versatile language widely used in
+          various applications.
+        </p>
+        <p>
+          Additionally, I am studying project management, which will provide me
+          with the necessary skills to lead and coordinate software development
+          projects effectively, and distributed systems, which involve
+          understanding how applications operate in distributed and networked
+          environments.
+        </p>
+      </div>
+    ),
+    shortDescription:
+      "Tecnólogo em Análise e Desenvolvimento de Sistemas na Universidade de Uberlândia (UNIUBE). Este curso, iniciado em fevereiro de 2023 e com previsão de conclusão para julho de 2025.",
+    enShortDescription:
+      "Technologist in Systems Analysis and Development at the University of Uberlândia (UNIUBE). This course, started in February 2023 and expected to be completed in July 2025.",
+    exampleUrl: "uniube.br",
+    image: "education-images/uniube.png",
+  },
+  {
+    id: "jstack",
+    date: "2022 - agora",
+    enDate: "2022 - now",
+    name: "JStack",
+    enName: "JStack",
+    description: (
+      <div className="data-styles">
+        <p>
+          Além da faculdade, também estou fazendo cursos por fora como o curso
+          de desenvolvimento fullstack que estou fazendo na JStack, ministrado
+          pelo professor Mateus Silva. O curso é muito abrangente e está me
+          ensinando uma variedade de tecnologias essenciais para o
+          desenvolvimento web e de aplicativos.
+        </p>
+        <p>
+          Desde que comecei o curso em junho de 2022, aprendi muito. No
+          back-end, aprendi a usar Node.js, TypeScript, Express, Docker, API
+          REST e MongoDB. Com isso, consigo criar servidores robustos e
+          escaláveis e entender como desenvolver APIs RESTful.
+        </p>
+        <p>
+          No front-end, aprendi a usar ReactJS. Com isso, consigo criar
+          interfaces de usuário interativas e dinâmicas. Mas ainda não estou
+          satisfeito. Quero aprofundar meu conhecimento em React Native para
+          poder desenvolver aplicativos móveis e explorar todo o potencial do
+          desenvolvimento fullstack.
+        </p>
+      </div>
+    ),
+    enDescription: (
+      <div className="data-styles">
+        <p>
+          I am very excited about the full-stack development course I am taking
+          at JStack, taught by Professor Mateus Silva. The course is very
+          comprehensive and is teaching me a variety of essential technologies
+          for web and app development.
+        </p>
+        <p>
+          Since I started the course in June 2022, I have learned a lot. On the
+          backend, I learned how to use Node.js, TypeScript, Express, Docker,
+          REST API, and MongoDB. With this, I can create robust and scalable
+          servers and understand how to develop RESTful APIs.
+        </p>
+        <p>
+          On the frontend, I learned how to use ReactJS. With this, I can create
+          interactive and dynamic user interfaces. But I'm not satisfied yet. I
+          want to deepen my knowledge in React Native so I can develop mobile
+          apps and explore the full potential of full-stack development.
+        </p>
+      </div>
+    ),
+    shortDescription:
+      "Curso fullstack abrangente que aborda uma ampla gama de tecnologias essenciais no desenvolvimento web e de aplicativos.",
+    enShortDescription:
+      "This is a comprehensive fullstack course that covers a wide range of essential technologies in web and app development.",
+    exampleUrl: "jstack.com.br",
+    image: "education-images/jstack.png",
+  },
+  {
+    id: "ignite",
+    date: "nov 2021 - abr 2022",
+    enDate: "nov 2021 - apr 2022",
+    name: "Ignite - ReactJS",
+    enName: "Ignite - ReactJS",
+    description: (
+      <div className="data-styles">
+        <p>
+          Concluí com êxito o curso "Ignite - ReactJS" oferecido pela renomada
+          instituição RocketSeat. Este bootcamp abrangente foi uma jornada
+          intensiva de aprendizado projetada para aprimorar minhas habilidades
+          em ReactJS e TypeScript, duas tecnologias fundamentais no
+          desenvolvimento de aplicações web modernas.
+        </p>
+        <p>
+          O curso teve início em novembro de 2021 e foi concluído em abril de
+          2022, proporcionando um ambiente de aprendizado imersivo e prático.
+          Durante esse período, adquiri competências valiosas em uma variedade
+          de tecnologias essenciais, incluindo Webpack, Babel.js,
+          Styled-components, SASS, HTML, CSS, JavaScript e React.js.
+        </p>
+      </div>
+    ),
+    enDescription: (
+      <div className="data-styles">
+        <p>
+          I have successfully completed the "Ignite - ReactJS" course offered by
+          the renowned institution RocketSeat. This comprehensive bootcamp was
+          an intensive learning journey designed to enhance my skills in ReactJS
+          and TypeScript, two fundamental technologies in modern web application
+          development.
+        </p>
+        <p>
+          The course started in November 2021 and concluded in April 2022,
+          providing an immersive and hands-on learning environment. During this
+          period, I acquired valuable competencies in a variety of essential
+          technologies, including Webpack, Babel.js, Styled-components, SASS,
+          HTML, CSS, JavaScript, and React.js.
+        </p>
+      </div>
+    ),
+    shortDescription:
+      "Bootcamp oferecido pela Rocketseat com objetivo de aprimorar habilidades em ReactJS & TypeScript.",
+    enShortDescription:
+      "Bootcamp offered by Rocketseat in order to improve skills in ReactJS & TypeScript.",
+    exampleUrl: "rocketseat.com.br",
+    image: "education-images/rocketseat.jpg",
+  },
+];

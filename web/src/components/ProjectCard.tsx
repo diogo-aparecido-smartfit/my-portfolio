@@ -1,8 +1,7 @@
-import eyeIcon from "../../public/icons/eye-icon.json";
-import Lottie from "lottie-react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import ProjectDetailsModal from "./ProjectDetailsModal";
 import { useTranslation } from "react-i18next";
+import MoreDetailsButton from "./MoreDetailsButton";
 
 interface ProjectCardProps {
   projects: {
@@ -33,8 +32,6 @@ export default function ProjectCard({ projects }: ProjectCardProps) {
     setIsModalOpen(true);
   };
 
-  const lottieRef = useRef(null);
-
   return (
     <>
       <article className="flex flex-col md:flex-row gap-2 hover:bg-zinc-500/30 outline-none hover:border-zinc-500/50 border-transparent border-[1px] rounded-lg p-2 transition-all">
@@ -64,29 +61,7 @@ export default function ProjectCard({ projects }: ProjectCardProps) {
               ))}
             </ul>
             <div className="flex flex-row gap-3">
-              <button
-                className="group/edit hover:underline flex flex-row items-center gap-2 max-w-fit transition-all cursor-pointer"
-                onMouseEnter={() => (lottieRef as any)?.current?.play()}
-                onMouseLeave={() => (lottieRef as any)?.current?.stop()}
-                onClick={handleVisualize}
-              >
-                {language === "pt-BR" ? "Mais detalhes" : "More details"}
-                <span
-                  className={`${
-                    localStorage.getItem("darkMode") === "true"
-                      ? "brightness-150"
-                      : "brightness-50"
-                  }`}
-                >
-                  <Lottie
-                    lottieRef={lottieRef}
-                    className="w-6 h-6"
-                    animationData={eyeIcon}
-                    loop={false}
-                    autoplay={false}
-                  />
-                </span>
-              </button>
+              <MoreDetailsButton handleFunction={handleVisualize} />
             </div>
           </footer>
         </div>

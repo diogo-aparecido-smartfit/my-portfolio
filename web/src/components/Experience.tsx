@@ -1,16 +1,13 @@
 import { useTranslation } from "react-i18next";
-import eyeIcon from "../../public/icons/eye-icon.json";
 
 import { experience } from "../../data/data";
-import Lottie from "lottie-react";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import ExperienceDetailsModal from "./ExperienceDetailsModal";
+import MoreDetailsButton from "./MoreDetailsButton";
 
 export default function Experience() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const lottieRef = useRef(null);
   const { i18n, t } = useTranslation();
-  const language = i18n.language;
 
   const handleVisualize = () => {
     setIsModalOpen(true);
@@ -56,29 +53,7 @@ export default function Experience() {
                     </p>
                   </div>
                   <div className="flex flex-row gap-3">
-                    <button
-                      className="group/edit hover:underline flex flex-row items-center gap-2 max-w-fit transition-all cursor-pointer"
-                      onMouseEnter={() => (lottieRef as any)?.current?.play()}
-                      onMouseLeave={() => (lottieRef as any)?.current?.stop()}
-                      onClick={handleVisualize}
-                    >
-                      {language === "pt-BR" ? "Mais detalhes" : "More details"}
-                      <span
-                        className={`${
-                          localStorage.getItem("darkMode") === "true"
-                            ? "brightness-150"
-                            : "brightness-50"
-                        }`}
-                      >
-                        <Lottie
-                          lottieRef={lottieRef}
-                          className="w-6 h-6"
-                          animationData={eyeIcon}
-                          loop={false}
-                          autoplay={false}
-                        />
-                      </span>
-                    </button>
+                    <MoreDetailsButton handleFunction={handleVisualize} />
                   </div>
                 </div>
               </article>
