@@ -86,7 +86,7 @@ export default function App() {
       >
         <html className={darkMode ? "dark" : "light"}>
           <StartLoading darkMode={darkMode} />
-          <div className="flex flex-col justify-center my-0 mx-auto sm:w-[610px]">
+          <div className="flex flex-col justify-center my-0 mx-auto sm:w-[610px] ">
             <NavBar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
             <main className="px-8 flex flex-col gap-28">
               <Home />
