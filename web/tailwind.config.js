@@ -30,10 +30,6 @@ module.exports = {
           "100%": { opacity: "0" },
         },
       },
-      fontFamily: {
-        custom: ["GraphikRegular", "sans-serif"],
-        poppins: ["Poppins", "sans-serif"],
-      },
     },
   },
   plugins: [],
