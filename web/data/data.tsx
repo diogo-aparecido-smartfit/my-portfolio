@@ -449,9 +449,9 @@ export const educations = [
       </div>
     ),
     shortDescription:
-      "Tecnólogo em Análise e Desenvolvimento de Sistemas na Universidade de Uberlândia (UNIUBE). Este curso, iniciado em fevereiro de 2023 e com previsão de conclusão para julho de 2025.",
+      "Tecnólogo em Análise e Desenvolvimento de Sistemas na Universidade de Uberlândia (UNIUBE).",
     enShortDescription:
-      "Technologist in Systems Analysis and Development at the University of Uberlândia (UNIUBE). This course, started in February 2023 and expected to be completed in July 2025.",
+      "Technologist in Systems Analysis and Development at the University of Uberlândia (UNIUBE).",
     exampleUrl: "uniube.br",
     image: "education-images/uniube.png",
   },
@@ -562,5 +562,179 @@ export const educations = [
       "Bootcamp offered by Rocketseat in order to improve skills in ReactJS & TypeScript.",
     exampleUrl: "rocketseat.com.br",
     image: "education-images/rocketseat.jpg",
+  },
+  {
+    id: "balta",
+    date: "jun 2023 - jul 2023",
+    enDate: "jun 2023 - jul 2023",
+    name: "Fundamentos do C# - Balta.io",
+    enName: "C# Fundamentals - Balta.io",
+    description: (
+      <div className="data-styles">
+        <p>
+          Terminei o curso de C# Básico do balta.io e estou super feliz com o
+          que aprendi. O curso foi muito completo e me deu uma base sólida para
+          começar minha carreira como programador C#.
+        </p>
+        <p>Aqui estão os principais pontos que aprendi:</p>
+        <ul>
+          <li>
+            <strong>Conceitos Fundamentais do C#</strong>: Aprendi os conceitos
+            básicos da linguagem, como variáveis, tipos de dados, operadores e
+            estruturas de controle. Isso me permitiu criar programas simples e
+            funcionais.
+          </li>
+          <li>
+            <strong>Princípios Universais de Programação</strong>: Aprendi
+            conceitos de programação que são aplicáveis a qualquer linguagem,
+            como algoritmos, estruturas de dados e depuração. Isso me tornou um
+            programador mais versátil.
+          </li>
+          <li>
+            <strong>Linguagens e Compiladores</strong>: Aprendi como funcionam
+            linguagens de programação e compiladores. Isso me deu uma
+            compreensão mais profunda de como o código C# é transformado em
+            programas executáveis.
+          </li>
+          <li>
+            <strong>História do C# e .NET</strong>: Aprendi sobre a história do
+            C# e os frameworks .NET da Microsoft. Isso me deu uma compreensão
+            mais profunda da linguagem e do ecossistema de desenvolvimento C#.
+          </li>
+          <li>
+            <strong>Preparação do Ambiente de Desenvolvimento</strong>: Aprendi
+            a configurar um ambiente de desenvolvimento eficaz para trabalhar
+            com C#. Isso me permitiu começar a codificar rapidamente.
+          </li>
+          <li>
+            <strong>Manipulação de Dados</strong>: Aprendi a manipular strings,
+            datas, moedas e arrays. Isso me deu a capacidade de lidar com
+            diversos tipos de dados em meus programas.
+          </li>
+          <li>
+            <strong>Conversão de Tipos de Dados</strong>: Aprendi como converter
+            tipos de dados de maneira eficiente. Isso me permitiu integrar
+            diferentes tipos de informações em meus programas.
+          </li>
+          <li>
+            <strong>Operadores</strong>: Aprendi a usar operadores aritméticos,
+            de atribuição, de comparação e lógicos para criar lógica em meus
+            programas. Isso me deu mais controle sobre o fluxo de execução dos
+            meus programas.
+          </li>
+          <li>
+            <strong>Estruturas Condicionais e de Repetição</strong>: Aprendi a
+            usar estruturas condicionais e de repetição para tomar decisões e
+            iterar sobre dados. Isso me permitiu criar programas mais complexos
+            e sofisticados.
+          </li>
+          <li>
+            <strong>Métodos e Funções</strong>: Aprendi a escrever métodos e
+            funções seguindo as melhores práticas de programação. Isso me ajudou
+            a organizar meu código e torná-lo mais reutilizável.
+          </li>
+          <li>
+            <strong>Structs e Enums</strong>: Aprendi a usar Structs e Enums
+            para organizar e representar dados de maneira eficiente. Isso me deu
+            mais flexibilidade e controle sobre meu código.
+          </li>
+          <li>
+            <strong>Exceções</strong>: Aprendi a lidar com erros de forma
+            eficaz. Isso me ajudou a criar programas mais robustos e confiáveis.
+          </li>
+          <li>
+            <strong>Aplicações Console com C#</strong>: Aprendi a criar
+            aplicações Console usando a linguagem C#. Isso me deu uma base para
+            começar a criar aplicativos mais complexos.
+          </li>
+        </ul>
+      </div>
+    ),
+    enDescription: (
+      <div className="data-styles">
+        <p>
+          I completed the Basic C# course at balta.io and I'm thrilled with what
+          I've learned. The course was very comprehensive and provided me with a
+          solid foundation to kickstart my career as a C# developer.
+        </p>
+        <p>Here are the key points I've learned:</p>
+        <ul>
+          <li>
+            <strong>Fundamental C# Concepts</strong>: I learned the basic
+            concepts of the language, such as variables, data types, operators,
+            and control structures. This enabled me to create simple and
+            functional programs.
+          </li>
+          <li>
+            <strong>Universal Programming Principles</strong>: I learned
+            programming concepts that are applicable to any language, such as
+            algorithms, data structures, and debugging. This made me a more
+            versatile programmer.
+          </li>
+          <li>
+            <strong>Languages and Compilers</strong>: I learned how programming
+            languages and compilers work. This gave me a deeper understanding of
+            how C# code is transformed into executable programs.
+          </li>
+          <li>
+            <strong>History of C# and .NET</strong>: I learned about the history
+            of C# and Microsoft's .NET frameworks. This provided me with a
+            deeper understanding of the language and the C# development
+            ecosystem.
+          </li>
+          <li>
+            <strong>Development Environment Setup</strong>: I learned to set up
+            an effective development environment for working with C#. This
+            allowed me to start coding quickly.
+          </li>
+          <li>
+            <strong>Data Manipulation</strong>: I learned to manipulate strings,
+            dates, currencies, and arrays. This gave me the ability to handle
+            various types of data in my programs.
+          </li>
+          <li>
+            <strong>Data Type Conversion</strong>: I learned how to efficiently
+            convert data types. This allowed me to integrate different types of
+            information into my programs.
+          </li>
+          <li>
+            <strong>Operators</strong>: I learned to use arithmetic, assignment,
+            comparison, and logical operators to create logic in my programs.
+            This gave me more control over the execution flow of my programs.
+          </li>
+          <li>
+            <strong>Conditional and Loop Structures</strong>: I learned to use
+            conditional and loop structures to make decisions and iterate over
+            data. This allowed me to create more complex and sophisticated
+            programs.
+          </li>
+          <li>
+            <strong>Methods and Functions</strong>: I learned to write methods
+            and functions following best programming practices. This helped me
+            organize my code and make it more reusable.
+          </li>
+          <li>
+            <strong>Structs and Enums</strong>: I learned to use Structs and
+            Enums to organize and represent data efficiently. This gave me more
+            flexibility and control over my code.
+          </li>
+          <li>
+            <strong>Exceptions</strong>: I learned to handle errors effectively.
+            This helped me create more robust and reliable programs.
+          </li>
+          <li>
+            <strong>Console Applications with C#</strong>: I learned to create
+            Console applications using the C# language. This provided me with a
+            foundation to start building more complex applications.
+          </li>
+        </ul>
+      </div>
+    ),
+    shortDescription:
+      "Curso básico oferecido pelo balta.io que ensina os fundamentos do C#.",
+    enShortDescription:
+      "Basic course offered by balta.io that teaches the fundamentals of C#.",
+    exampleUrl: "balta.io",
+    image: "education-images/balta.jpg",
   },
 ];
