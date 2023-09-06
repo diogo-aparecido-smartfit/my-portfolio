@@ -35,7 +35,7 @@ export default function ProjectCard({ projects }: ProjectCardProps) {
   return (
     <>
       <article className="flex flex-col md:flex-row gap-2 hover:bg-zinc-500/30 outline-none hover:border-zinc-500/50 border-transparent border-[1px] rounded-lg p-2 transition-all">
-        <div className="flex flex-col gap-2 md:w-[380px]">
+        <div className="flex flex-col gap-2 md:w-[380px] p-1">
           <header>
             <p className="text-xs opacity-50">
               {language === "pt-BR" ? projects.date : projects.enDate}
