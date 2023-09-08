@@ -205,7 +205,7 @@ export const projects = [
     image: "logo.png",
     mockupImage: "projects-images/pr-portfolio.svg",
     exampleUrl: "diogomv.com.br",
-    github: "",
+    github: "https://github.com/DiogoAMV/my-portfolio",
     deploy: "https://diogomv.com.br",
     technologies: [
       <BiLogoTypescript />,
@@ -375,9 +375,9 @@ export const experience = [
       </div>
     ),
     shortDescription:
-      "Sistema automatizado de criação de orçamentos e notas fiscais para uma oficina mecânica. O sistema substituiu o processo manual anterior, melhorando a eficiência e a organização da oficina.",
+      "Sistema automatizado de criação de orçamentos e notas fiscais para uma oficina mecânica.",
     enShortDescription:
-      "Automated system for creating budgets and invoices for a mechanical workshop. The system replaced the previous manual process, improving efficiency and organization in the workshop.",
+      "Automated system for creating budgets and invoices for a mechanical workshop.",
     github: "",
     deploy: "",
     exampleUrl: "rener-force.com.br",

@@ -167,6 +167,16 @@ export default function ProjectDetailsModal({
                   <h1 className="font-medium text-lg">
                     {language === "pt-BR" ? projects.name : projects.enName}
                   </h1>
+                  <ul className="flex flex-row mt-2 justify-center list-none text-2xl gap-4 ">
+                    {projects.technologies.map((icon, index) => (
+                      <li
+                        className={`hover:scale-150 hover:text-zinc-500 opacity-70 hover:opacity-100 hover:cursor-pointer transition-all`}
+                        key={index}
+                      >
+                        {icon}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </header>
               <div className="flex items-center justify-center mt-4 w-full ">
@@ -178,16 +188,6 @@ export default function ProjectDetailsModal({
               </div>
               {/*footer*/}
               <footer className="flex flex-col gap-2 justify-center items-center mt-4">
-                <ul className="flex flex-row list-none text-2xl gap-4 ">
-                  {projects.technologies.map((icon, index) => (
-                    <li
-                      className={`hover:scale-150 hover:text-zinc-500 opacity-70 hover:opacity-100 hover:cursor-pointer transition-all`}
-                      key={index}
-                    >
-                      {icon}
-                    </li>
-                  ))}
-                </ul>
                 <div className="flex flex-row gap-3 mt-4">
                   <a
                     className={`flex flex-row items-center gap-2 max-w-fit mt-4 text-base  transition-all ${

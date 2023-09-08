@@ -50,16 +50,6 @@ export default function ProjectCard({ projects }: ProjectCardProps) {
               : projects.enShortDescription}
           </p>
           <footer className="flex flex-col gap-2">
-            <ul className="flex flex-row list-none text-xl gap-4 ">
-              {projects.technologies.map((icon, index) => (
-                <li
-                  className={`hover:scale-150 hover:text-zinc-500 opacity-70 hover:opacity-100 hover:cursor-pointer transition-all`}
-                  key={index}
-                >
-                  {icon}
-                </li>
-              ))}
-            </ul>
             <div className="flex flex-row gap-3">
               <MoreDetailsButton handleFunction={handleVisualize} />
             </div>

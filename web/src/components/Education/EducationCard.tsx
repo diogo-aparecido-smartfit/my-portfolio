@@ -38,7 +38,7 @@ export default function EducationCard({ education }: EducationCardProps) {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <div className="flex flex-col gap-2 md:w-[380px] p-1">
+          <div className="flex flex-col gap-2 md:w-[380px]">
             <header>
               <p className="text-xs opacity-50">
                 {i18n.language === "pt-BR" ? education.date : education.enDate}
