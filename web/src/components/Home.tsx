@@ -42,7 +42,7 @@ export default function Home() {
         onMouseLeave={() => (lottieRef as any)?.current?.stop()}
         download
         target="_blank"
-        className="flex flex-row w-fit items-center gap-2 hover:brightness-50 hover:underline"
+        className="flex flex-row w-fit items-center gap-2 hover:underline"
       >
         <span>{t("cv")}</span>
         <span
