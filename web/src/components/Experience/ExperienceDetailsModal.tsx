@@ -199,7 +199,7 @@ export default function ExperienceDetailsModal({
                         Github <FiGithub />
                       </a>
                     ) : null}
-                    {experience.github ? (
+                    {experience.deploy ? (
                       <a
                         className={`flex flex-row items-center gap-2 max-w-fit text-base  transition-all ${
                           experience.deploy === ""
@@ -207,7 +207,7 @@ export default function ExperienceDetailsModal({
                             : "hover:underline hover:brightness-50 cursor-pointer"
                         }`}
                         target="_blank"
-                        href={experience.github}
+                        href={experience.deploy}
                       >
                         Deploy <TbWorldShare />
                       </a>
