@@ -378,8 +378,8 @@ export const experience = [
       "Sistema automatizado de criação de orçamentos e notas fiscais para uma oficina mecânica.",
     enShortDescription:
       "Automated system for creating budgets and invoices for a mechanical workshop.",
-    github: "",
-    deploy: "",
+    github: "https://github.com/DiogoAMV/budgetSystem",
+    deploy: "https://budget-system-nine.vercel.app/",
     exampleUrl: "rener-force.com.br",
     image: "experience-images/logo/rener-force.svg",
     mockupImage: "experience-images/mockup/exp-renerforce.svg",
