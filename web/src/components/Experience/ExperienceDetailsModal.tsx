@@ -163,6 +163,7 @@ export default function ExperienceDetailsModal({
                     alt="Imagem do projeto"
                   />
                 </div>
+
                 <div className="mt-6">
                   <p className="text-xs opacity-50">
                     {language === "pt-BR" ? experience.date : experience.enDate}
@@ -170,6 +171,48 @@ export default function ExperienceDetailsModal({
                   <h1 className="font-medium text-lg">
                     {language === "pt-BR" ? experience.name : experience.enName}
                   </h1>
+                </div>
+                <div className="flex items-center flex-col gap-2">
+                  {experience.technologies ? (
+                    <ul className="flex flex-row list-none text-2xl gap-4 ">
+                      {experience.technologies.map((icon, index) => (
+                        <li
+                          className={`hover:scale-150 hover:text-zinc-500 opacity-70 hover:opacity-100 hover:cursor-pointer transition-all`}
+                          key={index}
+                        >
+                          {icon}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+                  <div className="flex flex-row gap-3">
+                    {experience.deploy ? (
+                      <a
+                        className={`flex flex-row items-center gap-2 max-w-fittext-base  transition-all ${
+                          experience.github === ""
+                            ? "cursor-not-allowed brightness-[.2]"
+                            : "hover:underline hover:brightness-50 cursor-pointer"
+                        }`}
+                        target="_blank"
+                        href={experience.github}
+                      >
+                        Github <FiGithub />
+                      </a>
+                    ) : null}
+                    {experience.github ? (
+                      <a
+                        className={`flex flex-row items-center gap-2 max-w-fit text-base  transition-all ${
+                          experience.deploy === ""
+                            ? "cursor-not-allowed text-white/10"
+                            : "hover:underline hover:brightness-50 cursor-pointer"
+                        }`}
+                        target="_blank"
+                        href={experience.github}
+                      >
+                        Deploy <TbWorldShare />
+                      </a>
+                    ) : null}
+                  </div>
                 </div>
               </header>
               <div className="flex items-center justify-center mt-4 w-full ">
@@ -180,48 +223,6 @@ export default function ExperienceDetailsModal({
                 </p>
               </div>
               {/*footer*/}
-              <footer className="flex flex-col gap-2">
-                {experience.technologies ? (
-                  <ul className="flex flex-row list-none text-2xl gap-4 ">
-                    {experience.technologies.map((icon, index) => (
-                      <li
-                        className={`hover:scale-150 hover:text-zinc-500 opacity-70 hover:opacity-100 hover:cursor-pointer transition-all`}
-                        key={index}
-                      >
-                        {icon}
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-                <div className="flex flex-row gap-3 mt-4">
-                  {experience.deploy ? (
-                    <a
-                      className={`flex flex-row items-center gap-2 max-w-fit mt-4 text-base  transition-all ${
-                        experience.github === ""
-                          ? "cursor-not-allowed brightness-[.2]"
-                          : "hover:underline hover:brightness-50 cursor-pointer"
-                      }`}
-                      target="_blank"
-                      href={experience.github}
-                    >
-                      Github <FiGithub />
-                    </a>
-                  ) : null}
-                  {experience.github ? (
-                    <a
-                      className={`flex flex-row items-center gap-2 max-w-fit  mt-4 text-base  transition-all ${
-                        experience.deploy === ""
-                          ? "cursor-not-allowed text-white/10"
-                          : "hover:underline hover:brightness-50 cursor-pointer"
-                      }`}
-                      target="_blank"
-                      href={experience.github}
-                    >
-                      Deploy <TbWorldShare />
-                    </a>
-                  ) : null}
-                </div>
-              </footer>
             </div>
 
             {/* mobile header */}
