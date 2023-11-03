@@ -19,12 +19,20 @@ export default function Home() {
         </p>
       </div>
       <div className="flex gap-2 mt-4 mb-12">
-        <button className="flex items-center rounded-xl bg-white text-zinc-950 border-[1px] border-darkBorder p-3 w-full max-w-[160px] hover:bg-transparent hover:text-white transition-all justify-between font-semibold duration-300 gap-1">
+        <a
+          href="/CV.pdf"
+          target="_blank"
+          download="CV.pdf"
+          className="flex items-center rounded-xl bg-white text-zinc-950 border-[1px] border-darkBorder p-3 w-full max-w-[160px] hover:bg-transparent hover:text-white transition-all justify-between font-semibold duration-300 gap-1"
+        >
           <LuFileCode2 /> Curriculo <IoIosArrowForward />
-        </button>
-        <button className="flex items-center rounded-xl bg-darkBg border-[1px] border-darkBorder p-3 w-full max-w-[160px] hover:brightness-150 transition-all justify-between duration-300">
+        </a>
+        <a
+          href="mailto:diogo.amv19@gmail.com"
+          className="flex items-center rounded-xl bg-darkBg border-[1px] border-darkBorder p-3 w-full max-w-[160px] hover:brightness-150 transition-all justify-between duration-300"
+        >
           <MdOutlineEmail /> Email <IoIosArrowForward />
-        </button>
+        </a>
       </div>
       <ProjectList title="Últimos projetos" />
     </main>
