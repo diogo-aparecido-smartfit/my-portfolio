@@ -57,7 +57,7 @@ const socialMediaLinks = [
     icon: <BiLogoInstagramAlt />,
   },
   {
-    href: "",
+    href: "https://discordapp.com/users/457377404625747989",
     title: "Discord",
     icon: <BiLogoDiscordAlt />,
   },
@@ -137,6 +137,7 @@ function Navbar() {
           <div className="flex top-0 text-neutral-400">
             <a
               target="_blank"
+              href="mailto:diogo.amv19@gmail.com"
               className="flex cursor-pointer items-center gap-2 p-3 lg:p-2 hover:brightness-200 transition-all lg:w-64 w-full"
             >
               <MdOutlineMail />
@@ -204,6 +205,7 @@ function Navbar() {
           <div className="flex mt-auto top-0 text-neutral-500">
             <a
               target="_blank"
+              href="mailto:diogo.amv19@gmail.com"
               className="flex cursor-pointer items-center gap-2 p-3 lg:p-2 hover:brightness-200 transition-all lg:w-64"
             >
               <MdOutlineMail />
