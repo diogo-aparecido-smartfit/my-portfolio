@@ -1,4 +1,5 @@
 import EducationCard from "@/components/EducationCard";
+import { education } from "../data";
 
 export default function Page() {
   return (
@@ -16,15 +17,15 @@ export default function Page() {
       </div>
 
       <ul className="flex flex-col w-full rounded-xl overflow-hidden mt-4 gap-[1px]">
-        <li>
-          <EducationCard />
-        </li>
-        <li>
-          <EducationCard />
-        </li>
-        <li>
-          <EducationCard />
-        </li>
+        {education.map((course) => (
+          <li key={course.id}>
+            <EducationCard
+              title={course.title}
+              subtitle={course.subtitle}
+              image={course.image}
+            />
+          </li>
+        ))}
       </ul>
     </main>
   );

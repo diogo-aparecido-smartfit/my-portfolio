@@ -14,7 +14,7 @@ export default function Page() {
         </p>
       </div>
 
-      <ProjectList title="" projectsPage />
+      <ProjectList projectsPage />
     </main>
   );
 }

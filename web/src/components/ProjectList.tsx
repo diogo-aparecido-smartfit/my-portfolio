@@ -1,10 +1,10 @@
-import Image from "next/image";
-import example from "../../public/education-images/uniube.png";
-import { IoIosArrowForward, IoIosArrowRoundForward } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 import Link from "next/link";
+import { projects } from "@/app/data";
+import ProjectCard from "./ProjectCard";
 
 interface ProjectListProps {
-  title: string;
+  title?: string;
   projectsPage?: boolean;
 }
 
@@ -25,21 +25,14 @@ export default function ProjectList({ projectsPage, title }: ProjectListProps) {
         )}
       </div>
       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full h-full max-w-full">
-        <li className="flex flex-col gap-2 w-full">
-          <Image
-            alt="Imagem do projeto"
-            src={example}
-            className="rounded-xl w-full saturate-0 hover:saturate-100 transition-all duration-300 cursor-pointer"
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.id}
+            title={project.title}
+            subtitle={project.subtitle}
+            image={project.image}
           />
-          <div>
-            <a className="flex items-center gap-2 text-xl text-zinc-300 hover:brightness-125 transition-all cursor-pointer hover:underline">
-              Título do projeto <IoIosArrowRoundForward />
-            </a>
-            <p className="text-base text-zinc-400">
-              Desenvolvimento Web & Back-end
-            </p>
-          </div>
-        </li>
+        ))}
       </ul>
     </div>
   );

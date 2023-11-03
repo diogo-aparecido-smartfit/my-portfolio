@@ -5,6 +5,7 @@ import { FaNodeJs } from "react-icons/fa";
 import crown from "../../../public/logo.png";
 import Image from "next/image";
 import { GlowCapture, Glow } from "@codaworks/react-glow";
+import { technologies } from "../data";
 
 export default function Page() {
   const phrase = (
@@ -39,29 +40,6 @@ export default function Page() {
       <br /> <br />
     </p>
   );
-
-  const technologies = [
-    {
-      icon: <BiLogoTypescript />,
-      technology: "TypeScript",
-      tag: "Language",
-    },
-    {
-      icon: <BiLogoReact />,
-      technology: "React",
-      tag: "Front-end",
-    },
-    {
-      icon: <SiNextdotjs />,
-      technology: "NextJS",
-      tag: "Front-end",
-    },
-    {
-      icon: <FaNodeJs />,
-      technology: "Node",
-      tag: "Back-end",
-    },
-  ];
 
   return (
     <GlowCapture>
