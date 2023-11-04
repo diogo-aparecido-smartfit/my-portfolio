@@ -32,21 +32,21 @@ export const education = [
   },
   {
     id: 3,
+    title: "Developing with .NET ・ Microsoft Learn",
+    subtitle: "jul 2023 - em andamento",
+    image: microsoft,
+  },
+  {
+    id: 4,
     title: "Fundamentos do C# ・ Balta.io",
     subtitle: "jun 2023 - jul 2023.",
     image: balta,
   },
   {
-    id: 4,
+    id: 5,
     title: "Ignite ReactJS ・ RocketSeat",
     subtitle: "nov 2021 - abr 2022.",
     image: rocketseat,
-  },
-  {
-    id: 5,
-    title: "Developing with .NET ・ Microsoft Learn",
-    subtitle: "jul 2023 - em andamento",
-    image: microsoft,
   },
 ];
 
