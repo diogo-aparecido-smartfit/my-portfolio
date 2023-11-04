@@ -2,6 +2,7 @@ import renerForce from "../../public/experience-images/logo/rener-force.svg";
 import uniube from "../../public/education-images/uniube.png";
 import jstack from "../../public/education-images/jstack.png";
 import balta from "../../public/education-images/balta.jpg";
+import rocketseat from "../../public/education-images/rocketseat.jpg";
 import { BiLogoTypescript, BiLogoReact } from "react-icons/bi";
 import { FaNodeJs } from "react-icons/fa";
 import { SiDotnet, SiMicrosoftsqlserver, SiNextdotjs } from "react-icons/si";
@@ -32,13 +33,13 @@ export const education = [
     id: 3,
     title: "Fundamentos do C# ・ Balta.io",
     subtitle: "jun 2023 - jul 2023.",
-    image: jstack,
+    image: balta,
   },
   {
     id: 4,
     title: "Ignite ReactJS ・ RocketSeat",
     subtitle: "nov 2021 - abr 2022.",
-    image: jstack,
+    image: rocketseat,
   },
 ];
 
