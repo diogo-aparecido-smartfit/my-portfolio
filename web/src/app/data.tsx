@@ -1,8 +1,8 @@
 import renerForce from "../../public/experience-images/logo/rener-force.svg";
 import uniube from "../../public/education-images/uniube.png";
 import jstack from "../../public/education-images/jstack.png";
-import balta from "../../public/education-images/balta.jpg";
-import rocketseat from "../../public/education-images/rocketseat.jpg";
+import balta from "../../public/education-images/balta.png";
+import rocketseat from "../../public/education-images/rocketseat.png";
 import microsoft from "../../public/education-images/microsoft.png";
 import { BiLogoTypescript, BiLogoReact } from "react-icons/bi";
 import { FaNodeJs } from "react-icons/fa";
