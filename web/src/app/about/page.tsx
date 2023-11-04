@@ -1,7 +1,4 @@
 import ToolCard from "@/components/ToolCard";
-import { BiLogoReact, BiLogoTypescript } from "react-icons/bi";
-import { SiNextdotjs } from "react-icons/si";
-import { FaNodeJs } from "react-icons/fa";
 import crown from "../../../public/logo.png";
 import Image from "next/image";
 import { GlowCapture, Glow } from "@codaworks/react-glow";
