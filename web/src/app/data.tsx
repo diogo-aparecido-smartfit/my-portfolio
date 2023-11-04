@@ -3,6 +3,7 @@ import uniube from "../../public/education-images/uniube.png";
 import jstack from "../../public/education-images/jstack.png";
 import balta from "../../public/education-images/balta.jpg";
 import rocketseat from "../../public/education-images/rocketseat.jpg";
+import microsoft from "../../public/education-images/microsoft.png";
 import { BiLogoTypescript, BiLogoReact } from "react-icons/bi";
 import { FaNodeJs } from "react-icons/fa";
 import { SiDotnet, SiMicrosoftsqlserver, SiNextdotjs } from "react-icons/si";
@@ -40,6 +41,12 @@ export const education = [
     title: "Ignite ReactJS ・ RocketSeat",
     subtitle: "nov 2021 - abr 2022.",
     image: rocketseat,
+  },
+  {
+    id: 5,
+    title: "Developing with .NET ・ Microsoft Learn",
+    subtitle: "jul 2023 - em andamento",
+    image: microsoft,
   },
 ];
 
