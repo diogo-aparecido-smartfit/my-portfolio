@@ -43,11 +43,15 @@ export default function Page() {
 
   return (
     <GlowCapture>
-      <main className="flex flex-col p-8 sm:p-20 md:p-28 xl:p-36 2xl:p-52">
-        <div className="flex flex-col gap-2 w-full xl:w-3/5">
-          <div className="flex justify-between items-center">
+      <main className="flex flex-col w-full p-8 sm:p-20 md:p-28 xl:p-36 2xl:p-52">
+        <div className="flex flex-col gap-2 w-full">
+          <div className="flex justify-between xl:justify-start xl:gap-10 items-center">
             {phrase}
-            <Image className="hidden sm:flex w-1/5" src={crown} alt="Coroa" />
+            <Image
+              className="w-1/5 xl:w-1/6 2xl:w-1/12 sm:flex"
+              src={crown}
+              alt="Coroa"
+            />
           </div>
           {aboutMe}
         </div>
@@ -58,7 +62,7 @@ export default function Page() {
           style={{ transition: "all .2s" }}
           debug={false}
         >
-          <ul className="mt-4 grid sm:grid-cols-2 gap-2 xl:w-3/4 2xl:w-3/5">
+          <ul className="mt-4 grid sm:grid-cols-2 xl:grid-cols-3 gap-2 ">
             {technologies.map((technology) => (
               <ToolCard
                 className="glow:bg-neutral-400/20 glow:border-neutral-100 border-[1px] border-transparent"
