@@ -102,6 +102,7 @@ function Navbar() {
             <h1 className="w-full flex font-bold text-base">DiogoAMV</h1>
           </div>
           <ul className="flex flex-col gap-2 text-zinc-400 mt-4">
+            <h3 className=" text-base">Navegação</h3>
             {navigationRoutes.map((singleRoute) => {
               return (
                 <NavigationMobileLink
@@ -171,6 +172,7 @@ function Navbar() {
             <h1 className="hidden lg:flex font-bold text-base">DiogoAMV</h1>
           </div>
           <ul className="flex flex-col gap-2 text-neutral-500 mt-4">
+            <h3 className="hidden lg:flex text-base">Navegação</h3>
             {navigationRoutes.map((singleRoute) => {
               return (
                 <NavigationLink

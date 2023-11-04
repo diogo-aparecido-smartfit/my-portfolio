@@ -1,4 +1,4 @@
-import renerForce from "../../public/experience-images/logo/rener-force.svg";
+import renerForce from "../../public/experience-images/mockup/rener-force.png";
 import uniube from "../../public/education-images/uniube.png";
 import jstack from "../../public/education-images/jstack.png";
 import balta from "../../public/education-images/balta.png";
