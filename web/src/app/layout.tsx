@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Hanken_Grotesk } from "next/font/google";
 import Favicon from "/public/favicon.ico";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/Sidebar";
 
 const grotesk = Hanken_Grotesk({ subsets: ["latin"] });
 
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${grotesk.className} bg-zinc-950 text-white flex`}>
-        <Navbar />
+        <Sidebar />
         {children}
       </body>
     </html>

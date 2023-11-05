@@ -29,6 +29,21 @@
   border-radius: 10px;
 }
 
+.reactMarkDown {
+  white-space: pre-wrap;
+}
+
+.reactMarkDown strong {
+  font-weight: inherit;
+  color: rgb(113 113 122 / 1);
+}
+
+.reactMarkDown em {
+  font-style: normal;
+  font-weight: inherit;
+  color: white;
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

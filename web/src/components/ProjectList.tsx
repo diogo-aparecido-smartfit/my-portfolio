@@ -1,14 +1,31 @@
+"use client";
 import { IoIosArrowForward } from "react-icons/io";
 import Link from "next/link";
 import { projects } from "@/app/data";
 import ProjectCard from "./ProjectCard";
+import { useEffect, useState } from "react";
+import { StaticImageData } from "next/image";
 
 interface ProjectListProps {
   title?: string;
   projectsPage?: boolean;
 }
 
+interface ProjectsProps {
+  id: string;
+  title: string;
+  subtitle: string;
+  image: StaticImageData;
+}
+
 export default function ProjectList({ projectsPage, title }: ProjectListProps) {
+  const [projectsData, setProjectsData] = useState<ProjectsProps[]>();
+
+  useEffect(() => {
+    const data = projects;
+    setProjectsData(data);
+  }, []);
+
   return (
     <div className="flex flex-col">
       <div className="flex flex-row justify-between items-center mb-4">
@@ -25,14 +42,16 @@ export default function ProjectList({ projectsPage, title }: ProjectListProps) {
         )}
       </div>
       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full h-full max-w-full">
-        {projects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            title={project.title}
-            subtitle={project.subtitle}
-            image={project.image}
-          />
-        ))}
+        {projectsData &&
+          projectsData.map((project) => (
+            <ProjectCard
+              key={project.id}
+              id={project.id}
+              title={project.title}
+              subtitle={project.subtitle}
+              image={project.image}
+            />
+          ))}
       </ul>
     </div>
   );

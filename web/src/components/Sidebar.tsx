@@ -63,7 +63,7 @@ const socialMediaLinks = [
   },
 ];
 
-function Navbar() {
+function Sidebar() {
   const [activeNav, setActiveNav] = useState(1);
   const [showSidebar, setShowSidebar] = useState(false);
 
@@ -234,7 +234,9 @@ interface NavigationLinkProps {
 
 function NavigationLink({ href, icon, title }: NavigationLinkProps) {
   const pathname = usePathname();
-  const isActive = pathname === (href === "/home" ? "/" : href);
+  const isActive =
+    pathname === (href === "/home" ? "/" : href) ||
+    pathname.startsWith(`${href}`);
 
   return (
     <Link
@@ -299,4 +301,4 @@ function NavigationMobileLink({
   );
 }
 
-export default Navbar;
+export default Sidebar;

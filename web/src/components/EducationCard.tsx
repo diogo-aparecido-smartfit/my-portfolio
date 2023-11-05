@@ -1,19 +1,25 @@
 import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
 
 interface EducationCardProps {
+  id: string;
   title: string;
   subtitle: string;
   image: StaticImageData;
 }
 
 export default function EducationCard({
+  id,
   title,
   image,
   subtitle,
 }: EducationCardProps) {
   return (
-    <div className="flex flex-col items-center justify-between w-full h-fit bg-zinc-900 overflow-hidden gap-1 cursor-pointer border-[1px] border-transparent hover:bg-transparent text-zinc-400 hover:text-white transition-all duration-300 group">
+    <Link
+      href={`/education/${id}`}
+      className="flex flex-col items-center justify-between w-full h-fit bg-zinc-900 overflow-hidden gap-1 cursor-pointer border-[1px] border-transparent hover:bg-transparent text-zinc-400 hover:text-white transition-all duration-300 group"
+    >
       <div className="flex w-full h-full">
         <div className="bg-neutral-800/40 group-hover:bg-white transition-all duration-300">
           <Image
@@ -34,6 +40,6 @@ export default function EducationCard({
           <IoIosArrowForward />
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

@@ -2,16 +2,16 @@ import { LuFileCode2 } from "react-icons/lu";
 import { MdOutlineEmail } from "react-icons/md";
 import { IoIosArrowForward } from "react-icons/io";
 import ProjectList from "@/components/ProjectList";
+import Text from "@/components/Text";
 
 export default function Home() {
+  const phrase = "Use **technology**\n to make the **difference**.";
+
   return (
     <main className="flex flex-col p-8 sm:p-20 md:p-28 xl:p-36 2xl:p-52">
       <div className="w-full sm:w-2/3">
-        <h1 className="text-4xl sm:text-5xl font-semibold mb-3">
-          Use <span className="text-zinc-500">technology</span> <br /> to make
-          the <span className="text-zinc-500">difference</span>.
-        </h1>
-        <p className="text-base sm:text-xl text-zinc-300">
+        <Text type="phrase">{phrase}</Text>
+        <p className="text-base sm:text-xl text-zinc-300 mt-3">
           Olá, Diogo Marques ao seu dispor.{" "}
           <span className="text-zinc-500">
             Eu sou um desenvolvedor full-stack.
