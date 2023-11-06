@@ -273,7 +273,9 @@ function NavigationMobileLink({
   handleCloseMenu,
 }: NavigationLinkProps) {
   const pathname = usePathname();
-  const isActive = pathname === (href === "/home" ? "/" : href);
+  const isActive =
+    pathname === (href === "/home" ? "/" : href) ||
+    pathname.startsWith(`${href}`);
   const closeMenu = handleCloseMenu ? () => handleCloseMenu() : () => {};
 
   return (
