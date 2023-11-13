@@ -8,7 +8,8 @@ const grotesk = Hanken_Grotesk({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Diogo Marques",
-  description: "",
+  description:
+    "Olá, eu me chamo Diogo, tenho 18 anos, sou desenvolvedor Full-Stack e este é meu portfólio!",
   icons: {
     icon: Favicon.src,
   },

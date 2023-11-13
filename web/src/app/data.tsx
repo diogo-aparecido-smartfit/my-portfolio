@@ -1,6 +1,10 @@
 import renerForce from "../../public/experience-images/mockup/rener-force.png";
 import uniube from "../../public/education-images/uniube.png";
+import uniubeCampus from "../../public/education-images/uniube/uniube-campus.jpg";
 import jstack from "../../public/education-images/jstack.png";
+import fincheck from "../../public/education-images/jstack/fincheck.jpg";
+import waiterapp from "../../public/education-images/jstack/waiterapp.jpg";
+import mycontacts from "../../public/education-images/jstack/mycontacts.jpg";
 import balta from "../../public/education-images/balta.png";
 import rocketseat from "../../public/education-images/rocketseat.png";
 import microsoft from "../../public/education-images/microsoft.png";
@@ -41,24 +45,26 @@ export interface CourseProps {
 export const education = [
   {
     id: "uniube",
-    title: "Análise e Desenvolvimento de Sistemas ・ UNIUBE",
-    subtitle: "fev 2023 - em andamento.",
-    period: "",
-    courseFocus: "",
-    courseType: "",
-    detailsCourseImages: [renerForce, renerForce, renerForce],
-    description: "",
+    title: "Análise e Desenvolvimento de Sistemas",
+    subtitle: "Fev. 2023 - em andamento",
+    period: "Fev. 2023 - em andamento",
+    courseFocus: "Desenv. de Sistemas",
+    courseType: "Tecnólogo",
+    detailsCourseImages: [uniubeCampus],
+    description:
+      "Estou matriculado no curso *Tecnólogo* de em *Análise e Desenvolvimento de Sistemas* na *UNIUBE*, com início em *fevereiro de 2023* e previsão de conclusão para *julho de 2025*. Atualmente, estou focado em várias disciplinas e tópicos que estão moldando minha base de conhecimento, onde estes incluem *SQL Server*, *programação em C* e também em *Python*. Além disso, estou estudando *gestão de projetos*, organização e gerenciamento de *sistemas distribuídos* e *Banco de Dados Oracle*.",
     image: uniube,
   },
   {
     id: "jstack",
-    title: "Curso Full-Stack ・ JStack",
-    subtitle: "jun 2022 - em andamento.",
-    period: "",
-    courseFocus: "",
-    courseType: "",
-    detailsCourseImages: [renerForce, renerForce, renerForce],
-    description: "",
+    title: "JStack",
+    subtitle: "Jun. 2022 - em andamento",
+    period: "Jun. 2022 - em andamento",
+    courseFocus: "Web, Back-End & Mobile",
+    courseType: "Bootcamp",
+    detailsCourseImages: [fincheck, waiterapp, mycontacts],
+    description:
+      "Além da faculdade, também estou fazendo cursos por fora como o *JStack*, ministrado pelo professor *Mateus Silva*. O curso é muito amplo e está me ensinando uma variedade de skills essenciais para o *desenvolvimento web*, *back-end* e de *aplicativos mobile*. Desde que comecei o curso em *meados de junho de 2022*, aprendi muito. No back-end, aprendi a usar *Node.js*, *TypeScript*, *Express*, *Docker*, *API REST*, *MongoDB* e *PostgreSQL*. No front-end, aprimorei minhas skills em *ReactJS*, entendendo seu funcionamento por baixo dos panos e como funcionavam seus hooks e funcionalidades. Além disso, o curso aborda o *desenvolvimento mobile* com *React Native* e, particularmente, *é algo que tenho intenções de me aprofundar*.",
     image: jstack,
   },
   {
