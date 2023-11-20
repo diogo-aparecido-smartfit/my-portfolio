@@ -161,7 +161,7 @@ function Sidebar() {
       ></div>
 
       {/* md> */}
-      <motion.nav className="hidden md:flex fixed h-screen p-2 lg:p-4 w-fit bg-zinc-950 text-white text-xl transition-all">
+      <motion.nav className="hidden md:flex fixed h-screen p-2 lg:p-4 w-fit  text-white text-xl transition-all">
         <nav className="flex flex-col h-full">
           <div className="flex gap-2 items-center">
             <img

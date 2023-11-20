@@ -3,6 +3,7 @@ import { Hanken_Grotesk } from "next/font/google";
 import Favicon from "/public/favicon.ico";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
+import Particles from "@/components/particles";
 
 const grotesk = Hanken_Grotesk({ subsets: ["latin"] });
 
@@ -25,6 +26,10 @@ export default function RootLayout({
       <body className={`${grotesk.className} bg-zinc-950 text-white flex`}>
         <Sidebar />
         {children}
+        <Particles
+          className="absolute inset-0 -z-10 animate-fade-in"
+          quantity={300}
+        />
       </body>
     </html>
   );
