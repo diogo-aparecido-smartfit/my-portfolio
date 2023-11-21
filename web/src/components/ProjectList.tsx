@@ -15,6 +15,7 @@ interface ProjectsProps {
   id: string;
   title: string;
   subtitle: string;
+  github: string;
   image: StaticImageData;
 }
 
@@ -50,6 +51,7 @@ export default function ProjectList({ projectsPage, title }: ProjectListProps) {
               title={project.title}
               subtitle={project.subtitle}
               image={project.image}
+              github={project.github}
             />
           ))}
       </ul>

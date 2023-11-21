@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      transformOrigin: {
+        customTransform: "50% 50% 0px",
+      },
       backgroundColor: {
         darkBg: "#18171C",
         selection: "#BEA9DF",
