@@ -1,4 +1,8 @@
-import renerForce from "../../public/experience-images/mockup/rener-force.png";
+import renerForce from "../../public/experience-images/mockup/rener-force.jpg";
+import rener1 from "../../public/experience-images/mockup/rener1.jpg";
+import rener2 from "../../public/experience-images/mockup/rener2.jpg";
+import rener3 from "../../public/experience-images/mockup/rener3.jpg";
+import rener4 from "../../public/experience-images/mockup/rener4.jpg";
 import uniube from "../../public/education-images/uniube.png";
 import uniubeCampus from "../../public/education-images/uniube/uniube-campus.jpg";
 import jstack from "../../public/education-images/jstack.png";
@@ -37,16 +41,33 @@ export const projects = [
       <FaReact />,
       <IoLogoFirebase />,
     ],
+    overview: (
+      <>
+        <p>
+          Este projeto trata-se de um sistema de orçamentos para a oficina do
+          pai de uma amiga. O projeto conta com as seguintes funcionalidades:
+        </p>
+        <ul>
+          <li>Criação de orçamentos</li>
+          <li>Edição de orçamentos</li>
+          <li>Remoção de orçamentos</li>
+          <li>Gerenciamento de clientes</li>
+          <li>Imprimir tabelas em PNG/PDF</li>
+        </ul>
+      </>
+    ),
+    specifications: [
+      "Projeto Full-Stack",
+      "Conexão com banco de dados",
+      "Responsivo",
+      "Tema branco/escuro",
+      "Sistema de impressão de orçamentos",
+    ],
     description:
       "Esse trabalho voluntário envolve a criação de um sistema para uma oficina mecânica. O principal objetivo é *tornar o processo de criação e impressão de orçamentos e notinhas para os clientes mais rápido e eficiente*, substituindo a antiga e trabalhosa caneta.\nPara o desenvolvimento deste projeto, aproveitei algumas tecnologias. Na parte da interface do usuário, utilizei o *ReactJS com TypeScript como base para o front-end*. Isso permite uma experiência de usuário suave e responsiva, garantindo que a equipe da oficina possa criar orçamentos de forma rápida e eficaz.\nA aparência e a estilização do site e das tabelas são gerenciadas pelo *TailwindCSS*, que não só torna o sistema visualmente agradável, mas também simplifica o processo de design e manutenção.\nQuando se trata de salvar os orçamentos, utilizei algumas ferramentas simples. *O jsPDF é utilizado para gerar e salvar os orçamentos em formato PDF*, o que é ideal para compartilhar com os clientes. Além disso, *o html-to-image é empregado para salvar os orçamentos em formato de imagem*, oferecendo versatilidade na forma como os documentos são compartilhados. *O file-saver cuida de todo o processo de download de arquivos*, tornando a experiência de salvar e compartilhar orçamentos muito mais simples.\nPara garantir que os orçamentos sejam acessíveis de qualquer lugar, implementei um *sistema de armazenamento em nuvem utilizando o Firebase*, mais especificamente, o *Firestore*. Isso permite que os funcionários da oficina salvem automaticamente os orçamentos na nuvem por meio do sistema. Isso não apenas simplifica a organização e o gerenciamento dos clientes da oficina, mas também oferece uma camada extra de segurança para os dados.\nNo geral, esse trabalho voluntário é uma combinação brilhante de tecnologias modernas que aprimoram significativamente o fluxo de trabalho da oficina mecânica, tornando a vida dos funcionários mais fácil e melhorando o atendimento aos clientes.",
     github: "https://github.com/DiogoAMV/budgetSystem",
     deploy: "https://budget-system-nine.vercel.app/",
-    detailsProjectImages: [
-      uniubeCampus,
-      uniubeCampus,
-      uniubeCampus,
-      uniubeCampus,
-    ],
+    detailsProjectImages: [rener1, rener2, rener3, rener4],
     image: renerForce,
   },
 ];

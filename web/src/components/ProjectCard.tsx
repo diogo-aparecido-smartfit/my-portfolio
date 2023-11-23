@@ -29,10 +29,10 @@ export default function ProjectCard({
 
         <div className="flex lg:hidden flex-col text-white p-4">
           <div className="flex flex-col w-full">
-            <h1 className="text-sm sm:text-lg xl:text-xl font-semibold">
+            <h1 className="text-base sm:text-lg xl:text-xl font-semibold">
               {title}
             </h1>
-            <p className="text-xs sm:text-base lg:text-base text-zinc-400">
+            <p className="text-sm sm:text-base lg:text-base text-zinc-400">
               {subtitle}
             </p>
           </div>

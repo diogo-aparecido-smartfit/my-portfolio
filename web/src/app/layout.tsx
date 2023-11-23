@@ -25,13 +25,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${grotesk.className} bg-zinc-950 text-white flex`}>
-        {/* <Intro /> */}
+        <Intro />
         <Sidebar />
         {children}
-        {/* <Particles
+        <Particles
           className="fixed inset-0 -z-10 animate-fade-in"
           quantity={300}
-        /> */}
+        />
       </body>
     </html>
   );
