@@ -35,8 +35,8 @@ export default function Post() {
   return (
     post && (
       <div className="flex flex-col w-full items-center">
-        <article className="flex flex-col items-center p-8 sm:py-20 md:py-28 xl:py-36 2xl:py-52 sm:max-w-xl md:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl">
-          <header className="flex flex-col">
+        <article className="flex flex-col items-center p-8 sm:py-20 md:py-28 xl:py-36 2xl:py-52 sm:max-w-xl md:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl transition-all">
+          <header className="flex flex-col w-full">
             <Link
               href="/experience"
               className="flex items-center rounded-xl text-white p-3 w-full max-w-[160px] hover:bg-white hover:text-zinc-950 transition-all font-semibold duration-300 gap-1 mb-4"
@@ -86,33 +86,6 @@ export default function Post() {
 
           <section className="flex flex-col my-6 w-full rounded-xl bg-zinc-900 p-6 text-zinc-500 border-[1px] border-zinc-800">
             <Text type="paragraph">{post.description}</Text>
-
-            <div className="flex flex-col gap-2 mt-4">
-              {post.github && (
-                <p className="flex gap-1">
-                  <span className="font-semibold">Github</span>:
-                  <a
-                    href={post.github}
-                    target="_blank"
-                    className="text-purple-500 hover:underline"
-                  >
-                    {post.github}
-                  </a>
-                </p>
-              )}
-              {post.deploy && (
-                <p className="flex gap-1">
-                  <span className="font-semibold">Deploy</span>:
-                  <a
-                    href={post.deploy}
-                    target="_blank"
-                    className="text-purple-500 hover:underline"
-                  >
-                    {post.deploy}
-                  </a>
-                </p>
-              )}
-            </div>
           </section>
         </article>
       </div>
