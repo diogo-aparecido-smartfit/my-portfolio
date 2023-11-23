@@ -8,6 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        "infinite-scroll": "infinite-scroll 20s linear infinite",
+      },
+      keyframes: {
+        "infinite-scroll": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(calc(-250px * 5))" },
+        },
+      },
       transformOrigin: {
         customTransform: "50% 50% 0px",
       },

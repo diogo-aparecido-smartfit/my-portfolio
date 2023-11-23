@@ -66,14 +66,14 @@ export default function ProjectCard({
             <div className="flex flex-row gap-2 w-full mt-6">
               <Link
                 href={`/experience/${id}`}
-                className="flex items-center rounded-xl bg-darkBg border-[1px] border-darkBorder p-3 w-full hover:brightness-150  justify-center gap-4  scale-0 group-hover:scale-100 transition-all duration-200 origin-customTransform"
+                className="flex items-center rounded-xl bg-darkBg border-[1px] border-darkBorder p-3 w-full hover:brightness-150  justify-center gap-4  scale-0 group-hover:scale-100 transition-all duration-200 origin-customTransform text-sm xl:text-base"
               >
                 <HiOutlineDocumentSearch /> Detalhes
               </Link>
               <a
                 href={github}
                 target="_blank"
-                className="flex items-center rounded-xl bg-transparent border-[1px] border-darkBorder p-3 w-full hover:brightness-150  justify-center gap-4  scale-0 group-hover:scale-100 transition-all duration-200  origin-customTransform"
+                className="flex items-center rounded-xl bg-transparent border-[1px] border-darkBorder p-3 w-full hover:border-zinc-400  justify-center gap-4  scale-0 group-hover:scale-100 transition-all duration-200  origin-customTransform text-sm xl:text-base"
               >
                 <FiExternalLink /> GitHub
               </a>

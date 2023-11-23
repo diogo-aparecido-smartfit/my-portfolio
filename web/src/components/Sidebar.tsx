@@ -161,7 +161,7 @@ function Sidebar() {
       ></div>
 
       {/* md> */}
-      <motion.nav className="hidden md:flex fixed h-screen p-2 lg:p-4 w-fit  text-white text-xl transition-all">
+      <motion.nav className="hidden md:flex fixed h-screen p-2 lg:p-4 w-fit bg-zinc-950 shadow-xl border-r-[1px] border-zinc-900 text-white text-xl transition-all">
         <nav className="flex flex-col h-full">
           <div className="flex gap-2 items-center">
             <img
@@ -243,12 +243,12 @@ function NavigationLink({ href, icon, title }: NavigationLinkProps) {
       href={href === "/home" ? "/" : href}
       className={`flex relative border-none outline-none focus:outline-none items-center gap-2 ${
         isActive && "text-white"
-      } p-3 lg:p-2 hover:brightness-200 transition-all lg:w-64 focus:outline-none focus:ring-0`}
+      } p-3 lg:p-2 hover:brightness-200 transition-all lg:w-64 focus:outline-none focus:ring-0 `}
     >
       {isActive && (
         <motion.div
           layoutId="nav-bg"
-          className="absolute border-[1px] bg-darkBg border-darkBorder rounded-xl inset-0 w-full h-full"
+          className="absolute border-[1px] bg-darkBg border-darkBorder rounded-xl inset-0 w-full h-full shadow-2xl"
           style={{ borderRadius: "10px" }}
         ></motion.div>
       )}

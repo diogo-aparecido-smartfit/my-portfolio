@@ -1,7 +1,6 @@
 "use client";
 import { CourseProps, education } from "@/app/data";
 import Text from "@/components/Text";
-import { GlowCapture, Glow } from "@codaworks/react-glow";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -21,8 +20,8 @@ export default function Post() {
 
   return (
     post && (
-      <GlowCapture className="flex flex-col w-full items-center">
-        <article className="flex flex-col items-center p-8 sm:py-20 md:py-28 xl:py-36 2xl:py-52 sm:max-w-xl md:max-w-2xl lg:max-w-3xl">
+      <div className="flex flex-col w-full items-center">
+        <article className="flex flex-col items-center p-8 sm:py-20 md:py-28 xl:py-36 2xl:py-52 sm:max-w-xl md:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl">
           <header className="flex flex-col">
             <Link
               href="/education"
@@ -40,51 +39,39 @@ export default function Post() {
               src={post.image}
               className="rounded-xl w-full h-full mt-6 bg-white"
             />
-            <Glow
-              color=""
-              className=""
-              style={{ transition: "all .2s" }}
-              debug={false}
-            >
-              <ul className="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-6 w-full">
-                <li className="flex flex-col gap-1 p-4 rounded-xl bg-zinc-900 w-full glow:bg-transparent glow:border-neutral-100 border-[1px] border-transparent">
-                  <h2 className="text-zinc-500">🕒 Período:</h2>
-                  <p className="text-white font-semibold">{post.period}</p>
-                </li>
-                <li className="flex flex-col gap-1 p-4 rounded-xl bg-zinc-900 w-full glow:bg-transparent glow:border-neutral-100 border-[1px] border-transparent">
-                  <h2 className="text-zinc-500">🖋️ Tipo do curso:</h2>
-                  <p className="text-white font-semibold">{post.courseType}</p>
-                </li>
-                <li className="flex flex-col gap-1 p-4 rounded-xl bg-zinc-900 w-full glow:bg-transparent glow:border-neutral-100 border-[1px] border-transparent">
-                  <h2 className="text-zinc-500">📖 Foco do curso:</h2>
-                  <p className="text-white font-semibold">{post.courseFocus}</p>
-                </li>
-              </ul>
-            </Glow>
-          </header>
-          <Glow
-            color=""
-            className=""
-            style={{ transition: "all .2s" }}
-            debug={false}
-          >
-            <section className="flex flex-col my-6 w-full rounded-xl bg-zinc-900 p-6 text-zinc-500 glow:bg-transparent glow:border-neutral-100 border-[1px] border-transparent">
-              <Text type="paragraph">{post.description}</Text>
 
-              <div className="flex flex-col gap-4 w-full mt-4">
-                {post.detailsCourseImages &&
-                  post.detailsCourseImages.map((singleImage) => (
-                    <Image
-                      alt="Imagem do projeto"
-                      src={singleImage}
-                      className="rounded-xl aspect-video w-full h-full"
-                    />
-                  ))}
-              </div>
-            </section>
-          </Glow>
+            <ul className="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-6 w-full">
+              <li className="flex flex-col gap-1 p-4 rounded-xl bg-zinc-900 w-full border-[1px] border-zinc-800">
+                <h2 className="text-zinc-500">🕒 Período:</h2>
+                <p className="text-white font-semibold">{post.period}</p>
+              </li>
+              <li className="flex flex-col gap-1 p-4 rounded-xl bg-zinc-900 w-full  border-[1px] border-zinc-800">
+                <h2 className="text-zinc-500">🖋️ Tipo do curso:</h2>
+                <p className="text-white font-semibold">{post.courseType}</p>
+              </li>
+              <li className="flex flex-col gap-1 p-4 rounded-xl bg-zinc-900 w-full  border-[1px] border-zinc-800">
+                <h2 className="text-zinc-500">📖 Foco do curso:</h2>
+                <p className="text-white font-semibold">{post.courseFocus}</p>
+              </li>
+            </ul>
+          </header>
+
+          <section className="flex flex-col my-6 w-full rounded-xl bg-zinc-900 p-6 text-zinc-500 border-[1px] border-zinc-800">
+            <Text type="paragraph">{post.description}</Text>
+
+            <div className="flex flex-col gap-4 w-full mt-4">
+              {post.detailsCourseImages &&
+                post.detailsCourseImages.map((singleImage) => (
+                  <Image
+                    alt="Imagem do projeto"
+                    src={singleImage}
+                    className="rounded-xl aspect-video w-full h-full"
+                  />
+                ))}
+            </div>
+          </section>
         </article>
-      </GlowCapture>
+      </div>
     )
   );
 }

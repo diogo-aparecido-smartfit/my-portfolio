@@ -9,9 +9,17 @@ import balta from "../../public/education-images/balta.png";
 import rocketseat from "../../public/education-images/rocketseat.png";
 import microsoft from "../../public/education-images/microsoft.png";
 import { BiLogoTypescript, BiLogoReact } from "react-icons/bi";
+import { FaCss3, FaHtml5, FaReact } from "react-icons/fa";
+import { IoLogoFirebase } from "react-icons/io5";
 import { FaNodeJs } from "react-icons/fa";
-import { SiDotnet, SiMicrosoftsqlserver, SiNextdotjs } from "react-icons/si";
+import {
+  SiDotnet,
+  SiMicrosoftsqlserver,
+  SiNextdotjs,
+  SiTypescript,
+} from "react-icons/si";
 import { StaticImageData } from "next/image";
+import { IoLogoJavascript } from "react-icons/io";
 
 export const projects = [
   {
@@ -21,11 +29,24 @@ export const projects = [
     period: "Jul 2023 - Ago 2023",
     projectType: "Full-Stack",
     jobType: "Voluntário",
-    technologies: <></>,
+    technologies: [
+      <FaHtml5 />,
+      <FaCss3 />,
+      <IoLogoJavascript />,
+      <SiTypescript />,
+      <FaReact />,
+      <IoLogoFirebase />,
+    ],
     description:
       "Esse trabalho voluntário envolve a criação de um sistema para uma oficina mecânica. O principal objetivo é *tornar o processo de criação e impressão de orçamentos e notinhas para os clientes mais rápido e eficiente*, substituindo a antiga e trabalhosa caneta.\nPara o desenvolvimento deste projeto, aproveitei algumas tecnologias. Na parte da interface do usuário, utilizei o *ReactJS com TypeScript como base para o front-end*. Isso permite uma experiência de usuário suave e responsiva, garantindo que a equipe da oficina possa criar orçamentos de forma rápida e eficaz.\nA aparência e a estilização do site e das tabelas são gerenciadas pelo *TailwindCSS*, que não só torna o sistema visualmente agradável, mas também simplifica o processo de design e manutenção.\nQuando se trata de salvar os orçamentos, utilizei algumas ferramentas simples. *O jsPDF é utilizado para gerar e salvar os orçamentos em formato PDF*, o que é ideal para compartilhar com os clientes. Além disso, *o html-to-image é empregado para salvar os orçamentos em formato de imagem*, oferecendo versatilidade na forma como os documentos são compartilhados. *O file-saver cuida de todo o processo de download de arquivos*, tornando a experiência de salvar e compartilhar orçamentos muito mais simples.\nPara garantir que os orçamentos sejam acessíveis de qualquer lugar, implementei um *sistema de armazenamento em nuvem utilizando o Firebase*, mais especificamente, o *Firestore*. Isso permite que os funcionários da oficina salvem automaticamente os orçamentos na nuvem por meio do sistema. Isso não apenas simplifica a organização e o gerenciamento dos clientes da oficina, mas também oferece uma camada extra de segurança para os dados.\nNo geral, esse trabalho voluntário é uma combinação brilhante de tecnologias modernas que aprimoram significativamente o fluxo de trabalho da oficina mecânica, tornando a vida dos funcionários mais fácil e melhorando o atendimento aos clientes.",
     github: "https://github.com/DiogoAMV/budgetSystem",
     deploy: "https://budget-system-nine.vercel.app/",
+    detailsProjectImages: [
+      uniubeCampus,
+      uniubeCampus,
+      uniubeCampus,
+      uniubeCampus,
+    ],
     image: renerForce,
   },
 ];

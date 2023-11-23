@@ -4,6 +4,7 @@ import Favicon from "/public/favicon.ico";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 import Particles from "@/components/particles";
+import Intro from "@/components/Intro";
 
 const grotesk = Hanken_Grotesk({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${grotesk.className} bg-zinc-950 text-white flex`}>
+        <Intro />
         <Sidebar />
         {children}
         <Particles
