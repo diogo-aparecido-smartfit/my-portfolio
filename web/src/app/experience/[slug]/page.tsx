@@ -86,13 +86,13 @@ export default function Post() {
               </li>
             </ul>
 
-            <ul className="flex flex-col sm:flex-row gap-2 mt-6 w-full">
+            <ul className="flex flex-col sm:flex-row gap-2 mt-6 w-full text-base sm:text-lg">
               <li className="flex flex-col gap-3 p-4 rounded-xl bg-zinc-900 w-full border-[1px] border-zinc-800">
                 <h2 className="font-semibold text-xl">Visão geral</h2>
-                <div className="flex flex-col text-zinc-500 gap-3">
+                <div className="flex flex-col text-zinc-500 gap-3 overview">
                   {post.overview}
                 </div>
-                <div className="flex flex-col md:flex-row w-full gap-1">
+                <div className="flex flex-col md:flex-row w-full gap-3 md:gap-1">
                   {post.github && (
                     <a
                       href={post.github}

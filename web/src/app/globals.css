@@ -43,3 +43,10 @@
   font-weight: inherit;
   color: white;
 }
+
+.overview li::before {
+  width: 2.25ch;
+  box-sizing: border-box;
+  padding-inline-end: 0.75ch;
+  content: "•";
+}
