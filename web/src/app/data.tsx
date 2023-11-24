@@ -1,8 +1,13 @@
-import renerForce from "../../public/experience-images/mockup/rener-force.jpg";
-import rener1 from "../../public/experience-images/mockup/rener1.jpg";
-import rener2 from "../../public/experience-images/mockup/rener2.jpg";
-import rener3 from "../../public/experience-images/mockup/rener3.jpg";
-import rener4 from "../../public/experience-images/mockup/rener4.jpg";
+import renerForce from "../../public/experience-images/mockup/renerforce/rener-force.jpg";
+import rener1 from "../../public/experience-images/mockup/renerforce/rener1.jpg";
+import rener2 from "../../public/experience-images/mockup/renerforce/rener2.jpg";
+import rener3 from "../../public/experience-images/mockup/renerforce/rener3.jpg";
+import rener4 from "../../public/experience-images/mockup/renerforce/rener4.jpg";
+import andrezaBiquinis from "../../public/experience-images/mockup/andreza/andreza-mockup.jpg";
+import andreza1 from "../../public/experience-images/mockup/andreza/andreza-1.jpg";
+import andreza2 from "../../public/experience-images/mockup/andreza/andreza-2.jpg";
+import andreza3 from "../../public/experience-images/mockup/andreza/andreza-3.jpg";
+import andreza4 from "../../public/experience-images/mockup/andreza/andreza-4.jpg";
 import uniube from "../../public/education-images/uniube.png";
 import uniubeCampus from "../../public/education-images/uniube/uniube-campus.jpg";
 import jstack from "../../public/education-images/jstack.png";
@@ -69,6 +74,54 @@ export const projects = [
     deploy: "https://budget-system-nine.vercel.app/",
     detailsProjectImages: [rener1, rener2, rener3, rener4],
     image: renerForce,
+  },
+  {
+    id: "andreza",
+    title: "Andreza Biquinis - Voluntário",
+    subtitle: "Loja virtual online para a venda de biquinis.",
+    period: "Set 2023 - Nov 2023",
+    projectType: "Full-Stack",
+    jobType: "Voluntário",
+    technologies: [
+      <FaHtml5 />,
+      <FaCss3 />,
+      <IoLogoJavascript />,
+      <SiTypescript />,
+      <FaReact />,
+      <IoLogoFirebase />,
+    ],
+    overview: (
+      <>
+        <p>
+          Este é um projeto voluntário feito para uma vendedora de biquinis
+          local, o projeto conta com as seguintes funcionalidades:
+        </p>
+        <ul>
+          <li>Gerenciamento de produtos, categorias e estilos</li>
+          <li>
+            Edição dos dados pessoais do vendedor (nome, redes sociais,
+            telefone...)
+          </li>
+          <li>Dashboard de administrador completo</li>
+          <li>Sistema de autenticação</li>
+          <li>Design responsivo</li>
+        </ul>
+      </>
+    ),
+    specifications: [
+      "Projeto Full-Stack",
+      "Conexão com API & banco de dados",
+      "Responsivo",
+      "Adm dashboard",
+      "Sistema de login",
+      "Gerenciamento completo do site",
+    ],
+    description:
+      "Este projeto é destinado para os clientes de uma vendedora de biquinis. O site funciona como uma vitrine para a exibição de seus produtos, os clientes poderão entrar no site, ver a lista de produtos, exibir detalhes e entrar em contato com a vendedora. O projeto contém várias funcionalidades como a *criação, edição e remoção de produtos, categorias e estilos de roupas*, também é possível *adicionar dados para contato como Nome, endereço, telefone, etc*... Este projeto contém a sua versão web e back-end, foram utilizados **ReactJS (Vite) no desenvolvimento WEB* e *NodeJS + TypeScript para o desenvolvimento Back-end*, juntamente com o *firebase para o armazenamento de dados*.",
+    github: "https://github.com/DiogoAMV/andrezaProject",
+    deploy: "https://andreza-voluntary-project.vercel.app/",
+    detailsProjectImages: [andreza1, andreza2, andreza3, andreza4],
+    image: andrezaBiquinis,
   },
 ];
 

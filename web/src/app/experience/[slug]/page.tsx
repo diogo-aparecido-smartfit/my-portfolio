@@ -27,6 +27,7 @@ interface ProjectProps {
 
 export default function Post() {
   const [post, setPost] = useState<ProjectProps>();
+  const [image, setImage] = useState<StaticImageData | null>(null);
   const router = useParams();
 
   useEffect(() => {
@@ -35,9 +36,34 @@ export default function Post() {
     setPost(post);
   }, []);
 
+  const handleShowImage = (image: StaticImageData) => {
+    setImage(image);
+  };
+
+  const handleCloseImage = () => {
+    setImage(null);
+  };
+
   return (
     post && (
       <div className="flex flex-col w-full items-center">
+        {image && (
+          <div
+            className={`flex w-screen h-screen fixed items-center justify-center p-4 sm:p-0 left-0 transition-all duration-300 ease-in-out `}
+          >
+            <div className="flex max-w-xl lg:max-w-2xl xl:max-w-4xl transition-all ">
+              <Image
+                alt="Imagem do projeto"
+                src={image}
+                className={`rounded-xl aspect-video origin-customTransform transition-all duration-300 ease-in-out `}
+              />
+            </div>
+            <div
+              onClick={() => handleCloseImage()}
+              className="absolute w-full h-full bg-black/70 -z-10"
+            ></div>
+          </div>
+        )}
         <article className="flex flex-col items-center p-8 sm:py-20 md:py-28 xl:py-36 2xl:py-52 sm:max-w-xl md:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl transition-all">
           <header className="flex flex-col w-full">
             <Link
@@ -52,15 +78,18 @@ export default function Post() {
                 {post.title}
               </h1>
             </div>
+
             {post.detailsProjectImages ? (
               <ul className="grid grid-cols-1 sm:grid-cols-2 w-full gap-2 mt-6">
                 {post.detailsProjectImages.map((image, i) => (
-                  <Image
-                    key={i}
-                    alt="Imagem do projeto"
-                    src={image}
-                    className="w-full h-full rounded-xl aspect-video"
-                  />
+                  <button onClick={() => handleShowImage(image)}>
+                    <Image
+                      key={i}
+                      alt="Imagem do projeto"
+                      src={image}
+                      className="w-full h-full rounded-xl aspect-video"
+                    />
+                  </button>
                 ))}
               </ul>
             ) : (
