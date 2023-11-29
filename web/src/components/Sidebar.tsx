@@ -176,7 +176,7 @@ export default function Sidebar() {
 
       {/* md> */}
       <motion.nav
-        className={`hidden md:flex fixed h-screen p-2 lg:p-4 w-fit bg-zinc-950 shadow-xl border-r-[1px] border-zinc-900 text-white text-xl transition-all`}
+        className={`hidden md:flex fixed h-screen p-2 lg:p-4 w-fit bg-zinc-950 shadow-xl border-r-[1px] border-zinc-900 text-white text-xl transition-all duration-300`}
       >
         <button
           onClick={() => handleToggleDesktopSidebar()}
@@ -236,7 +236,7 @@ export default function Sidebar() {
       <div
         className={`hidden md:flex w-12 p-2 ${
           activeNav ? "w-64 p-3" : "w-12 p-2"
-        } h-screen  bg-transparent`}
+        } h-screen  bg-transparent transition-all duration-300 ease-in-out`}
       ></div>
     </header>
   );
