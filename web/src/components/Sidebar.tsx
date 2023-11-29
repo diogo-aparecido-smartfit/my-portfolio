@@ -11,11 +11,17 @@ import {
   BiLogoLinkedin,
   BiUserCircle,
 } from "react-icons/bi";
-import { MdOutlineMail, MdWorkOutline } from "react-icons/md";
+import {
+  MdKeyboardArrowLeft,
+  MdKeyboardArrowRight,
+  MdOutlineMail,
+  MdWorkOutline,
+} from "react-icons/md";
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
+import { Tooltip } from "@material-tailwind/react";
 
 const navigationRoutes = [
   {
@@ -63,9 +69,17 @@ const socialMediaLinks = [
   },
 ];
 
-function Sidebar() {
-  const [activeNav, setActiveNav] = useState(1);
+export default function Sidebar() {
+  const [activeNav, setActiveNav] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
+
+  const handleToggleDesktopSidebar = () => {
+    if (activeNav) {
+      setActiveNav(false);
+    } else {
+      setActiveNav(true);
+    }
+  };
 
   const handleShowSidebar = () => {
     if (showSidebar) {
@@ -161,21 +175,36 @@ function Sidebar() {
       ></div>
 
       {/* md> */}
-      <motion.nav className="hidden md:flex fixed h-screen p-2 lg:p-4 w-fit bg-zinc-950 shadow-xl border-r-[1px] border-zinc-900 text-white text-xl transition-all">
-        <nav className="flex flex-col h-full">
+      <motion.nav
+        className={`hidden md:flex fixed h-screen p-2 lg:p-4 w-fit bg-zinc-950 shadow-xl border-r-[1px] border-zinc-900 text-white text-xl transition-all`}
+      >
+        <button
+          onClick={() => handleToggleDesktopSidebar()}
+          className="hidden lg:flex absolute bg-zinc-900 border-[1px] border-zinc-800 rounded-xl -right-3 top-14 items-center justify-center transition-all hover:p-1 hover:border-zinc-700"
+        >
+          {activeNav ? <MdKeyboardArrowLeft /> : <MdKeyboardArrowRight />}
+        </button>
+        <nav className="flex flex-col h-full transition-all">
           <div className="flex gap-2 items-center">
             <img
               className="w-12 h-12 rounded-full mb-2"
               src="https://avatars.githubusercontent.com/u/89851406?v=4"
               alt="Imagem de perfil do GitHub"
             />
-            <h1 className="hidden lg:flex font-bold text-base">DiogoAMV</h1>
+            <h1
+              className={`${activeNav ? "flex" : "hidden"} font-bold text-base`}
+            >
+              DiogoAMV
+            </h1>
           </div>
           <ul className="flex flex-col gap-2 text-neutral-500 mt-4">
-            <h3 className="hidden lg:flex text-base">Navegação</h3>
+            <h3 className={`${activeNav ? "flex" : "hidden"} text-base`}>
+              Navegação
+            </h3>
             {navigationRoutes.map((singleRoute) => {
               return (
                 <NavigationLink
+                  activeNav={activeNav}
                   key={singleRoute.href}
                   href={`/${singleRoute.href}`}
                   title={singleRoute.title}
@@ -185,84 +214,170 @@ function Sidebar() {
             })}
           </ul>
           <ul className="flex flex-col gap-2 text-neutral-500 mt-8">
-            <h3 className="hidden lg:flex text-base">Social</h3>
+            <h3 className={`${activeNav ? "flex" : "hidden"} text-base`}>
+              Social
+            </h3>
             {socialMediaLinks.map((socialMedia) => {
               return (
-                <a
-                  key={socialMedia.href}
+                <SocialMediaLink
+                  activeNav={activeNav}
                   href={socialMedia.href}
-                  target="_blank"
-                  className="flex  items-center gap-2 p-3 lg:p-2 hover:brightness-200 transition-all lg:w-64"
-                >
-                  {socialMedia.icon}
-                  <span
-                    className={`text-base w-full hidden lg:flex items-center justify-between`}
-                  >
-                    {socialMedia.title} <BiLinkExternal />
-                  </span>
-                </a>
+                  title={socialMedia.title}
+                  icon={socialMedia.icon}
+                />
               );
             })}
           </ul>
           <div className="flex mt-auto top-0 text-neutral-500">
-            <a
-              target="_blank"
-              href="mailto:diogo.amv19@gmail.com"
-              className="flex cursor-pointer items-center gap-2 p-3 lg:p-2 hover:brightness-200 transition-all lg:w-64"
-            >
-              <MdOutlineMail />
-              <span
-                className={`text-base w-full hidden lg:flex items-center justify-between`}
-              >
-                Me mande um email <BiLinkExternal />
-              </span>
-            </a>
+            <EmailRedirect activeNav={activeNav} />
           </div>
         </nav>
       </motion.nav>
-      <div className="hidden md:flex w-12 p-2 lg:w-64 h-screen lg:p-3 bg-transparent"></div>
+      <div
+        className={`hidden md:flex w-12 p-2 ${
+          activeNav ? "w-64 p-3" : "w-12 p-2"
+        } h-screen  bg-transparent`}
+      ></div>
     </header>
   );
 }
 
 interface NavigationLinkProps {
+  activeNav?: boolean;
   href: string;
   title: string;
   icon: React.ReactNode;
   handleCloseMenu?: () => void;
 }
 
-function NavigationLink({ href, icon, title }: NavigationLinkProps) {
+interface SocialMediaLinkProps {
+  activeNav: boolean;
+  href: string;
+  title: string;
+  icon: React.JSX.Element;
+}
+
+interface EmailRedirectProps {
+  activeNav: boolean;
+}
+
+function EmailRedirect({ activeNav }: EmailRedirectProps) {
+  return (
+    <Tooltip
+      className={`bg-zinc-900 border-[1px] border-zinc-800 rounded-xl p-2 ${
+        activeNav ? "hidden" : "flex"
+      }`}
+      content="Email"
+      placement="right"
+      animate={{
+        mount: { x: 5, opacity: 1 },
+        unmount: { x: 0, opacity: 0 },
+      }}
+    >
+      <a
+        target="_blank"
+        href="mailto:diogo.amv19@gmail.com"
+        className={`flex cursor-pointer items-center gap-2 p-3 hover:brightness-200 transition-all ${
+          activeNav && "w-64 p-2"
+        }`}
+      >
+        <MdOutlineMail />
+        <span
+          className={`text-base w-full ${
+            activeNav ? "lg:flex" : "hidden"
+          } items-center justify-between`}
+        >
+          Me mande um email <BiLinkExternal />
+        </span>
+      </a>
+    </Tooltip>
+  );
+}
+
+function SocialMediaLink({
+  activeNav,
+  href,
+  title,
+  icon,
+}: SocialMediaLinkProps) {
+  return (
+    <Tooltip
+      className={`bg-zinc-900 border-[1px] border-zinc-800 rounded-xl p-2 ${
+        activeNav ? "hidden" : "flex"
+      }`}
+      content={title}
+      placement="right"
+      animate={{
+        mount: { x: 5, opacity: 1 },
+        unmount: { x: 0, opacity: 0 },
+      }}
+    >
+      <a
+        key={href}
+        href={href}
+        target="_blank"
+        className={`flex items-center gap-2 p-3 hover:brightness-200 transition-all ${
+          activeNav && "w-64 p-2"
+        }`}
+      >
+        {icon}
+        <span
+          className={`text-base w-full ${
+            activeNav ? "lg:flex" : "hidden"
+          } items-center justify-between`}
+        >
+          {title} <BiLinkExternal />
+        </span>
+      </a>
+    </Tooltip>
+  );
+}
+
+function NavigationLink({ href, icon, title, activeNav }: NavigationLinkProps) {
   const pathname = usePathname();
   const isActive =
     pathname === (href === "/home" ? "/" : href) ||
     pathname.startsWith(`${href}`);
 
   return (
-    <Link
-      href={href === "/home" ? "/" : href}
-      className={`flex relative border-none outline-none focus:outline-none items-center gap-2 ${
-        isActive && "text-white"
-      } p-3 lg:p-2 hover:brightness-200 transition-all lg:w-64 focus:outline-none focus:ring-0 `}
+    <Tooltip
+      className={`bg-zinc-900 border-[1px] border-zinc-800 rounded-xl p-2 ${
+        activeNav ? "hidden" : "flex"
+      }`}
+      content={title}
+      placement="right"
+      animate={{
+        mount: { x: 5, opacity: 1 },
+        unmount: { x: 0, opacity: 0 },
+      }}
     >
-      {isActive && (
-        <motion.div
-          layoutId="nav-bg"
-          className="absolute border-[1px] bg-darkBg border-darkBorder rounded-xl inset-0 w-full h-full shadow-2xl"
-          style={{ borderRadius: "10px" }}
-        ></motion.div>
-      )}
-      <span className="flex items-center gap-2 z-10">
-        {icon}
-        <span
-          className={`text-base hidden lg:flex mix-blend-exclusion  ${
-            isActive ? "text-white" : null
-          }`}
-        >
-          {title}
+      <Link
+        href={href === "/home" ? "/" : href}
+        className={`flex relative border-none outline-none focus:outline-none items-center gap-2 ${
+          isActive && "text-white"
+        } p-3 hover:brightness-200 transition-all ${
+          activeNav && "w-64 p-2"
+        } focus:outline-none focus:ring-0 `}
+      >
+        {isActive && (
+          <motion.div
+            layoutId="nav-bg"
+            className="absolute border-[1px] bg-darkBg border-darkBorder rounded-xl inset-0 w-full h-full shadow-2xl"
+            style={{ borderRadius: "10px" }}
+          ></motion.div>
+        )}
+        <span className="flex items-center gap-2 z-10">
+          {icon}
+          <span
+            className={`text-base transition-all ${
+              activeNav ? "lg:flex" : "hidden"
+            }  mix-blend-exclusion  ${isActive ? "text-white" : null}`}
+          >
+            {title}
+          </span>
         </span>
-      </span>
-    </Link>
+      </Link>
+    </Tooltip>
   );
 }
 
@@ -302,5 +417,3 @@ function NavigationMobileLink({
     </Link>
   );
 }
-
-export default Sidebar;
