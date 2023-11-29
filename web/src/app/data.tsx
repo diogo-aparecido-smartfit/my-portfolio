@@ -68,8 +68,6 @@ export const projects = [
       "Tema branco/escuro",
       "Sistema de impressão de orçamentos",
     ],
-    description:
-      "Esse trabalho voluntário envolve a criação de um sistema para uma oficina mecânica. O principal objetivo é *tornar o processo de criação e impressão de orçamentos e notinhas para os clientes mais rápido e eficiente*, substituindo a antiga e trabalhosa caneta.\nPara o desenvolvimento deste projeto, aproveitei algumas tecnologias. Na parte da interface do usuário, utilizei o *ReactJS com TypeScript como base para o front-end*. Isso permite uma experiência de usuário suave e responsiva, garantindo que a equipe da oficina possa criar orçamentos de forma rápida e eficaz.\nA aparência e a estilização do site e das tabelas são gerenciadas pelo *TailwindCSS*, que não só torna o sistema visualmente agradável, mas também simplifica o processo de design e manutenção.\nQuando se trata de salvar os orçamentos, utilizei algumas ferramentas simples. *O jsPDF é utilizado para gerar e salvar os orçamentos em formato PDF*, o que é ideal para compartilhar com os clientes. Além disso, *o html-to-image é empregado para salvar os orçamentos em formato de imagem*, oferecendo versatilidade na forma como os documentos são compartilhados. *O file-saver cuida de todo o processo de download de arquivos*, tornando a experiência de salvar e compartilhar orçamentos muito mais simples.\nPara garantir que os orçamentos sejam acessíveis de qualquer lugar, implementei um *sistema de armazenamento em nuvem utilizando o Firebase*, mais especificamente, o *Firestore*. Isso permite que os funcionários da oficina salvem automaticamente os orçamentos na nuvem por meio do sistema. Isso não apenas simplifica a organização e o gerenciamento dos clientes da oficina, mas também oferece uma camada extra de segurança para os dados.\nNo geral, esse trabalho voluntário é uma combinação brilhante de tecnologias modernas que aprimoram significativamente o fluxo de trabalho da oficina mecânica, tornando a vida dos funcionários mais fácil e melhorando o atendimento aos clientes.",
     github: "https://github.com/DiogoAMV/budgetSystem",
     deploy: "https://budget-system-nine.vercel.app/",
     detailsProjectImages: [rener1, rener2, rener3, rener4],
@@ -116,8 +114,6 @@ export const projects = [
       "Sistema de login",
       "Gerenciamento completo do site",
     ],
-    description:
-      "Este projeto é destinado para os clientes de uma vendedora de biquinis. O site funciona como uma vitrine para a exibição de seus produtos, os clientes poderão entrar no site, ver a lista de produtos, exibir detalhes e entrar em contato com a vendedora. O projeto contém várias funcionalidades como a *criação, edição e remoção de produtos, categorias e estilos de roupas*, também é possível *adicionar dados para contato como Nome, endereço, telefone, etc*... Este projeto contém a sua versão web e back-end, foram utilizados **ReactJS (Vite) no desenvolvimento WEB* e *NodeJS + TypeScript para o desenvolvimento Back-end*, juntamente com o *firebase para o armazenamento de dados*.",
     github: "https://github.com/DiogoAMV/andrezaProject",
     deploy: "https://andreza-voluntary-project.vercel.app/",
     detailsProjectImages: [andreza1, andreza2, andreza3, andreza4],
