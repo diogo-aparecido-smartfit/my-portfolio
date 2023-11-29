@@ -80,14 +80,14 @@ export default function Post() {
             </div>
 
             {post.detailsProjectImages ? (
-              <ul className="grid grid-cols-1 sm:grid-cols-2 w-full gap-2 mt-6">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 w-full gap-2 mt-6 ">
                 {post.detailsProjectImages.map((image, i) => (
                   <button onClick={() => handleShowImage(image)}>
                     <Image
                       key={i}
                       alt="Imagem do projeto"
                       src={image}
-                      className="w-full h-full rounded-xl aspect-video"
+                      className="w-full h-full rounded-xl aspect-video border-[1px] border-zinc-900 hover:border-zinc-700 transition-all duration-300"
                     />
                   </button>
                 ))}
