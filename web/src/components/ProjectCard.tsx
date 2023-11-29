@@ -24,7 +24,7 @@ export default function ProjectCard({
         <Image
           alt="Imagem do projeto"
           src={image}
-          className="w-full h-full aspect-video group-hover:blur-sm group-hover:opacity-60 transition-all duration-300"
+          className="w-full h-full aspect-video sm:group-hover:blur-sm group-hover:opacity-60 transition-all duration-300"
         />
 
         <div className="flex lg:hidden flex-col text-white p-4">
