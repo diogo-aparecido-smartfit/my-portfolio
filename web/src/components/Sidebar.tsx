@@ -184,7 +184,11 @@ export default function Sidebar() {
         >
           {activeNav ? <MdKeyboardArrowLeft /> : <MdKeyboardArrowRight />}
         </button>
-        <nav className="flex flex-col h-full transition-all">
+        <nav
+          className={`flex flex-col ${
+            !activeNav && "items-center"
+          } h-full transition-all`}
+        >
           <div className="flex gap-2 items-center">
             <img
               className="w-12 h-12 rounded-full mb-2"
@@ -197,7 +201,11 @@ export default function Sidebar() {
               DiogoAMV
             </h1>
           </div>
-          <ul className="flex flex-col gap-2 text-neutral-500 mt-4">
+          <ul
+            className={`flex flex-col ${
+              !activeNav && "items-center"
+            } w-full gap-2 text-neutral-500 mt-4`}
+          >
             <h3 className={`${activeNav ? "flex" : "hidden"} text-base`}>
               Navegação
             </h3>
@@ -234,8 +242,8 @@ export default function Sidebar() {
         </nav>
       </motion.nav>
       <div
-        className={`hidden md:flex w-12 p-2 ${
-          activeNav ? "w-64 p-3" : "w-12 p-2"
+        className={`hidden md:flex ${
+          activeNav ? "w-64 p-3" : "w-12 p-4"
         } h-screen  bg-transparent transition-all duration-300 ease-in-out`}
       ></div>
     </header>
@@ -356,14 +364,13 @@ function NavigationLink({ href, icon, title, activeNav }: NavigationLinkProps) {
         className={`flex relative border-none outline-none focus:outline-none items-center gap-2 ${
           isActive && "text-white"
         } p-3 hover:brightness-200 transition-all ${
-          activeNav && "w-64 p-2"
+          activeNav && "w-64"
         } focus:outline-none focus:ring-0 `}
       >
         {isActive && (
           <motion.div
             layoutId="nav-bg"
             className="absolute border-[1px] bg-darkBg border-darkBorder rounded-xl inset-0 w-full h-full shadow-2xl"
-            style={{ borderRadius: "10px" }}
           ></motion.div>
         )}
         <span className="flex items-center gap-2 z-10">

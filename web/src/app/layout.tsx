@@ -29,7 +29,7 @@ export default function RootLayout({
         <Sidebar />
         {children}
         <Particles
-          className="fixed inset-0 -z-10 animate-fade-in"
+          className="absolute inset-0 -z-10 animate-fade-in"
           quantity={300}
         />
       </body>
