@@ -399,15 +399,22 @@ function NavigationLink({
             className="absolute border-[1px] bg-darkBg border-darkBorder rounded-xl inset-0 w-full h-full shadow-2xl"
           ></motion.div>
         )}
-        <span className="flex items-center gap-2 z-10">
-          {icon}
-          <span
-            className={`text-base transition-all ${
-              activeNav ? "lg:flex" : "hidden"
-            }  mix-blend-exclusion  ${isActive ? "text-white" : null}`}
+        <span className="flex items-center justify-between w-full gap-2 z-10">
+          <div className="flex items-center gap-2">
+            {icon}
+            <span
+              className={`flex text-base transition-all ${
+                activeNav ? "lg:flex" : "hidden"
+              }  mix-blend-exclusion  ${isActive ? "text-white" : null}`}
+            >
+              {title}
+            </span>
+          </div>
+          <kbd
+            className={`${activeNav ? "flex" : "hidden"} text-sm bg-zinc-800`}
           >
-            {title}
-          </span>
+            {id}
+          </kbd>
         </span>
       </Link>
     </Tooltip>
