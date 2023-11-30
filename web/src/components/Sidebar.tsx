@@ -19,27 +19,32 @@ import {
 } from "react-icons/md";
 import React, { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Tooltip } from "@material-tailwind/react";
+import { useHotkeys } from "react-hotkeys-hook";
 
 const navigationRoutes = [
   {
+    id: 1,
     href: "home",
     title: "Início",
     icon: <BiHomeAlt />,
   },
   {
+    id: 2,
     href: "about",
     title: "Sobre",
     icon: <BiUserCircle />,
   },
   {
+    id: 3,
     href: "experience",
     title: "Experiência",
     icon: <MdWorkOutline />,
   },
   {
+    id: 4,
     href: "education",
     title: "Educação",
     icon: <BiBookAlt />,
@@ -184,62 +189,68 @@ export default function Sidebar() {
         >
           {activeNav ? <MdKeyboardArrowLeft /> : <MdKeyboardArrowRight />}
         </button>
-        <nav
-          className={`flex flex-col ${
-            !activeNav && "items-center"
-          } h-full transition-all`}
-        >
-          <div className="flex gap-2 items-center">
-            <img
-              className="w-12 h-12 rounded-full mb-2"
-              src="https://avatars.githubusercontent.com/u/89851406?v=4"
-              alt="Imagem de perfil do GitHub"
-            />
-            <h1
-              className={`${activeNav ? "flex" : "hidden"} font-bold text-base`}
-            >
-              DiogoAMV
-            </h1>
-          </div>
-          <ul
+        <HotkeysNavigation>
+          <nav
             className={`flex flex-col ${
               !activeNav && "items-center"
-            } w-full gap-2 text-neutral-500 mt-4`}
+            } h-full transition-all`}
           >
-            <h3 className={`${activeNav ? "flex" : "hidden"} text-base`}>
-              Navegação
-            </h3>
-            {navigationRoutes.map((singleRoute) => {
-              return (
-                <NavigationLink
-                  activeNav={activeNav}
-                  key={singleRoute.href}
-                  href={`/${singleRoute.href}`}
-                  title={singleRoute.title}
-                  icon={singleRoute.icon}
-                />
-              );
-            })}
-          </ul>
-          <ul className="flex flex-col gap-2 text-neutral-500 mt-8">
-            <h3 className={`${activeNav ? "flex" : "hidden"} text-base`}>
-              Social
-            </h3>
-            {socialMediaLinks.map((socialMedia) => {
-              return (
-                <SocialMediaLink
-                  activeNav={activeNav}
-                  href={socialMedia.href}
-                  title={socialMedia.title}
-                  icon={socialMedia.icon}
-                />
-              );
-            })}
-          </ul>
-          <div className="flex mt-auto top-0 text-neutral-500">
-            <EmailRedirect activeNav={activeNav} />
-          </div>
-        </nav>
+            <div className="flex gap-2 items-center">
+              <img
+                className="w-12 h-12 rounded-full mb-2"
+                src="https://avatars.githubusercontent.com/u/89851406?v=4"
+                alt="Imagem de perfil do GitHub"
+              />
+              <h1
+                className={`${
+                  activeNav ? "flex" : "hidden"
+                } font-bold text-base`}
+              >
+                DiogoAMV
+              </h1>
+            </div>
+            <ul
+              className={`flex flex-col ${
+                !activeNav && "items-center"
+              } w-full gap-2 text-neutral-500 mt-4`}
+            >
+              <h3 className={`${activeNav ? "flex" : "hidden"} text-base`}>
+                Navegação
+              </h3>
+              {navigationRoutes.map((singleRoute) => {
+                return (
+                  <NavigationLink
+                    id={singleRoute.id}
+                    activeNav={activeNav}
+                    key={singleRoute.id}
+                    href={`/${singleRoute.href}`}
+                    title={singleRoute.title}
+                    icon={singleRoute.icon}
+                  />
+                );
+              })}
+            </ul>
+            <ul className="flex flex-col gap-2 text-neutral-500 mt-8">
+              <h3 className={`${activeNav ? "flex" : "hidden"} text-base`}>
+                Social
+              </h3>
+              {socialMediaLinks.map((socialMedia) => {
+                return (
+                  <SocialMediaLink
+                    key={socialMedia.href}
+                    activeNav={activeNav}
+                    href={socialMedia.href}
+                    title={socialMedia.title}
+                    icon={socialMedia.icon}
+                  />
+                );
+              })}
+            </ul>
+            <div className="flex mt-auto top-0 text-neutral-500">
+              <EmailRedirect activeNav={activeNav} />
+            </div>
+          </nav>
+        </HotkeysNavigation>
       </motion.nav>
       <div
         className={`hidden md:flex ${
@@ -251,6 +262,7 @@ export default function Sidebar() {
 }
 
 interface NavigationLinkProps {
+  id?: number;
   activeNav?: boolean;
   href: string;
   title: string;
@@ -258,15 +270,19 @@ interface NavigationLinkProps {
   handleCloseMenu?: () => void;
 }
 
+interface EmailRedirectProps {
+  activeNav: boolean;
+}
+
+interface HotkeysNavigationProps {
+  children: React.ReactNode;
+}
+
 interface SocialMediaLinkProps {
   activeNav: boolean;
   href: string;
   title: string;
   icon: React.JSX.Element;
-}
-
-interface EmailRedirectProps {
-  activeNav: boolean;
 }
 
 function EmailRedirect({ activeNav }: EmailRedirectProps) {
@@ -341,7 +357,13 @@ function SocialMediaLink({
   );
 }
 
-function NavigationLink({ href, icon, title, activeNav }: NavigationLinkProps) {
+function NavigationLink({
+  href,
+  icon,
+  title,
+  activeNav,
+  id,
+}: NavigationLinkProps) {
   const pathname = usePathname();
   const isActive =
     pathname === (href === "/home" ? "/" : href) ||
@@ -351,8 +373,12 @@ function NavigationLink({ href, icon, title, activeNav }: NavigationLinkProps) {
     <Tooltip
       className={`bg-zinc-900 border-[1px] border-zinc-800 rounded-xl p-2 ${
         activeNav ? "hidden" : "flex"
-      }`}
-      content={title}
+      } ${isActive && "hidden"}`}
+      content={
+        <span>
+          {title} <kbd>{id}</kbd>
+        </span>
+      }
       placement="right"
       animate={{
         mount: { x: 5, opacity: 1 },
@@ -423,4 +449,19 @@ function NavigationMobileLink({
       </span>
     </Link>
   );
+}
+
+function HotkeysNavigation({ children }: HotkeysNavigationProps) {
+  const router = useRouter();
+
+  useHotkeys("1", () => router.push("/"));
+  useHotkeys("2", () => router.push("/about"));
+  useHotkeys("3", () => router.push("/experience"));
+  useHotkeys("4", () => router.push("/education"));
+  // useHotkeys("5", () => router.push("/about"));
+  // useHotkeys("6", () => router.push("/about"));
+  // useHotkeys("7", () => router.push("/about"));
+  // useHotkeys("8", () => router.push("/about"));
+
+  return <>{children}</>;
 }

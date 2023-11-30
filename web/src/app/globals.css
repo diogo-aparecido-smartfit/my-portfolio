@@ -50,3 +50,13 @@
   padding-inline-end: 0.75ch;
   content: "•";
 }
+
+kbd {
+  display: inline-block;
+  color: "#fff";
+  border-radius: 4px;
+  padding: 0.1em 0.5em;
+  margin: 0 0.2em;
+  filter: drop-shadow(0px 2px 0px rgb(82 82 91 / 1));
+  background-color: rgb(63 63 70 / 1);
+}
