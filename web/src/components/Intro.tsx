@@ -1,4 +1,3 @@
-// components/Intro.tsx
 "use client";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,7 +8,9 @@ const Intro = () => {
   const words = introText.split(" ");
 
   useEffect(() => {
+    document.body.style.overflow = "hidden";
     const timeoutId = setTimeout(() => {
+      document.body.style.overflow = "auto";
       setShowIntro(false);
     }, 3000);
 
@@ -31,8 +32,6 @@ const Intro = () => {
       },
     },
   };
-
-  // Variants for each word.
 
   const child = {
     visible: {
@@ -81,7 +80,7 @@ const Intro = () => {
           animate="visible"
           initial="hidden"
           exit="exit"
-          className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-zinc-950 text-white z-50"
+          className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-zinc-950 text-white z-50"
         >
           {words.map((word, index) => (
             <motion.span

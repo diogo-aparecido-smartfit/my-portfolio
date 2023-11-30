@@ -254,8 +254,8 @@ export default function Sidebar() {
       </motion.nav>
       <div
         className={`hidden md:flex ${
-          activeNav ? "w-64 p-3" : "w-12 p-4"
-        } h-screen  bg-transparent transition-all duration-300 ease-in-out`}
+          activeNav ? "w-64 p-3" : "w-16"
+        } h-screen bg-transparent transition-all duration-300 ease-in-out`}
       ></div>
     </header>
   );
