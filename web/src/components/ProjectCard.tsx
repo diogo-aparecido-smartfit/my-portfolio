@@ -2,6 +2,8 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { HiOutlineDocumentSearch } from "react-icons/hi";
 import { FiExternalLink } from "react-icons/fi";
+import { BsInfoLg } from "react-icons/bs";
+import { RiGithubLine } from "react-icons/ri";
 
 interface ProjectCardProps {
   title: string;
@@ -27,6 +29,7 @@ export default function ProjectCard({
           className="w-full h-full aspect-video sm:group-hover:blur-sm group-hover:opacity-60 transition-all duration-300"
         />
 
+        {/* mobile */}
         <div className="flex lg:hidden flex-col text-white p-4">
           <div className="flex flex-col w-full">
             <h1 className="text-base sm:text-lg xl:text-xl font-semibold">
@@ -53,6 +56,7 @@ export default function ProjectCard({
           </div>
         </div>
 
+        {/* PC */}
         <div className="hidden lg:flex flex-col w-full bg-zinc-950 duration-300 group-hover:-translate-y-[80%] border-t-[1px] border-zinc-800 text-white">
           <div className="w-full p-6 h-[110px] xl:h-[100px]">
             <div className="flex flex-col w-full">
@@ -66,16 +70,30 @@ export default function ProjectCard({
             <div className="flex flex-row gap-2 w-full mt-6">
               <Link
                 href={`/experience/${id}`}
-                className="flex items-center rounded-xl bg-darkBg border-[1px] border-darkBorder p-3 w-full hover:brightness-150  justify-center gap-4  scale-0 group-hover:scale-100 transition-all duration-200 origin-customTransform text-sm xl:text-base"
+                className="flex items-center rounded-xl bg-darkBg border-[1px] border-darkBorder p-3 w-full hover:brightness-150  justify-center gap-4 scale-0 group-hover:scale-100 transition-all duration-200 origin-customTransform text-sm xl:text-base group/edit"
               >
-                <HiOutlineDocumentSearch /> Detalhes
+                <div className="flex max-w-[16px] overflow-hidden transition-all duration-300 ease-in-out">
+                  <div className="flex group-hover/edit:-translate-x-7 transition-all duration-700 ease-in-out">
+                    <HiOutlineDocumentSearch className="mr-3" />
+
+                    <FiExternalLink />
+                  </div>
+                </div>
+                Detalhes
               </Link>
               <a
                 href={github}
                 target="_blank"
-                className="flex items-center rounded-xl bg-transparent border-[1px] border-darkBorder p-3 w-full hover:border-zinc-400  justify-center gap-4  scale-0 group-hover:scale-100 transition-all duration-200  origin-customTransform text-sm xl:text-base"
+                className="flex items-center rounded-xl bg-transparent border-[1px] border-darkBorder p-3 w-full hover:border-zinc-400  justify-center gap-4  scale-0 group-hover:scale-100 transition-all duration-200  origin-customTransform text-sm xl:text-base group/edit"
               >
-                <FiExternalLink /> GitHub
+                <div className="flex max-w-[16px] overflow-hidden transition-all duration-300 ease-in-out">
+                  <div className="flex group-hover/edit:-translate-x-7 transition-all duration-700 ease-in-out">
+                    <RiGithubLine className="mr-3" />
+
+                    <FiExternalLink />
+                  </div>
+                </div>
+                GitHub
               </a>
             </div>
           </div>
