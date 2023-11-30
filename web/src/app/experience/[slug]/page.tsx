@@ -6,6 +6,7 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
+import Marquee from "react-fast-marquee";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import { IoIosArrowBack } from "react-icons/io";
 
@@ -49,7 +50,7 @@ export default function Post() {
       <div className="flex flex-col w-full items-center">
         {image && (
           <div
-            className={`flex w-screen h-screen fixed items-center justify-center p-4 sm:p-0 left-0 transition-all duration-300 ease-in-out `}
+            className={`flex w-screen h-screen fixed items-center justify-center p-4 sm:p-0 left-0 transition-all duration-300 ease-in-out`}
           >
             <div className="flex max-w-xl lg:max-w-2xl xl:max-w-4xl transition-all ">
               <Image
@@ -115,8 +116,8 @@ export default function Post() {
             </li>
           </ul>
 
-          <ul className="flex flex-col sm:flex-row gap-2 mt-6 w-full text-base sm:text-lg">
-            <li className="flex flex-col gap-3 p-4 rounded-xl bg-zinc-900 w-full border-[1px] border-zinc-800">
+          <div className="flex flex-col xl:flex-row gap-2 mt-6 w-full text-base sm:text-lg">
+            <div className="flex flex-col gap-3 p-4 rounded-xl bg-zinc-900 w-full border-[1px] border-zinc-800">
               <h2 className="font-semibold text-xl">Visão geral</h2>
               <div className="flex flex-col text-zinc-500 gap-3 overview">
                 {post.overview}
@@ -141,21 +142,38 @@ export default function Post() {
                   </a>
                 )}
               </div>
-            </li>
-            <li className="flex flex-col p-4 rounded-xl bg-zinc-900 w-full border-[1px] border-zinc-800">
+            </div>
+            <div className="flex relative flex-col p-4 rounded-xl bg-zinc-900 w-full border-[1px] border-zinc-800 overflow-hidden">
               <h2 className="font-semibold text-xl">Especificações</h2>
-              <ul className="text-zinc-500 mt-3">
-                {post.specifications.map((item, i) => (
-                  <li className="" key={i}>
-                    {item}
-                    {i === post.specifications.length - 1 ? null : (
+              <div className="overflow-hidden">
+                <ul className="text-zinc-500 mt-3">
+                  {post.specifications.map((item, i) => (
+                    <li className="" key={i}>
+                      {item}
                       <div className="h-[1px] bg-zinc-800 w-full my-3"></div>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </li>
-          </ul>
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex w-full justify-center mt-4">
+                  <ul className="flex max-w-[200px] sm:max-w-full sm:text-zinc-500">
+                    <Marquee
+                      pauseOnHover={true}
+                      autoFill={true}
+                      gradient
+                      gradientColor="rgb(24 24 27 / 1)"
+                      className="flex w-screen text-2xl"
+                    >
+                      {post.technologies.map((item, i) => (
+                        <li className="mx-2" key={i}>
+                          {item}
+                        </li>
+                      ))}
+                    </Marquee>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <div className="flex mt-24">
             <ProjectList title="Você também pode gostar" />

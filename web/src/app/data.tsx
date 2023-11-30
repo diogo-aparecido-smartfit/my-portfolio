@@ -39,12 +39,12 @@ export const projects = [
     projectType: "Full-Stack",
     jobType: "Voluntário",
     technologies: [
-      <FaHtml5 />,
-      <FaCss3 />,
-      <IoLogoJavascript />,
-      <SiTypescript />,
-      <FaReact />,
-      <IoLogoFirebase />,
+      <FaHtml5 width={30} height={30} />,
+      <FaCss3 width={30} height={30} />,
+      <IoLogoJavascript width={30} height={30} />,
+      <SiTypescript width={30} height={30} />,
+      <FaReact width={30} height={30} />,
+      <IoLogoFirebase width={30} height={30} />,
     ],
     overview: (
       <>
