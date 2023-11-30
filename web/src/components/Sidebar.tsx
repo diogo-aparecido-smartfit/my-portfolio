@@ -185,7 +185,7 @@ export default function Sidebar() {
       >
         <button
           onClick={() => handleToggleDesktopSidebar()}
-          className="hidden lg:flex absolute bg-zinc-900 border-[1px] border-zinc-800 rounded-xl -right-3 top-14 items-center justify-center transition-all hover:p-1 hover:border-zinc-700"
+          className="hidden lg:flex absolute bg-zinc-900 border-[1px] border-zinc-800 rounded-xl -right-3 top-14 items-center justify-center transition-all duration-300 hover:p-1 hover:border-zinc-700"
         >
           {activeNav ? <MdKeyboardArrowLeft /> : <MdKeyboardArrowRight />}
         </button>

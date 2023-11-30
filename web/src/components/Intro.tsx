@@ -10,7 +10,7 @@ const Intro = () => {
   useEffect(() => {
     document.body.style.overflow = "hidden";
     const timeoutId = setTimeout(() => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflowY = "auto";
       setShowIntro(false);
     }, 3000);
 
