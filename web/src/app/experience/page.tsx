@@ -1,5 +1,10 @@
 import ProjectList from "@/components/ProjectList";
 import Text from "@/components/Text";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Experiência | Diogo Marques",
+};
 
 export default function Page() {
   const phrase = "The **life**\n is a collection of\n **experiences**.";
