@@ -34,6 +34,7 @@ export default function Post() {
 
   useEffect(() => {
     const id = router.slug;
+    console.log(id);
     const post = projects.find((post) => post.id === id);
     setPost(post);
   }, []);
@@ -238,7 +239,7 @@ export default function Post() {
           </div>
 
           <div className="flex mt-24">
-            <ProjectList title="Você também pode gostar" />
+            <ProjectList projectDetailsPage title="Você também pode gostar" />
           </div>
         </article>
       </div>

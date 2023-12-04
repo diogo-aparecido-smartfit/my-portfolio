@@ -6,10 +6,12 @@ import ProjectCard from "./ProjectCard";
 import { useEffect, useState } from "react";
 import { StaticImageData } from "next/image";
 import { MdArrowRightAlt } from "react-icons/md";
+import { usePathname } from "next/navigation";
 
 interface ProjectListProps {
   title?: string;
   projectsPage?: boolean;
+  projectDetailsPage?: boolean;
 }
 
 interface ProjectsProps {
@@ -20,8 +22,13 @@ interface ProjectsProps {
   image: StaticImageData;
 }
 
-export default function ProjectList({ projectsPage, title }: ProjectListProps) {
+export default function ProjectList({
+  projectsPage,
+  title,
+  projectDetailsPage,
+}: ProjectListProps) {
   const [projectsData, setProjectsData] = useState<ProjectsProps[]>();
+  const pathname = usePathname();
 
   useEffect(() => {
     const data = projects;
@@ -50,17 +57,29 @@ export default function ProjectList({ projectsPage, title }: ProjectListProps) {
         )}
       </div>
       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full h-full max-w-full">
-        {projectsData &&
-          projectsData.map((project) => (
-            <ProjectCard
-              key={project.id}
-              id={project.id}
-              title={project.title}
-              subtitle={project.subtitle}
-              image={project.image}
-              github={project.github}
-            />
-          ))}
+        {projectsData && projectDetailsPage
+          ? projectsData
+              .filter((project) => !pathname.includes(project.id))
+              .map((project) => (
+                <ProjectCard
+                  key={project.id}
+                  id={project.id}
+                  title={project.title}
+                  subtitle={project.subtitle}
+                  image={project.image}
+                  github={project.github}
+                />
+              ))
+          : projectsData?.map((project) => (
+              <ProjectCard
+                key={project.id}
+                id={project.id}
+                title={project.title}
+                subtitle={project.subtitle}
+                image={project.image}
+                github={project.github}
+              />
+            ))}
       </ul>
     </div>
   );
