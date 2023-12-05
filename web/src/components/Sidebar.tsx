@@ -53,21 +53,25 @@ const navigationRoutes = [
 
 const socialMediaLinks = [
   {
+    id: 5,
     href: "https://github.com/DiogoAMV/",
     title: "GitHub",
     icon: <BiLogoGithub />,
   },
   {
+    id: 6,
     href: "https://www.linkedin.com/in/diogo-amv/",
     title: "LinkedIn",
     icon: <BiLogoLinkedin />,
   },
   {
+    id: 7,
     href: "https://www.instagram.com/diogomv.dev/",
     title: "Instagram",
     icon: <BiLogoInstagramAlt />,
   },
   {
+    id: 8,
     href: "https://discordapp.com/users/457377404625747989",
     title: "Discord",
     icon: <BiLogoDiscordAlt />,
@@ -181,7 +185,7 @@ export default function Sidebar() {
 
       {/* md> */}
       <motion.nav
-        className={`hidden md:flex fixed h-screen p-2 lg:p-4 w-fit bg-zinc-950 shadow-xl border-r-[1px] border-zinc-900 text-white text-xl transition-all duration-300`}
+        className={`hidden md:flex fixed h-screen p-2 lg:p-4 w-fit bg-zinc-950 shadow-xl border-r-[1px] border-zinc-900 text-white text-xl transition-all duration-300 z-10`}
       >
         <button
           onClick={() => handleToggleDesktopSidebar()}
@@ -237,6 +241,7 @@ export default function Sidebar() {
               {socialMediaLinks.map((socialMedia) => {
                 return (
                   <SocialMediaLink
+                    id={socialMedia.id}
                     key={socialMedia.href}
                     activeNav={activeNav}
                     href={socialMedia.href}
@@ -280,6 +285,7 @@ interface HotkeysNavigationProps {
 
 interface SocialMediaLinkProps {
   activeNav: boolean;
+  id?: number;
   href: string;
   title: string;
   icon: React.JSX.Element;
@@ -288,10 +294,14 @@ interface SocialMediaLinkProps {
 function EmailRedirect({ activeNav }: EmailRedirectProps) {
   return (
     <Tooltip
-      className={`bg-zinc-900 border-[1px] border-zinc-800 rounded-xl p-2 ${
+      className={`bg-zinc-900 border-[1px] border-zinc-800 rounded-xl p-2 z-20 ${
         activeNav ? "hidden" : "flex"
       }`}
-      content="Email"
+      content={
+        <span>
+          Email <kbd>9</kbd>
+        </span>
+      }
       placement="right"
       animate={{
         mount: { x: 5, opacity: 1 },
@@ -323,13 +333,18 @@ function SocialMediaLink({
   href,
   title,
   icon,
+  id,
 }: SocialMediaLinkProps) {
   return (
     <Tooltip
-      className={`bg-zinc-900 border-[1px] border-zinc-800 rounded-xl p-2 ${
+      className={`bg-zinc-900 border-[1px] border-zinc-800 rounded-xl p-2 z-20 ${
         activeNav ? "hidden" : "flex"
       }`}
-      content={title}
+      content={
+        <span>
+          {title} <kbd>{id}</kbd>
+        </span>
+      }
       placement="right"
       animate={{
         mount: { x: 5, opacity: 1 },
@@ -371,7 +386,7 @@ function NavigationLink({
 
   return (
     <Tooltip
-      className={`bg-zinc-900 border-[1px] border-zinc-800 rounded-xl p-2 ${
+      className={`bg-zinc-900 border-[1px] border-zinc-800 rounded-xl p-2 z-20 ${
         activeNav ? "hidden" : "flex"
       } ${isActive && "hidden"}`}
       content={
@@ -465,10 +480,11 @@ function HotkeysNavigation({ children }: HotkeysNavigationProps) {
   useHotkeys("2", () => router.push("/about"));
   useHotkeys("3", () => router.push("/experience"));
   useHotkeys("4", () => router.push("/education"));
-  // useHotkeys("5", () => router.push("/about"));
-  // useHotkeys("6", () => router.push("/about"));
-  // useHotkeys("7", () => router.push("/about"));
-  // useHotkeys("8", () => router.push("/about"));
+  useHotkeys("5", () => window.open(socialMediaLinks[0].href));
+  useHotkeys("6", () => window.open(socialMediaLinks[1].href));
+  useHotkeys("7", () => window.open(socialMediaLinks[2].href));
+  useHotkeys("8", () => window.open(socialMediaLinks[3].href));
+  useHotkeys("9", () => window.open("mailto:diogo.amv19@gmail.com"));
 
   return <>{children}</>;
 }
