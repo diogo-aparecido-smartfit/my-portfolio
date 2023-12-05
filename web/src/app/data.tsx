@@ -121,6 +121,14 @@ export const projects = [
   },
 ];
 
+export const experiences = [
+  {
+    title: "Jovem Aprendiz",
+    company: "Osaka Toyota",
+    period: "Fev 2021 - Jun 2022",
+  },
+];
+
 export interface CourseProps {
   id: string;
   title: string;

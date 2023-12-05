@@ -23,11 +23,8 @@ export default function ToolCard({
         <span className="flex p-6 w-fit text-5xl rounded-xl bg-zinc-800 mt-6">
           {icon}
         </span>
-        <div className="flex w-full items-center justify-between mt-6 gap-2">
+        <div className="flex w-full items-center justify-center mt-6 gap-2">
           <h1 className="font-semibold">{technology}</h1>
-          <span className="py-[6px] px-3 rounded-3xl border-[1px] border-darkBorder text-zinc-400">
-            {tag}
-          </span>
         </div>
       </div>
     </div>

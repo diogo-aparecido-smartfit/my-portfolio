@@ -60,6 +60,8 @@ export default function ProjectList({
         {projectsData && projectDetailsPage
           ? projectsData
               .filter((project) => !pathname.includes(project.id))
+              .slice()
+              .reverse()
               .map((project) => (
                 <ProjectCard
                   key={project.id}
@@ -70,16 +72,19 @@ export default function ProjectList({
                   github={project.github}
                 />
               ))
-          : projectsData?.map((project) => (
-              <ProjectCard
-                key={project.id}
-                id={project.id}
-                title={project.title}
-                subtitle={project.subtitle}
-                image={project.image}
-                github={project.github}
-              />
-            ))}
+          : projectsData
+              ?.slice()
+              .reverse()
+              .map((project) => (
+                <ProjectCard
+                  key={project.id}
+                  id={project.id}
+                  title={project.title}
+                  subtitle={project.subtitle}
+                  image={project.image}
+                  github={project.github}
+                />
+              ))}
       </ul>
     </div>
   );

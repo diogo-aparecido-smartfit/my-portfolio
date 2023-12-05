@@ -38,7 +38,7 @@ export default function Page() {
           style={{ transition: "all .2s" }}
           debug={false}
         >
-          <ul className="mt-4 grid sm:grid-cols-2 xl:grid-cols-3 gap-2 ">
+          <ul className="mt-4 grid sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2 ">
             {technologies.map((technology) => (
               <ToolCard
                 className="glow:bg-neutral-400/20 glow:border-neutral-100 border-[1px] border-transparent"

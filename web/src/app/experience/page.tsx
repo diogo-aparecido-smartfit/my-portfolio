@@ -1,3 +1,4 @@
+import ExperienceList from "@/components/ExperienceList";
 import ProjectList from "@/components/ProjectList";
 import Text from "@/components/Text";
 import { Metadata } from "next";
@@ -24,7 +25,8 @@ export default function Page() {
         <ProjectList projectsPage />
       </div>
       <div className="flex flex-col text-zinc-500 my-6">
-        <h2 className="font-semibold text-2xl sm:text-3xl">Experiência</h2>
+        <h2 className="font-semibold text-2xl sm:text-3xl mb-6">Experiência</h2>
+        <ExperienceList />
       </div>
     </main>
   );
