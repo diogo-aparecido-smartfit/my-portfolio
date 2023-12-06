@@ -115,7 +115,7 @@ export default function Post() {
                 <Image
                   alt="Imagem do projeto"
                   src={image}
-                  className={`rounded-xl aspect-video origin-customTransform transition-all duration-300 ease-in-out `}
+                  className={`rounded-xl origin-customTransform transition-all duration-300 ease-in-out `}
                 />
               </motion.div>
               <div
@@ -144,14 +144,14 @@ export default function Post() {
             <ul className="grid grid-cols-1 sm:grid-cols-2 w-full gap-2 mt-6 ">
               {post.detailsProjectImages.map((image, i) => (
                 <button
-                  className="w-full h-full overflow-hidden rounded-xl group/img border-[1px] border-zinc-900 hover:border-zinc-700 duration-300  transition-all"
+                  className="flex w-full h-full overflow-hidden rounded-xl group/img border-[1px] border-zinc-900 hover:border-zinc-700 duration-300  transition-all"
                   onClick={() => handleShowImage(image)}
                 >
                   <Image
                     key={i}
                     alt="Imagem do projeto"
                     src={image}
-                    className="w-full h-full aspect-video group-hover/img:scale-110  duration-300 transition-all"
+                    className="w-full h-full group-hover/img:scale-110  duration-300 transition-all"
                   />
                 </button>
               ))}
