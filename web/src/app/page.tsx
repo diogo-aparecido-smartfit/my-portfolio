@@ -21,9 +21,8 @@ export default function Home() {
       </div>
       <div className="flex gap-2 mt-4 mb-12">
         <a
-          href="/CV.pdf"
+          href="https://drive.google.com/file/d/1vZVLwhR8wokrPPX-qoePsqA3Mz0K_LJi/view?usp=sharing"
           target="_blank"
-          download="CV.pdf"
           className="flex items-center rounded-xl bg-white text-zinc-950 border-[1px] border-darkBorder p-3 w-full max-w-[160px] hover:bg-transparent hover:text-white transition-all justify-between font-semibold duration-700 gap-1 group/edit"
         >
           <LuFileCode2 /> Curriculo
