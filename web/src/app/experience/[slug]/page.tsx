@@ -34,7 +34,6 @@ export default function Post() {
 
   useEffect(() => {
     const id = router.slug;
-    console.log(id);
     const post = projects.find((post) => post.id === id);
     setPost(post);
   }, []);

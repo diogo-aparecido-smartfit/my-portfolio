@@ -43,6 +43,7 @@ export default function Particles({
   ease = 50,
   refresh = false,
 }: ParticlesProps) {
+  const [prevScrollHeight, setPrevScrollHeight] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const canvasContainerRef = useRef<HTMLDivElement>(null);
   const context = useRef<CanvasRenderingContext2D | null>(null);
@@ -58,12 +59,31 @@ export default function Particles({
     }
     initCanvas();
     animate();
+
     window.addEventListener("resize", initCanvas);
 
     return () => {
       window.removeEventListener("resize", initCanvas);
     };
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollHeight = document.body.scrollHeight;
+
+      if (currentScrollHeight !== prevScrollHeight) {
+        setPrevScrollHeight(currentScrollHeight);
+
+        initCanvas();
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollHeight]);
 
   useEffect(() => {
     onMouseMove();
@@ -109,7 +129,7 @@ export default function Particles({
     if (canvasContainerRef.current && canvasRef.current && context.current) {
       circles.current.length = 0;
       canvasSize.current.w = canvasContainerRef.current.offsetWidth;
-      canvasSize.current.h = canvasContainerRef.current.offsetHeight;
+      canvasSize.current.h = document.body.offsetHeight;
       canvasRef.current.width = canvasSize.current.w * dpr;
       canvasRef.current.height = canvasSize.current.h * dpr;
       canvasRef.current.style.width = `${canvasSize.current.w}px`;
