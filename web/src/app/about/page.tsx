@@ -41,7 +41,7 @@ export default function Page() {
           <ul className="mt-4 grid sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2 ">
             {technologies.map((technology) => (
               <ToolCard
-                className="glow:bg-neutral-400/20 glow:border-neutral-100 border-[1px] border-transparent"
+                className="glow:bg-zinc-800/70 glow:border-neutral-100 border-[1px] border-transparent"
                 key={technology.tag}
                 icon={technology.icon}
                 technology={technology.technology}

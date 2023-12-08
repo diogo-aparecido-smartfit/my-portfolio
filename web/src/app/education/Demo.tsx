@@ -17,12 +17,6 @@ export default function Demo() {
   return (
     <main className="flex flex-col w-full p-8 sm:p-20 md:p-28 xl:p-36 2xl:p-52">
       <Text type="phrase">{phrase}</Text>
-      <div className="w-full p-4 bg-neutral-400/10 border-[1px] border-neutral-400 rounded-lg text-neutral-300 my-4">
-        <p>
-          <span>💡</span> Clique no curso em específico para ser redirecionado à
-          pagina de informações adicionais do mesmo.
-        </p>
-      </div>
 
       <ul className="flex flex-col w-full rounded-xl overflow-hidden mt-4 gap-[1px]">
         {coursesData &&

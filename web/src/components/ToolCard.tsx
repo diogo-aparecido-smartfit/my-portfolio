@@ -24,7 +24,9 @@ export default function ToolCard({
           {icon}
         </span>
         <div className="flex w-full items-center justify-center mt-6 gap-2">
-          <h1 className="font-semibold">{technology}</h1>
+          <h1 className="font-semibold px-6 py-2 border-[1px] border-zinc-800 rounded-full">
+            {technology}
+          </h1>
         </div>
       </div>
     </div>
