@@ -66,7 +66,7 @@ const socialMediaLinks = [
   },
   {
     id: 7,
-    href: "https://www.instagram.com/diogomv.dev/",
+    href: "https://www.instagram.com/marqxs.dev",
     title: "Instagram",
     icon: <BiLogoInstagramAlt />,
   },
