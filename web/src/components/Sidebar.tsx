@@ -185,7 +185,9 @@ export default function Sidebar() {
 
       {/* md> */}
       <motion.nav
-        className={`hidden md:flex fixed h-screen p-2 lg:p-4 w-fit bg-zinc-950 shadow-xl border-r-[1px] border-zinc-900 text-white text-xl transition-all duration-300 z-10`}
+        className={`hidden md:flex fixed h-screen p-2 lg:p-4 w-fit ${
+          activeNav ? "max-w-[280px]" : "max-w-[90px]"
+        } bg-zinc-950 shadow-xl border-r-[1px] border-zinc-900 text-white text-xl transition-all duration-300 z-10`}
       >
         <button
           onClick={() => handleToggleDesktopSidebar()}

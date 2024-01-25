@@ -5,6 +5,7 @@ import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 import ParticlesBackground from "@/components/ParticlesBackground";
 import Intro from "@/components/Intro";
+import ShootingStars from "@/components/ShootingStars";
 
 const grotesk = Hanken_Grotesk({ subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export default function RootLayout({
           className="absolute inset-0 -z-10 animate-fade-in"
           quantity={300}
         />
+        <ShootingStars />
       </body>
     </html>
   );
