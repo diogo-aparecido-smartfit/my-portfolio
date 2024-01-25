@@ -80,7 +80,7 @@ export default function Modal({ isOpen, handleOpenModal, url }: ModalProps) {
           animate="visible"
           initial="hidden"
           exit="exit"
-          className={`flex w-screen h-screen fixed items-center justify-center p-4 sm:p-0 left-0 transition-all duration-300 ease-in-out z-50 `}
+          className={`flex w-screen h-screen fixed items-center justify-center p-4 sm:p-0 left-0 transition-all duration-700 ease-in-out z-50 `}
         >
           <motion.div
             variants={child}
@@ -100,7 +100,7 @@ export default function Modal({ isOpen, handleOpenModal, url }: ModalProps) {
 
                     <p className="text-sm text-zinc-400 break-words">
                       Você compreende que o link no qual você será redirecionado
-                      é apenas uma beta e não a aplicação final podendo não
+                      é apenas uma beta e não a aplicação final, podendo não
                       conter funcionalidades e atualizações que a aplicação
                       original teria?
                     </p>
@@ -109,17 +109,17 @@ export default function Modal({ isOpen, handleOpenModal, url }: ModalProps) {
                 <a
                   href={availableUrl ? url : undefined}
                   target="_blank"
-                  className={`flex items-center justify-center w-full bg-zinc-800 border-[1px] border-darkBorder p-3 relative font-bold text-white overflow-hidden rounded-xl mt-4 animate-availableButton group transition-all duration-300 ${
+                  className={`flex items-center justify-center w-full bg-zinc-800 border-[1px] border-darkBorder p-3 relative font-bold text-white overflow-hidden rounded-xl mt-4 animate-availableButton group transition-all duration-700 ${
                     availableUrl ? "cursor-pointer" : "cursor-not-allowed"
                   }`}
                 >
                   <p
-                    className={`relative z-30  text-zinc-700 overflow-hidden max-h-6   transition-all duration-300`}
+                    className={`relative z-30  text-zinc-700 overflow-hidden max-h-6   transition-all duration-700`}
                   >
                     <div
                       className={`flex flex-col ${
                         availableUrl &&
-                        "group-hover:-translate-y-10 transition-all duration-300 ease-in-out"
+                        "group-hover:-translate-y-10 transition-all duration-700 ease-in-out"
                       }`}
                     >
                       <p>Sim, eu compreendo</p>
@@ -132,7 +132,7 @@ export default function Modal({ isOpen, handleOpenModal, url }: ModalProps) {
                   <div
                     className={`absolute inset-0 w-full bg-white animate-progressFill ${
                       availableUrl && "group-hover:bg-[#5D3FD3]"
-                    }  transition-all duration-300`}
+                    }  transition-all duration-700`}
                   ></div>
                 </a>
               </div>
