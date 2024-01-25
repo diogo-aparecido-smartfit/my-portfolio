@@ -10,6 +10,7 @@ import Marquee from "react-fast-marquee";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import { IoIosArrowBack } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
+import Modal from "@/components/Modal";
 
 interface ProjectProps {
   id: string;
@@ -28,9 +29,18 @@ interface ProjectProps {
 }
 
 export default function Post() {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [post, setPost] = useState<ProjectProps>();
   const [image, setImage] = useState<StaticImageData | null>(null);
   const router = useParams();
+
+  function handleOpenModal() {
+    if (modalIsOpen) {
+      setModalIsOpen(false);
+    } else {
+      setModalIsOpen(true);
+    }
+  }
 
   useEffect(() => {
     const id = router.slug;
@@ -124,6 +134,11 @@ export default function Post() {
             </motion.div>
           )}
         </AnimatePresence>
+        <Modal
+          url={post.deploy}
+          isOpen={modalIsOpen}
+          handleOpenModal={handleOpenModal}
+        />
         <article className="flex flex-col items-center p-8 sm:py-20 md:py-28 xl:py-36 2xl:py-52 sm:max-w-xl md:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl transition-all">
           <header className="flex flex-col w-full">
             <Link
@@ -195,13 +210,12 @@ export default function Post() {
                   </a>
                 )}
                 {post.deploy && (
-                  <a
-                    target="_blank"
-                    href={post.deploy}
+                  <button
+                    onClick={() => handleOpenModal()}
                     className="flex items-center rounded-xl bg-zinc-800 border-[1px] border-darkBorder p-3 w-full hover:bg-white hover:text-zinc-900 hover:border-zinc-800  justify-center gap-4   transition-all duration-200 origin-customTransform text-sm xl:text-base"
                   >
                     <FiExternalLink /> Ver Demo
-                  </a>
+                  </button>
                 )}
               </div>
             </div>

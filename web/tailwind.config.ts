@@ -8,6 +8,20 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        availableButton: "availableButton 4s",
+        progressFill: "progressButton 3s ease-out",
+      },
+      keyframes: {
+        availableButton: {
+          "0%": { color: "#fff" },
+          "100%": { color: "rgb(63 63 70 / 1)" },
+        },
+        progressButton: {
+          "0%": { width: "0%", background: "rgb(63 63 70 / 1)" },
+          "100%": { width: "100%", background: "#fff" },
+        },
+      },
       transformOrigin: {
         customTransform: "50% 50% 0px",
       },
