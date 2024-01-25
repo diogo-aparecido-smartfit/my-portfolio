@@ -25,13 +25,14 @@ export default function ShootingStars() {
     const createStar = () => {
       const star = document.createElement("span");
       star.className = "shootingStars";
+
       star.style.left = `${Math.random() * document.body.scrollWidth}px`;
       star.style.top = `${Math.random() * prevScrollHeight}px`;
 
       star.addEventListener("animationiteration", () => {
         // Ajusta a posição da estrela ao final de cada iteração da animação
         star.style.left = `${Math.random() * document.body.scrollWidth}px`;
-        star.style.top = `${Math.random() * prevScrollHeight}px`;
+        star.style.top = `${Math.random() * document.body.scrollHeight}px`;
         star.style.animationDelay = `${Math.random() * 10}s`;
       });
 
