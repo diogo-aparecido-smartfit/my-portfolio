@@ -3,23 +3,28 @@
 import { useEffect, useState } from "react";
 
 export default function ShootingStars() {
-  const [prevScrollHeight, setPrevScrollHeight] = useState(0);
+  const [prevDocumentHeight, setPrevDocumentHeight] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollHeight = document.body.scrollHeight;
+    setTimeout(() => {
+      setPrevDocumentHeight(document.body.offsetHeight);
+    }, 3100);
 
-      if (currentScrollHeight !== prevScrollHeight) {
-        setPrevScrollHeight(currentScrollHeight);
+    const handleResize = () => {
+      // Atualiza o estado apenas se a altura do documento for alterada
+      if (document.body.offsetHeight !== prevDocumentHeight) {
+        setPrevDocumentHeight(document.body.offsetHeight);
+      } else {
+        return;
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
     };
-  }, [prevScrollHeight]);
+  }, [prevDocumentHeight]);
 
   useEffect(() => {
     const createStar = () => {
@@ -27,7 +32,7 @@ export default function ShootingStars() {
       star.className = "shootingStars";
 
       star.style.left = `${Math.random() * document.body.scrollWidth}px`;
-      star.style.top = `${Math.random() * prevScrollHeight}px`;
+      star.style.top = `${Math.random() * prevDocumentHeight}px`;
 
       star.addEventListener("animationiteration", () => {
         // Ajusta a posição da estrela ao final de cada iteração da animação
@@ -42,18 +47,23 @@ export default function ShootingStars() {
     const starsContainer = document.getElementById("stars-container");
     if (starsContainer) {
       starsContainer.style.width = `${document.body.offsetWidth}px`;
-      starsContainer.style.height = `${prevScrollHeight}px`;
+      starsContainer.style.height = `${prevDocumentHeight}px`;
     }
 
-    const createStars = () => {
-      for (let i = 0; i < 1; i++) {
+    const createStars = (i: number) => {
+      setTimeout(function () {
         const star = createStar();
         starsContainer?.appendChild(star);
-      }
+      }, 10000 * i);
     };
 
-    createStars();
-  }, [prevScrollHeight]);
+    let i = 0;
+
+    while (i < 5) {
+      createStars(i);
+      i++;
+    }
+  }, [prevDocumentHeight]);
 
   return <div id="stars-container" className="stars-container" />;
 }
