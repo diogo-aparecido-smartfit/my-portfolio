@@ -13,10 +13,9 @@ interface ModalProps {
 export default function Modal({ isOpen, handleOpenModal, url }: ModalProps) {
   const [availableUrl, setAvailableUrl] = useState(false);
 
-  console.log(availableUrl);
-
   useEffect(() => {
     if (isOpen) {
+      document.body.style.overflow = "hidden";
       const timer = setTimeout(() => {
         setAvailableUrl(true);
       }, 3100);
@@ -24,6 +23,7 @@ export default function Modal({ isOpen, handleOpenModal, url }: ModalProps) {
       return () => clearTimeout(timer); // Limpa o timer se o componente for desmontado antes do tempo limite
     } else {
       setAvailableUrl(false);
+      document.body.style.overflowY = "auto";
     }
   }, [isOpen]);
 
@@ -107,6 +107,7 @@ export default function Modal({ isOpen, handleOpenModal, url }: ModalProps) {
                   </div>
                 </div>
                 <a
+                  onClick={availableUrl ? () => handleOpenModal() : undefined}
                   href={availableUrl ? url : undefined}
                   target="_blank"
                   className={`flex items-center justify-center w-full bg-zinc-800 border-[1px] border-darkBorder p-3 relative font-bold text-white overflow-hidden rounded-xl mt-4 animate-availableButton group transition-all duration-700 ${
@@ -122,7 +123,7 @@ export default function Modal({ isOpen, handleOpenModal, url }: ModalProps) {
                         "group-hover:-translate-y-10 transition-all duration-700 ease-in-out"
                       }`}
                     >
-                      <p>Sim, eu compreendo</p>
+                      <p className="text-zinc-700">Sim, eu compreendo</p>
                       <span className="flex justify-center mt-5 text-white">
                         <BiLinkExternal />
                       </span>
