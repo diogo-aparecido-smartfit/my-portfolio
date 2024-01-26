@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import React, { useRef, useEffect, useState } from "react";
 
 interface MousePosition {
@@ -43,6 +44,8 @@ export default function Particles({
   ease = 50,
   refresh = false,
 }: ParticlesProps) {
+  const [prevPathname, setPrevPathname] = useState("");
+  const pathname = usePathname();
   const [prevScrollHeight, setPrevScrollHeight] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const canvasContainerRef = useRef<HTMLDivElement>(null);
@@ -66,6 +69,17 @@ export default function Particles({
       window.removeEventListener("resize", initCanvas);
     };
   }, []);
+
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      if (prevPathname !== pathname) {
+        setPrevPathname(pathname);
+      }
+      initCanvas();
+    };
+
+    handleRouteChange(pathname);
+  }, [pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
