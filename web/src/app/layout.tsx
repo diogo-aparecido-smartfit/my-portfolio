@@ -11,17 +11,22 @@ import { Meteors } from "@/components/Meteors";
 const grotesk = Hanken_Grotesk({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  twitter: {
-    title: "Diogo Marques",
-    description:
-      "Olá, eu me chamo Diogo, tenho 18 anos, sou desenvolvedor Full-Stack e este é meu portfólio!",
-    images: thumb.src,
-  },
   openGraph: {
     title: "Diogo Marques",
+    siteName: "Diogo Marques",
+    url: "https://www.diogomv.com.br/",
     description:
       "Olá, eu me chamo Diogo, tenho 18 anos, sou desenvolvedor Full-Stack e este é meu portfólio!",
-    images: thumb.src,
+    images: [
+      {
+        url: thumb.src,
+        width: 1800,
+        height: 1600,
+        alt: "Website preview",
+      },
+    ],
+    locale: "pt_BR",
+    type: "website",
   },
   icons: {
     icon: Favicon.src,
