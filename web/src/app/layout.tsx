@@ -17,6 +17,12 @@ export const metadata: Metadata = {
       "Olá, eu me chamo Diogo, tenho 18 anos, sou desenvolvedor Full-Stack e este é meu portfólio!",
     images: thumb.src,
   },
+  openGraph: {
+    title: "Diogo Marques",
+    description:
+      "Olá, eu me chamo Diogo, tenho 18 anos, sou desenvolvedor Full-Stack e este é meu portfólio!",
+    images: thumb.src,
+  },
   icons: {
     icon: Favicon.src,
   },
