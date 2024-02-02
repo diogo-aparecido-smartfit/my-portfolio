@@ -16,10 +16,6 @@ export const Meteors = ({
   useEffect(() => {
     const currentDocumentHeight = document.body.offsetHeight;
 
-    console.log(`Offset: ${document.body.offsetHeight}`);
-    console.log(`ScrollH: ${document.body.scrollHeight}`);
-    console.log(`Window Innert: ${document.body.scrollHeight}`);
-
     if (currentDocumentHeight !== prevDocumentHeight) {
       setPrevDocumentHeight(currentDocumentHeight);
     }

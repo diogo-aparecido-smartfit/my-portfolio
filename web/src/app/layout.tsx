@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Hanken_Grotesk } from "next/font/google";
-import thumb from "/public/thumb.jpg";
 import Favicon from "/public/favicon.ico";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
@@ -19,7 +18,7 @@ export const metadata: Metadata = {
       "Olá, eu me chamo Diogo, tenho 18 anos, sou desenvolvedor Full-Stack e este é meu portfólio!",
     images: [
       {
-        url: thumb.src,
+        url: "https://raw.githubusercontent.com/DiogoAMV/my-portfolio/main/web/public/thumb.jpg",
         width: 1800,
         height: 1600,
         alt: "Website preview",
