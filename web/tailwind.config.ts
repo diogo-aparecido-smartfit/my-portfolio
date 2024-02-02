@@ -9,10 +9,19 @@ const config: Config = {
   theme: {
     extend: {
       animation: {
+        "meteor-effect": "meteor 15s linear infinite",
         availableButton: "availableButton 4s",
         progressFill: "progressButton 3s ease-out",
       },
       keyframes: {
+        meteor: {
+          "0%": { transform: "rotate(215deg) translateX(0)", opacity: "0" },
+          "50%": { opacity: "1" },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: "0",
+          },
+        },
         availableButton: {
           "0%": { color: "#fff" },
           "100%": { color: "rgb(63 63 70 / 1)" },

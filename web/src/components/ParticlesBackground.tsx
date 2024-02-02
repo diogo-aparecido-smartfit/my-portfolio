@@ -71,33 +71,22 @@ export default function Particles({
   }, []);
 
   useEffect(() => {
-    const handleRouteChange = (url: string) => {
+    const handleRouteChange = () => {
       if (prevPathname !== pathname) {
         setPrevPathname(pathname);
+        setPrevScrollHeight(document.body.offsetHeight);
       }
       initCanvas();
     };
 
-    handleRouteChange(pathname);
-  }, [pathname]);
+    const currentScrollHeight = document.body.offsetHeight;
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollHeight = document.body.scrollHeight;
+    if (currentScrollHeight !== prevScrollHeight) {
+      setPrevScrollHeight(currentScrollHeight);
+    }
 
-      if (currentScrollHeight !== prevScrollHeight) {
-        setPrevScrollHeight(currentScrollHeight);
-
-        initCanvas();
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [prevScrollHeight]);
+    handleRouteChange();
+  }, [pathname, prevScrollHeight]);
 
   useEffect(() => {
     onMouseMove();

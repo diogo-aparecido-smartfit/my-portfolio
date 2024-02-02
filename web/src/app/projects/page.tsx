@@ -24,10 +24,6 @@ export default function Page() {
         <h2 className="font-semibold text-2xl sm:text-3xl">Projetos</h2>
         <ProjectList projectsPage />
       </div>
-      <div className="flex flex-col text-zinc-500 my-6">
-        <h2 className="font-semibold text-2xl sm:text-3xl mb-6">Experiência</h2>
-        <ExperienceList />
-      </div>
     </main>
   );
 }

@@ -39,14 +39,14 @@ const navigationRoutes = [
   },
   {
     id: 3,
-    href: "experience",
-    title: "Experiência",
+    href: "projects",
+    title: "Projetos",
     icon: <MdWorkOutline />,
   },
   {
     id: 4,
     href: "education",
-    title: "Educação",
+    title: "Formação",
     icon: <BiBookAlt />,
   },
 ];

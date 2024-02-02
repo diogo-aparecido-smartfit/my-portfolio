@@ -41,7 +41,7 @@ export default function ProjectCard({
           </div>
           <div className="flex flex-col gap-2 w-full mt-6 ">
             <Link
-              href={`/experience/${id}`}
+              href={`/projects/${id}`}
               className="flex items-center rounded-xl bg-darkBg border-[1px] border-darkBorder p-3 w-full hover:brightness-150  justify-center gap-4 text-sm sm:text-base"
             >
               <HiOutlineDocumentSearch /> Detalhes
@@ -69,7 +69,7 @@ export default function ProjectCard({
             </div>
             <div className="flex flex-row gap-2 w-full mt-6">
               <Link
-                href={`/experience/${id}`}
+                href={`/projects/${id}`}
                 className="flex items-center rounded-xl bg-darkBg border-[1px] border-darkBorder p-3 w-full hover:brightness-150  justify-center gap-4 scale-0 group-hover:scale-100 transition-all duration-200 origin-customTransform text-sm xl:text-base group/edit"
               >
                 <div className="flex max-w-[16px] overflow-hidden transition-all duration-300 ease-in-out">
