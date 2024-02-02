@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Hanken_Grotesk } from "next/font/google";
+import thumb from "/public/thumb.jpg";
 import Favicon from "/public/favicon.ico";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
@@ -10,9 +11,12 @@ import { Meteors } from "@/components/Meteors";
 const grotesk = Hanken_Grotesk({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Diogo Marques",
-  description:
-    "Olá, eu me chamo Diogo, tenho 18 anos, sou desenvolvedor Full-Stack e este é meu portfólio!",
+  twitter: {
+    title: "Diogo Marques",
+    description:
+      "Olá, eu me chamo Diogo, tenho 18 anos, sou desenvolvedor Full-Stack e este é meu portfólio!",
+    images: thumb.src,
+  },
   icons: {
     icon: Favicon.src,
   },
