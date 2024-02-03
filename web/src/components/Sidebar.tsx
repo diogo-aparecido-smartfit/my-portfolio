@@ -17,12 +17,13 @@ import {
   MdOutlineMail,
   MdWorkOutline,
 } from "react-icons/md";
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Tooltip } from "@material-tailwind/react";
 import { useHotkeys } from "react-hotkeys-hook";
+import Kbd from "./Kbd";
 
 const navigationRoutes = [
   {
@@ -301,7 +302,7 @@ function EmailRedirect({ activeNav }: EmailRedirectProps) {
       }`}
       content={
         <span>
-          Email <kbd>9</kbd>
+          Email <Kbd>9</Kbd>
         </span>
       }
       placement="right"
@@ -344,7 +345,7 @@ function SocialMediaLink({
       }`}
       content={
         <span>
-          {title} <kbd>{id}</kbd>
+          {title} <Kbd>{id}</Kbd>
         </span>
       }
       placement="right"
@@ -392,8 +393,8 @@ function NavigationLink({
         activeNav ? "hidden" : "flex"
       } ${isActive && "hidden"}`}
       content={
-        <span>
-          {title} <kbd>{id}</kbd>
+        <span className="flex items-center gap-2">
+          {title} <Kbd>{id}</Kbd>
         </span>
       }
       placement="right"
@@ -427,11 +428,7 @@ function NavigationLink({
               {title}
             </span>
           </div>
-          <kbd
-            className={`${activeNav ? "flex" : "hidden"} text-sm bg-zinc-800`}
-          >
-            {id}
-          </kbd>
+          <Kbd className={`${activeNav ? "flex" : "hidden"} text-sm`}>{id}</Kbd>
         </span>
       </Link>
     </Tooltip>
@@ -479,9 +476,9 @@ function HotkeysNavigation({ children }: HotkeysNavigationProps) {
   const router = useRouter();
 
   useHotkeys("1", () => router.push("/"));
-  useHotkeys("2", () => router.push("/about"));
-  useHotkeys("3", () => router.push("/experience"));
-  useHotkeys("4", () => router.push("/education"));
+  useHotkeys("2", () => router.push(`/${navigationRoutes[1].href}`));
+  useHotkeys("3", () => router.push(`/${navigationRoutes[2].href}`));
+  useHotkeys("4", () => router.push(`/${navigationRoutes[3].href}`));
   useHotkeys("5", () => window.open(socialMediaLinks[0].href));
   useHotkeys("6", () => window.open(socialMediaLinks[1].href));
   useHotkeys("7", () => window.open(socialMediaLinks[2].href));

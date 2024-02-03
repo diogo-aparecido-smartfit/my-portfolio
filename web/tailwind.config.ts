@@ -12,8 +12,15 @@ const config: Config = {
         "meteor-effect": "meteor 15s linear infinite",
         availableButton: "availableButton 4s",
         progressFill: "progressButton 3s ease-out",
+        scroll:
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
       keyframes: {
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
         meteor: {
           "0%": { transform: "rotate(215deg) translateX(0)", opacity: "0" },
           "50%": { opacity: "1" },

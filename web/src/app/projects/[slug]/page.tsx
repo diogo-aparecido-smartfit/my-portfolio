@@ -158,6 +158,7 @@ export default function Post() {
             <ul className="grid grid-cols-1 sm:grid-cols-2 w-full gap-2 mt-6 ">
               {post.detailsProjectImages.map((image, i) => (
                 <button
+                  key={i}
                   className="flex w-full h-full overflow-hidden rounded-xl group/img border-[1px] border-zinc-900 hover:border-zinc-700 duration-300  transition-all"
                   onClick={() => handleShowImage(image)}
                 >

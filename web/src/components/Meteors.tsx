@@ -32,8 +32,8 @@ export const Meteors = ({
             className
           )}
           style={{
-            top: Math.floor(Math.random() * prevDocumentHeight + -400) + "px",
-            left: Math.floor(Math.random() * prevDocumentHeight + -400) + "px",
+            top: Math.floor(Math.random() * prevDocumentHeight) + "px",
+            left: Math.floor(Math.random() * prevDocumentHeight) + "px",
             animationDelay: Math.random() * (0.8 - 0.2) + 0.2 + "s",
             animationDuration: Math.floor(Math.random() * (20 - 2) + 2) + "s",
           }}

@@ -126,6 +126,29 @@ export const experiences = [
     title: "Jovem Aprendiz",
     company: "Osaka Toyota",
     period: "Fev 2021 - Jun 2022",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae harum, blanditiis illo eos eveniet provident voluptates debitis officia, dolorem rerum soluta dignissimos laborum eum! Deserunt asperiores iure fugit modi inventore!",
+  },
+  {
+    title: "Jovem Aprendiz",
+    company: "Osaka Toyota",
+    period: "Fev 2021 - Jun 2022",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae harum, blanditiis illo eos eveniet provident voluptates debitis officia, dolorem rerum soluta dignissimos laborum eum! Deserunt asperiores iure fugit modi inventore!",
+  },
+  {
+    title: "Jovem Aprendiz",
+    company: "Osaka Toyota",
+    period: "Fev 2021 - Jun 2022",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae harum, blanditiis illo eos eveniet provident voluptates debitis officia, dolorem rerum soluta dignissimos laborum eum! Deserunt asperiores iure fugit modi inventore!",
+  },
+  {
+    title: "Jovem Aprendiz",
+    company: "Osaka Toyota",
+    period: "Fev 2021 - Jun 2022",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae harum, blanditiis illo eos eveniet provident voluptates debitis officia, dolorem rerum soluta dignissimos laborum eum! Deserunt asperiores iure fugit modi inventore!",
   },
 ];
 

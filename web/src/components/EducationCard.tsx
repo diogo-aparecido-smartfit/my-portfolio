@@ -17,9 +17,9 @@ export default function EducationCard({
   return (
     <div className="flex flex-col items-center justify-between w-full h-fit bg-zinc-900 overflow-hidden gap-1 border-[1px] border-transparent hover:bg-transparent text-zinc-400 hover:text-white transition-all duration-300 group">
       <div className="flex w-full h-full">
-        <div className="bg-neutral-800/40 group-hover:bg-white transition-all duration-300">
+        <div className="sm:bg-neutral-800/40 bg-white group-hover:bg-white transition-all duration-300">
           <Image
-            className="w-20 sm:w-32 grayscale group-hover:grayscale-0 transition-all duration-300 invert group-hover:invert-0"
+            className="w-20 sm:w-32 sm:grayscale group-hover:grayscale-0 transition-all duration-300 sm:invert group-hover:invert-0"
             src={image}
             alt="Imagem do curso/faculdade"
           />

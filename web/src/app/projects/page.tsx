@@ -1,4 +1,3 @@
-import ExperienceList from "@/components/ExperienceList";
 import ProjectList from "@/components/ProjectList";
 import Text from "@/components/Text";
 import { Metadata } from "next";
