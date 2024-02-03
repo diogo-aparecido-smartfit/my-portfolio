@@ -123,25 +123,18 @@ export const projects = [
 
 export const experiences = [
   {
-    title: "Jovem Aprendiz",
-    company: "Osaka Toyota",
-    period: "Fev 2021 - Jun 2022",
+    title: "Desenvolvedor de Software Voluntário",
+    company: "Andreza Biquinis",
+    period: "Set 2023 - Nov 2023",
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae harum, blanditiis illo eos eveniet provident voluptates debitis officia, dolorem rerum soluta dignissimos laborum eum! Deserunt asperiores iure fugit modi inventore!",
+      "Responsável por desenvolver um site de gerenciamento de produtos para ser usado como vitrine aos clientes. O site conta com sistema de autenticação, personalização de elementos como contato, email e também a possibilidade de criar, editar e remover produtos e categorias.",
   },
   {
-    title: "Jovem Aprendiz",
-    company: "Osaka Toyota",
-    period: "Fev 2021 - Jun 2022",
+    title: "Desenvolvedor de Software Voluntário",
+    company: "Rener Force",
+    period: "Jul 2023 - Ago 2023",
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae harum, blanditiis illo eos eveniet provident voluptates debitis officia, dolorem rerum soluta dignissimos laborum eum! Deserunt asperiores iure fugit modi inventore!",
-  },
-  {
-    title: "Jovem Aprendiz",
-    company: "Osaka Toyota",
-    period: "Fev 2021 - Jun 2022",
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae harum, blanditiis illo eos eveniet provident voluptates debitis officia, dolorem rerum soluta dignissimos laborum eum! Deserunt asperiores iure fugit modi inventore!",
+      "Atribuído a função de criar um sistema de gerenciamento de orçamentos para os clientes da Rener Force, uma oficina mecânica. O sistema desenvolvido é capaz de criar e listar clientes e imprimir orçamentos e notas fiscais em PDF, além do armazenamento em tempo real de todos os dados na nuvem.",
   },
   {
     title: "Jovem Aprendiz",
