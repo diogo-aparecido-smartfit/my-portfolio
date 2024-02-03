@@ -37,7 +37,7 @@ export const projects = [
     subtitle: "Sistema de orçamentos para oficina mecânica.",
     period: "Jul 2023 - Ago 2023",
     projectType: "Full-Stack",
-    jobType: "Voluntário",
+    jobType: "Desenvolvedor",
     technologies: [
       <FaHtml5 width={30} height={30} />,
       <FaCss3 width={30} height={30} />,
@@ -79,7 +79,7 @@ export const projects = [
     subtitle: "Loja virtual online para a venda de biquinis.",
     period: "Set 2023 - Nov 2023",
     projectType: "Full-Stack",
-    jobType: "Voluntário",
+    jobType: "Desenvolvedor",
     technologies: [
       <FaHtml5 />,
       <FaCss3 />,
