@@ -39,6 +39,22 @@ import {
 import { StaticImageData } from "next/image";
 import { IoLogoJavascript } from "react-icons/io";
 
+export interface ProjectProps {
+  id: string;
+  title: string;
+  subtitle: string;
+  period: string;
+  projectType: string;
+  jobType: string;
+  github: string;
+  deploy: string;
+  overview: JSX.Element;
+  specifications: string[];
+  detailsProjectImages?: StaticImageData[];
+  technologies: JSX.Element[];
+  image: StaticImageData;
+}
+
 export const projects = [
   {
     id: "rener-force",
