@@ -4,6 +4,11 @@ import { IoIosArrowForward } from "react-icons/io";
 import ProjectList from "@/components/ProjectList";
 import Text from "@/components/Text";
 import { FiDownloadCloud } from "react-icons/fi";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Início | Diogo Marques",
+};
 
 export default function Home() {
   const phrase = "Use **technology**\n to make the **difference**.";
