@@ -21,7 +21,7 @@ export default function Page() {
 
       <div className="flex flex-col text-zinc-500 my-6">
         <h2 className="font-semibold text-2xl sm:text-3xl">Projetos</h2>
-        <ProjectList projectsPage />
+        <ProjectList pageType="projects" />
       </div>
     </main>
   );

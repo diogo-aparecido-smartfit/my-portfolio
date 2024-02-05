@@ -46,7 +46,7 @@ export default function Home() {
           </div>
         </a>
       </div>
-      <ProjectList title="Últimos projetos" />
+      <ProjectList pageType="home" title="Últimos projetos" />
     </main>
   );
 }

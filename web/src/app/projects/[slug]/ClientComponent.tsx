@@ -18,7 +18,6 @@ export default function ClientComponent() {
   const [image, setImage] = useState<StaticImageData | null>(null);
   const router = useParams();
 
-
   function handleOpenModal() {
     if (modalIsOpen) {
       setModalIsOpen(false);
@@ -238,7 +237,10 @@ export default function ClientComponent() {
           </div>
 
           <div className="flex mt-24">
-            <ProjectList projectDetailsPage title="Você também pode gostar" />
+            <ProjectList
+              pageType="detailProject"
+              title="Você também pode gostar"
+            />
           </div>
         </article>
       </div>

@@ -10,8 +10,7 @@ import { usePathname } from "next/navigation";
 
 interface ProjectListProps {
   title?: string;
-  projectsPage?: boolean;
-  projectDetailsPage?: boolean;
+  pageType: "home" | "projects" | "detailProject";
 }
 
 interface ProjectsProps {
@@ -22,11 +21,7 @@ interface ProjectsProps {
   image: StaticImageData;
 }
 
-export default function ProjectList({
-  projectsPage,
-  title,
-  projectDetailsPage,
-}: ProjectListProps) {
+export default function ProjectList({ pageType, title }: ProjectListProps) {
   const [projectsData, setProjectsData] = useState<ProjectsProps[]>();
   const pathname = usePathname();
 
@@ -41,7 +36,7 @@ export default function ProjectList({
         <h1 className="text-lg sm:text-2xl font-semibold  text-zinc-200">
           {title}
         </h1>
-        {!projectsPage && (
+        {pageType !== "projects" && (
           <Link
             href="/projects"
             className="flex items-center rounded-lg bg-darkBg border-[1px] border-darkBorder px-2 py-1 sm:px-5 sm:py-1 w-fit gap-1 sm:gap-2 hover:brightness-150 transition-all justify-between duration-300 group/edit"
@@ -57,7 +52,54 @@ export default function ProjectList({
         )}
       </div>
       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full h-full max-w-full">
-        {projectsData && projectDetailsPage
+        {projectsData && (
+          <>
+            {pageType === "detailProject"
+              ? projectsData
+                  .filter((project) => !pathname.includes(project.id))
+                  .slice(0, 2)
+                  .reverse()
+                  .map((project) => (
+                    <ProjectCard
+                      key={project.id}
+                      id={project.id}
+                      title={project.title}
+                      subtitle={project.subtitle}
+                      image={project.image}
+                      github={project.github}
+                    />
+                  ))
+              : pageType === "home"
+              ? projectsData
+                  .slice(0, 2)
+                  .reverse()
+                  .map((project) => (
+                    <ProjectCard
+                      key={project.id}
+                      id={project.id}
+                      title={project.title}
+                      subtitle={project.subtitle}
+                      image={project.image}
+                      github={project.github}
+                    />
+                  ))
+              : pageType === "projects" &&
+                projectsData
+                  .slice()
+                  .reverse()
+                  .map((project) => (
+                    <ProjectCard
+                      key={project.id}
+                      id={project.id}
+                      title={project.title}
+                      subtitle={project.subtitle}
+                      image={project.image}
+                      github={project.github}
+                    />
+                  ))}
+          </>
+        )}
+        {/* {projectsData
           ? projectsData
               .filter((project) => !pathname.includes(project.id))
               .slice(0, 2)
@@ -84,7 +126,7 @@ export default function ProjectList({
                   image={project.image}
                   github={project.github}
                 />
-              ))}
+              ))} */}
       </ul>
     </div>
   );
