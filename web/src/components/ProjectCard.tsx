@@ -23,11 +23,13 @@ export default function ProjectCard({
   return (
     <li className="flex flex-col gap-2 w-full">
       <article className="flex flex-col rounded-xl items-center justify-center border-[1px] cursor-pointer border-zinc-800 bg-zinc-950 transition-all duration-300 group overflow-hidden">
-        <Image
-          alt="Imagem do projeto"
-          src={image}
-          className="w-full h-full aspect-video sm:group-hover:blur-sm group-hover:opacity-60 transition-all duration-300"
-        />
+        <div className="flex">
+          <Image
+            alt="Imagem do projeto"
+            src={image}
+            className="w-full h-full aspect-video sm:group-hover:blur-sm group-hover:opacity-60 transition-all duration-300 object-cover"
+          />
+        </div>
 
         {/* mobile */}
         <div className="flex lg:hidden flex-col text-white p-4">

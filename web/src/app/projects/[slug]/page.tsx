@@ -200,7 +200,7 @@ export default function Post() {
               <div className="flex flex-col text-zinc-500 gap-3 overview">
                 {post.overview}
               </div>
-              <div className="flex flex-col md:flex-row w-full gap-3 md:gap-1">
+              <div className="flex flex-col mt-auto md:flex-row w-full gap-3 md:gap-1">
                 {post.github && (
                   <a
                     href={post.github}

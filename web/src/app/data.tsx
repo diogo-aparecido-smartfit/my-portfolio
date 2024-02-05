@@ -8,6 +8,11 @@ import andreza1 from "../../public/experience-images/mockup/andreza/andreza-1.jp
 import andreza2 from "../../public/experience-images/mockup/andreza/andreza-2.jpg";
 import andreza3 from "../../public/experience-images/mockup/andreza/andreza-3.jpg";
 import andreza4 from "../../public/experience-images/mockup/andreza/andreza-4.jpg";
+import bitMockup from "../../public/experience-images/mockup/bit/bit-mockup.jpg";
+import bit1 from "../../public/experience-images/mockup/bit/bit-1.jpg";
+import bit2 from "../../public/experience-images/mockup/bit/bit-2.jpg";
+import bit3 from "../../public/experience-images/mockup/bit/bit-3.jpg";
+import bit4 from "../../public/experience-images/mockup/bit/bit-4.jpg";
 import uniube from "../../public/education-images/uniube.png";
 import uniubeCampus from "../../public/education-images/uniube/uniube-campus.jpg";
 import jstack from "../../public/education-images/jstack.png";
@@ -17,8 +22,12 @@ import mycontacts from "../../public/education-images/jstack/mycontacts.jpg";
 import balta from "../../public/education-images/balta.png";
 import rocketseat from "../../public/education-images/rocketseat.png";
 import microsoft from "../../public/education-images/microsoft.png";
-import { BiLogoTypescript, BiLogoReact } from "react-icons/bi";
-import { FaCss3, FaHtml5, FaReact } from "react-icons/fa";
+import {
+  BiLogoTypescript,
+  BiLogoReact,
+  BiLogoPostgresql,
+} from "react-icons/bi";
+import { FaCss3, FaDocker, FaHtml5, FaReact } from "react-icons/fa";
 import { IoLogoFirebase } from "react-icons/io5";
 import { FaNodeJs } from "react-icons/fa";
 import {
@@ -118,6 +127,52 @@ export const projects = [
     deploy: "https://andreza-voluntary-project.vercel.app/",
     detailsProjectImages: [andreza1, andreza2, andreza3, andreza4],
     image: andrezaBiquinis,
+  },
+  {
+    id: "bit",
+    title: "Bit Blog - Projeto Pessoal",
+    subtitle: "Blog inglês sobre tecnologia.",
+    period: "Dec 2023 - Jan 2024",
+    projectType: "Full-Stack",
+    jobType: "Desenvolvedor",
+    technologies: [
+      <FaHtml5 />,
+      <FaCss3 />,
+      <IoLogoJavascript />,
+      <SiTypescript />,
+      <SiNextdotjs />,
+      <FaDocker />,
+      <SiDotnet />,
+      <BiLogoPostgresql />,
+    ],
+    overview: (
+      <>
+        <p>
+          Este projeto se trata de um blog de tecnologia com foco na língua
+          inglesa, o blog conta com as seguintes funcionalidades:
+        </p>
+        <ul>
+          <li>Gerenciamento de publicações</li>
+          <li>Autenticação de usuários</li>
+          <li>Sistema de autenticação e autorização c/ token JWT</li>
+          <li>Design responsivo</li>
+          <li>Editor de textos HTML para criação de posts (WYSIWYG)</li>
+          <li>API com conexão á banco de dados</li>
+        </ul>
+      </>
+    ),
+    specifications: [
+      "Projeto Full-Stack",
+      "Conexão com API & banco de dados PostgreSQL",
+      "Adm Dashboard & Responsivo",
+      "Roteamento dinâmico com NextJS",
+      "Sistema de autenticação & autorização c/ JWT",
+      "Rich Text Editor (WYSIWYG)",
+    ],
+    github: "https://github.com/DiogoAMV/bit",
+    deploy: "",
+    detailsProjectImages: [bit1, bit2, bit3, bit4],
+    image: bitMockup,
   },
 ];
 
