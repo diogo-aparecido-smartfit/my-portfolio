@@ -41,9 +41,9 @@ export default function ProjectList({
         <h1 className="text-lg sm:text-2xl font-semibold  text-zinc-200">
           {title}
         </h1>
-        {projectsPage ? null : (
+        {!projectsPage && (
           <Link
-            href="/experience"
+            href="/projects"
             className="flex items-center rounded-lg bg-darkBg border-[1px] border-darkBorder px-2 py-1 sm:px-5 sm:py-1 w-fit gap-1 sm:gap-2 hover:brightness-150 transition-all justify-between duration-300 group/edit"
           >
             <span className="hidden sm:flex">Ver todos</span>
@@ -60,7 +60,7 @@ export default function ProjectList({
         {projectsData && projectDetailsPage
           ? projectsData
               .filter((project) => !pathname.includes(project.id))
-              .slice()
+              .slice(0, 2)
               .reverse()
               .map((project) => (
                 <ProjectCard
@@ -73,7 +73,7 @@ export default function ProjectList({
                 />
               ))
           : projectsData
-              ?.slice()
+              ?.slice(0, 2)
               .reverse()
               .map((project) => (
                 <ProjectCard
