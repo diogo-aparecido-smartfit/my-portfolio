@@ -14,22 +14,16 @@
 Este projeto foi feito utilizando as seguintes tecnologias:
 
 Front-end:
-* [ReactJS](https://reactjs.org/)
-* [Typescript](https://www.typescriptlang.org/)
-* [TailwindCSS](https://tailwindcss.com/)
-* [sass](https://sass-lang.com/)
-* [React Toastify](https://www.npmjs.com/package/react-toastify)
-* [ViteJS](https://vitejs.dev/)
-* [Axios](https://axios-http.com/ptbr/docs/intro)
-* [Kbar](https://kbar.vercel.app/)
-* [lottie-react](https://lottiereact.com/)
-* [i18next](https://www.i18next.com/)
-
-Back-end:
-* [NodeJS](https://nodejs.org/en)
-* [Express](https://expressjs.com/)
-* [Docker](https://www.docker.com/)
-* [MongoDB](https://www.mongodb.com/)
+* [clsx](https://github.com/lukeed/clsx)
+* [framer-motion](https://www.framer.com/motion/)
+* [Next.js](https://nextjs.org/)
+* [Tailwind CSS](https://tailwindcss.com/)
+* [tailwind-merge](https://github.com/benface/tailwind-merge)
+* [react-icons](https://react-icons.github.io/react-icons/)
+* [react-markdown](https://github.com/remarkjs/react-markdown)
+* [react-hotkeys-hook](https://github.com/JohannesKlauss/react-hotkeys-hook)
+* [react-fast-marquee](https://github.com/lijinke666/react-fast-marquee)
+* [TypeScript](https://www.typescriptlang.org/)
 
 ## Como Iniciar?
 
@@ -45,21 +39,6 @@ git clone https://github.com/DiogoAMV/my-portfolio.git && cd my-portfolio
 ```
 
 **Siga os passos abaixo**
-
-### API
-
-```bash
-# Na pasta raiz do projeto, acesse a pasta 'api'
-$ cd api
-# Instale as dependências
-$ npm install
-# Com um contêiner MongoDB em execução, execute a api
-$ npm run dev
-```
-
-### WEB
-
-**Certifique-se de ter a api rodando**
 
 ```bash
 # Na pasta raiz do projeto, acesse a pasta 'web'
