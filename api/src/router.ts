@@ -1,9 +1,0 @@
-import multer from "multer";
-import { Router } from "express";
-
-const router = Router();
-export default router;
-
-router.get("/", (req, res) => {
-  res.send("Hello World");
-});
