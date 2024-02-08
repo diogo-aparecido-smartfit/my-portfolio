@@ -9,7 +9,6 @@ import { MdArrowRightAlt } from "react-icons/md";
 import { usePathname } from "next/navigation";
 
 interface ProjectListProps {
-  title?: string;
   pageType: "home" | "projects" | "detailProject";
 }
 
@@ -21,7 +20,7 @@ interface ProjectsProps {
   image: StaticImageData;
 }
 
-export default function ProjectList({ pageType, title }: ProjectListProps) {
+export default function ProjectList({ pageType }: ProjectListProps) {
   const [projectsData, setProjectsData] = useState<ProjectsProps[]>();
   const pathname = usePathname();
 
@@ -30,104 +29,41 @@ export default function ProjectList({ pageType, title }: ProjectListProps) {
     setProjectsData(data);
   }, []);
 
+  const renderFilteredProjects = (
+    projects: ProjectsProps[],
+    pageType: string
+  ) => {
+    switch (pageType) {
+      case "home":
+        return projects.slice(0, 2).reverse();
+      case "detailProject":
+        return projects
+          .filter((project) => !pathname.includes(project.id))
+          .slice(0, 2)
+          .reverse();
+      case "projects":
+        return projects.slice().reverse();
+      default:
+        return [];
+    }
+  };
+
+  const filteredProjects = projectsData
+    ? renderFilteredProjects(projectsData, pageType)
+    : [];
+
   return (
-    <div className="flex flex-col">
-      <div className="flex flex-row justify-between items-center mb-4">
-        <h1 className="text-lg sm:text-2xl font-semibold  text-zinc-200">
-          {title}
-        </h1>
-        {pageType !== "projects" && (
-          <Link
-            href="/projects"
-            className="flex items-center rounded-lg bg-darkBg border-[1px] border-darkBorder px-2 py-1 sm:px-5 sm:py-1 w-fit gap-1 sm:gap-2 hover:brightness-150 transition-all justify-between duration-300 group/edit"
-          >
-            <span className="hidden sm:flex">Ver todos</span>
-            <div className="flex max-w-[16px] overflow-hidden transition-all duration-100 ease-in-out">
-              <div className="flex group-hover/edit:translate-x-0 -translate-x-7 transition-all duration-700 ease-in-out">
-                <MdArrowRightAlt />
-                <IoIosArrowForward className="ml-3" />
-              </div>
-            </div>
-          </Link>
-        )}
-      </div>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full h-full max-w-full">
-        {projectsData && (
-          <>
-            {pageType === "detailProject"
-              ? projectsData
-                  .filter((project) => !pathname.includes(project.id))
-                  .slice(0, 2)
-                  .reverse()
-                  .map((project) => (
-                    <ProjectCard
-                      key={project.id}
-                      id={project.id}
-                      title={project.title}
-                      subtitle={project.subtitle}
-                      image={project.image}
-                      github={project.github}
-                    />
-                  ))
-              : pageType === "home"
-              ? projectsData
-                  .slice(0, 2)
-                  .reverse()
-                  .map((project) => (
-                    <ProjectCard
-                      key={project.id}
-                      id={project.id}
-                      title={project.title}
-                      subtitle={project.subtitle}
-                      image={project.image}
-                      github={project.github}
-                    />
-                  ))
-              : pageType === "projects" &&
-                projectsData
-                  .slice()
-                  .reverse()
-                  .map((project) => (
-                    <ProjectCard
-                      key={project.id}
-                      id={project.id}
-                      title={project.title}
-                      subtitle={project.subtitle}
-                      image={project.image}
-                      github={project.github}
-                    />
-                  ))}
-          </>
-        )}
-        {/* {projectsData
-          ? projectsData
-              .filter((project) => !pathname.includes(project.id))
-              .slice(0, 2)
-              .reverse()
-              .map((project) => (
-                <ProjectCard
-                  key={project.id}
-                  id={project.id}
-                  title={project.title}
-                  subtitle={project.subtitle}
-                  image={project.image}
-                  github={project.github}
-                />
-              ))
-          : projectsData
-              ?.slice(0, 2)
-              .reverse()
-              .map((project) => (
-                <ProjectCard
-                  key={project.id}
-                  id={project.id}
-                  title={project.title}
-                  subtitle={project.subtitle}
-                  image={project.image}
-                  github={project.github}
-                />
-              ))} */}
-      </ul>
-    </div>
+    <ul className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full h-full max-w-full">
+      {filteredProjects.map((project) => (
+        <ProjectCard
+          key={project.id}
+          id={project.id}
+          title={project.title}
+          subtitle={project.subtitle}
+          image={project.image}
+          github={project.github}
+        />
+      ))}
+    </ul>
   );
 }

@@ -11,6 +11,8 @@ import { FiExternalLink, FiGithub } from "react-icons/fi";
 import { IoIosArrowBack } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
 import Modal from "@/components/Modal";
+import ProjectsOverviewButton from "@/components/ProjectsOverviewButton";
+import SectionSubtitle from "@/components/SectionSubtitle";
 
 export default function ClientComponent() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -236,11 +238,12 @@ export default function ClientComponent() {
             </div>
           </div>
 
-          <div className="flex mt-24">
-            <ProjectList
-              pageType="detailProject"
-              title="Você também pode gostar"
-            />
+          <div className="flex flex-col mt-24 gap-4">
+            <div className="flex flex-row justify-between items-center">
+              <SectionSubtitle title="Você também pode gostar" />
+              <ProjectsOverviewButton />
+            </div>
+            <ProjectList pageType="detailProject" />
           </div>
         </article>
       </div>

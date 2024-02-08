@@ -5,6 +5,9 @@ import ProjectList from "@/components/ProjectList";
 import Text from "@/components/Text";
 import { FiDownloadCloud } from "react-icons/fi";
 import { Metadata } from "next";
+import SectionSubtitle from "@/components/SectionSubtitle";
+import ProjectsOverviewButton from "@/components/ProjectsOverviewButton";
+import Section from "@/components/Section";
 
 export const metadata: Metadata = {
   title: "Início | Diogo Marques",
@@ -14,7 +17,7 @@ export default function Home() {
   const phrase = "Use **technology**\n to make the **difference**.";
 
   return (
-    <main className="flex flex-col p-8 sm:p-20 md:p-28 xl:p-36 2xl:p-52">
+    <Section>
       <div className="w-full sm:w-2/3">
         <Text type="phrase">{phrase}</Text>
         <p className="text-base sm:text-xl text-zinc-300 mt-3">
@@ -24,7 +27,7 @@ export default function Home() {
           </span>
         </p>
       </div>
-      <div className="flex gap-2 mt-4 mb-12">
+      <div className="flex gap-2 mt-4 mb-16">
         <a
           href="https://drive.google.com/file/d/1vZVLwhR8wokrPPX-qoePsqA3Mz0K_LJi/view?usp=sharing"
           target="_blank"
@@ -51,7 +54,13 @@ export default function Home() {
           </div>
         </a>
       </div>
-      <ProjectList pageType="home" title="Últimos projetos" />
-    </main>
+      <div className="flex flex-col gap-4">
+        <div className="flex flex-row justify-between items-center">
+          <SectionSubtitle title="Últimos projetos" />
+          <ProjectsOverviewButton />
+        </div>
+        <ProjectList pageType="home" />
+      </div>
+    </Section>
   );
 }

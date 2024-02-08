@@ -3,6 +3,7 @@ import EducationCard from "@/components/EducationCard";
 import { CourseProps, education } from "../data";
 import Text from "@/components/Text";
 import { useState, useEffect } from "react";
+import Section from "@/components/Section";
 
 export default function Demo() {
   const [coursesData, setCoursesData] = useState<CourseProps[]>();
@@ -15,7 +16,7 @@ export default function Demo() {
   const phrase = "Invest\n in the **future**,\n **study**.";
 
   return (
-    <main className="flex flex-col w-full p-8 sm:p-20 md:p-28 xl:p-36 2xl:p-52">
+    <Section>
       <Text type="phrase">{phrase}</Text>
 
       <ul className="flex flex-col w-full rounded-xl overflow-hidden mt-4 gap-[1px]">
@@ -31,6 +32,6 @@ export default function Demo() {
             </li>
           ))}
       </ul>
-    </main>
+    </Section>
   );
 }

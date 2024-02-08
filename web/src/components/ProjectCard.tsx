@@ -27,12 +27,12 @@ export default function ProjectCard({
           <Image
             alt="Imagem do projeto"
             src={image}
-            className="w-full h-full aspect-video sm:group-hover:blur-sm group-hover:opacity-60 transition-all duration-300 object-cover"
+            className="w-full h-full aspect-video group-hover:blur-none sm:group-hover:blur-sm group-hover:opacity-60 transition-all duration-300 object-cover"
           />
         </div>
 
         {/* mobile */}
-        <div className="flex lg:hidden flex-col text-white p-4">
+        <div className="flex lg:hidden flex-col text-white p-4 w-full">
           <div className="flex flex-col w-full">
             <h1 className="text-base sm:text-lg xl:text-xl font-semibold">
               {title}
@@ -41,7 +41,7 @@ export default function ProjectCard({
               {subtitle}
             </p>
           </div>
-          <div className="flex flex-col gap-2 w-full mt-6 ">
+          <div className="flex flex-col gap-2 w-full mt-6">
             <Link
               href={`/projects/${id}`}
               className="flex items-center rounded-xl bg-darkBg border-[1px] border-darkBorder p-3 w-full hover:brightness-150  justify-center gap-4 text-sm sm:text-base"

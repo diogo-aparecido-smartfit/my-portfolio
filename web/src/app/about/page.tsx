@@ -8,6 +8,8 @@ import Text from "@/components/Text";
 import { Metadata } from "next";
 import Marquee from "react-fast-marquee";
 import ExperienceCard from "@/components/ExperienceCard";
+import Section from "@/components/Section";
+import SectionSubtitle from "@/components/SectionSubtitle";
 
 export const metadata: Metadata = {
   title: "Sobre | Diogo Marques",
@@ -21,7 +23,7 @@ export default function Page() {
 
   return (
     <GlowCapture>
-      <main className="flex flex-col w-jfull p-8 sm:p-20 md:p-28 xl:p-36 2xl:p-52 overflow-hidden">
+      <Section>
         <div className="flex flex-col gap-2 w-full">
           <div className="flex justify-between xl:justify-start xl:gap-10 items-center">
             <Text type="phrase">{phrase}</Text>
@@ -36,13 +38,12 @@ export default function Page() {
 
         <Glow
           color=""
-          className="mt-6"
+          className="mt-16"
           style={{ transition: "all .2s" }}
           debug={false}
         >
-          <h2 className="font-semibold text-2xl sm:text-3xl text-white">
-            Ferramentas
-          </h2>
+          <SectionSubtitle title="Ferramentas" />
+          Ferramentas
           <ul className="grid grid-cols-1 sm:grid-cols-2 mt-4 flex-col w-full gap-1 sm:text-white rounded-xl  overflow-auto glow:border-neutral-100 border-[1px] border-transparent">
             {technologies.map((item, i) => (
               <li
@@ -55,10 +56,9 @@ export default function Page() {
             ))}
           </ul>
         </Glow>
-        <div className="flex flex-col mt-6 gap-6">
-          <h2 className="font-semibold text-2xl sm:text-3xl text-white">
-            Experiência
-          </h2>
+        <div className="flex flex-col mt-16 gap-6">
+          <SectionSubtitle title="Experiência" />
+
           <ul className="flex flex-col gap-6">
             {experiences.map((item, i) => (
               <li className="flex flex-col" key={i}>
@@ -70,7 +70,7 @@ export default function Page() {
             ))}
           </ul>
         </div>
-      </main>
+      </Section>
     </GlowCapture>
   );
 }

@@ -16,7 +16,7 @@ export default function Text({ children, type }: TextProps) {
 
   if (type === "paragraph") {
     return (
-      <p className="text-zinc-500 text-base sm:text-lg">
+      <p className="text-zinc-500 text-base sm:text-lg lg:text-xl">
         <Markdown className="reactMarkDown">{children}</Markdown>
       </p>
     );
