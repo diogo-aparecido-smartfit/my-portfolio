@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import renerForce from "../../public/experience-images/mockup/renerforce/rener-force.jpg";
 import rener1 from "../../public/experience-images/mockup/renerforce/rener1.jpg";
 import rener2 from "../../public/experience-images/mockup/renerforce/rener2.jpg";
