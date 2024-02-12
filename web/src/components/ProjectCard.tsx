@@ -76,6 +76,7 @@ export default function ProjectCard({
             </div>
             <div className="flex flex-row gap-2 w-full mt-6">
               <Button
+                className="scale-0 group-hover:scale-100"
                 onClick={() => router.push(`/projects/${id}`)}
                 buttonAction="LINK"
                 icon={<HiOutlineDocumentSearch />}
@@ -83,7 +84,7 @@ export default function ProjectCard({
                 Detalhes
               </Button>
               <Button
-                className="bg-transparent"
+                className="scale-0 group-hover:scale-100 bg-transparent "
                 onClick={() => redirect(github)}
                 buttonAction="LINK"
                 icon={<RiGithubLine />}

@@ -1,18 +1,20 @@
 "use client";
 import { ProjectProps, projects } from "@/app/data";
+import { TbWorld } from "react-icons/tb";
 import ProjectList from "@/components/ProjectList";
-import Text from "@/components/Text";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
-import { FiExternalLink, FiGithub } from "react-icons/fi";
+import { FiGithub } from "react-icons/fi";
 import { IoIosArrowBack } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
 import Modal from "@/components/Modal";
 import ProjectsOverviewButton from "@/components/ProjectsOverviewButton";
 import SectionSubtitle from "@/components/SectionSubtitle";
+import Button from "@/components/Button";
+import { redirect } from "@/utils/redirect";
 
 export default function ClientComponent() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -187,22 +189,25 @@ export default function ClientComponent() {
                 {post.overview}
               </div>
               <div className="flex flex-col mt-auto md:flex-row w-full gap-3 md:gap-1">
-                {post.github && (
-                  <a
-                    href={post.github}
-                    target="_blank"
-                    className="flex items-center rounded-xl bg-transparent border-[1px] border-darkBorder p-3 w-full hover:border-zinc-400  justify-center gap-4   transition-all duration-200  origin-customTransform text-sm xl:text-base text-white"
-                  >
-                    <FiGithub /> GitHub
-                  </a>
-                )}
                 {post.deploy && (
-                  <button
+                  <Button
+                    className="bg-zinc-800"
                     onClick={() => handleOpenModal()}
-                    className="flex items-center rounded-xl bg-zinc-800 border-[1px] border-darkBorder p-3 w-full hover:bg-white hover:text-zinc-900 hover:border-zinc-800  justify-center gap-4   transition-all duration-200 origin-customTransform text-sm xl:text-base"
+                    buttonAction="LINK"
+                    icon={<TbWorld />}
                   >
-                    <FiExternalLink /> Ver Demo
-                  </button>
+                    Ver Demo
+                  </Button>
+                )}
+                {post.github && (
+                  <Button
+                    className="bg-transparent"
+                    onClick={() => redirect(post.github)}
+                    buttonAction="LINK"
+                    icon={<FiGithub />}
+                  >
+                    GitHub
+                  </Button>
                 )}
               </div>
             </div>
