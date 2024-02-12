@@ -4,6 +4,9 @@ import { HiOutlineDocumentSearch } from "react-icons/hi";
 import { FiExternalLink } from "react-icons/fi";
 import { BsInfoLg } from "react-icons/bs";
 import { RiGithubLine } from "react-icons/ri";
+import Button from "./Button";
+import { redirect } from "@/utils/redirect";
+import { useRouter } from "next/navigation";
 
 interface ProjectCardProps {
   title: string;
@@ -20,6 +23,8 @@ export default function ProjectCard({
   id,
   github,
 }: ProjectCardProps) {
+  const router = useRouter();
+
   return (
     <li className="flex flex-col gap-2 w-full">
       <article className="flex flex-col rounded-xl items-center justify-center border-[1px] cursor-pointer border-zinc-800 bg-zinc-950 transition-all duration-300 group overflow-hidden">
@@ -70,33 +75,21 @@ export default function ProjectCard({
               </p>
             </div>
             <div className="flex flex-row gap-2 w-full mt-6">
-              <Link
-                href={`/projects/${id}`}
-                className="flex items-center rounded-xl bg-darkBg border-[1px] border-darkBorder p-3 w-full hover:brightness-150  justify-center gap-4 scale-0 group-hover:scale-100 transition-all duration-200 origin-customTransform text-sm xl:text-base group/edit"
+              <Button
+                onClick={() => router.push(`/projects/${id}`)}
+                buttonAction="LINK"
+                icon={<HiOutlineDocumentSearch />}
               >
-                <div className="flex max-w-[16px] overflow-hidden transition-all duration-300 ease-in-out">
-                  <div className="flex group-hover/edit:-translate-x-7 transition-all duration-700 ease-in-out">
-                    <HiOutlineDocumentSearch className="mr-3" />
-
-                    <FiExternalLink />
-                  </div>
-                </div>
                 Detalhes
-              </Link>
-              <a
-                href={github}
-                target="_blank"
-                className="flex items-center rounded-xl bg-transparent border-[1px] border-darkBorder p-3 w-full hover:border-zinc-400  justify-center gap-4  scale-0 group-hover:scale-100 transition-all duration-200  origin-customTransform text-sm xl:text-base group/edit"
+              </Button>
+              <Button
+                className="bg-transparent"
+                onClick={() => redirect(github)}
+                buttonAction="LINK"
+                icon={<RiGithubLine />}
               >
-                <div className="flex max-w-[16px] overflow-hidden transition-all duration-300 ease-in-out">
-                  <div className="flex group-hover/edit:-translate-x-7 transition-all duration-700 ease-in-out">
-                    <RiGithubLine className="mr-3" />
-
-                    <FiExternalLink />
-                  </div>
-                </div>
                 GitHub
-              </a>
+              </Button>
             </div>
           </div>
         </div>
