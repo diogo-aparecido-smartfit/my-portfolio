@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  cursor: default;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
 ::-moz-selection {
   /* Code for Firefox */
   color: #333236;
