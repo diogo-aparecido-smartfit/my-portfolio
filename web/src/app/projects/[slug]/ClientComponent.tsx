@@ -15,6 +15,7 @@ import ProjectsOverviewButton from "@/components/ProjectsOverviewButton";
 import SectionSubtitle from "@/components/SectionSubtitle";
 import Button from "@/components/Button";
 import { redirect } from "@/utils/redirect";
+import { FollowerPointerCard } from "@/components/FollowingPointer";
 
 export default function ClientComponent() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -100,24 +101,26 @@ export default function ClientComponent() {
               animate="visible"
               initial="hidden"
               exit="exit"
-              className={`flex w-screen h-screen fixed items-center justify-center p-4 sm:p-0 left-0 transition-all duration-300 ease-in-out z-50`}
+              className={`flex w-screen h-screen fixed items-center justify-center left-0 transition-all duration-300 ease-in-out z-50 overflow-hidden`}
             >
               <motion.div
                 variants={child}
                 animate="visible"
                 initial="hidden"
                 exit="exit"
-                className="flex max-w-xl lg:max-w-2xl xl:max-w-4xl"
+                className="p-10"
               >
                 <Image
                   alt="Imagem do projeto"
                   src={image}
-                  className={`rounded-xl origin-customTransform transition-all duration-300 ease-in-out `}
+                  width={1280}
+                  height={720}
+                  className={`flex rounded-xl origin-customTransform transition-all duration-300 ease-in-out`}
                 />
               </motion.div>
               <div
                 onClick={() => handleCloseImage()}
-                className="absolute w-full h-full bg-zinc-900/90 -z-10"
+                className="absolute w-full h-full bg-zinc-900/90 -z-10 backdrop-blur-sm"
               ></div>
             </motion.div>
           )}
