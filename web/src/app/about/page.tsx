@@ -43,7 +43,6 @@ export default function Page() {
           debug={false}
         >
           <SectionSubtitle title="Ferramentas" />
-          Ferramentas
           <ul className="grid grid-cols-1 sm:grid-cols-2 mt-4 flex-col w-full gap-1 sm:text-white rounded-xl  overflow-auto glow:border-neutral-100 border-[1px] border-transparent">
             {technologies.map((item, i) => (
               <li
