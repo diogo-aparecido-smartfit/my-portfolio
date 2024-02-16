@@ -15,7 +15,6 @@ import ProjectsOverviewButton from "@/components/ProjectsOverviewButton";
 import SectionSubtitle from "@/components/SectionSubtitle";
 import Button from "@/components/Button";
 import { redirect } from "@/utils/redirect";
-import { FollowerPointerCard } from "@/components/FollowingPointer";
 
 export default function ClientComponent() {
   const [modalIsOpen, setModalIsOpen] = useState(false);

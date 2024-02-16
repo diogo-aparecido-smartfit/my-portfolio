@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 import { StaticImageData } from "next/image";
 import { MdArrowRightAlt } from "react-icons/md";
 import { usePathname } from "next/navigation";
-import { FollowerPointerCard } from "./FollowingPointer";
 
 interface ProjectListProps {
   pageType: "home" | "projects" | "detailProject";
@@ -55,16 +54,15 @@ export default function ProjectList({ pageType }: ProjectListProps) {
 
   return (
     <ul className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full h-full max-w-full">
-      {filteredProjects.map((project) => (
-        <FollowerPointerCard key={project.id} title={<>Você</>}>
-          <ProjectCard
-            id={project.id}
-            title={project.title}
-            subtitle={project.subtitle}
-            image={project.image}
-            github={project.github}
-          />
-        </FollowerPointerCard>
+      {filteredProjects.map((project, i) => (
+        <ProjectCard
+          key={i}
+          id={project.id}
+          title={project.title}
+          subtitle={project.subtitle}
+          image={project.image}
+          github={project.github}
+        />
       ))}
     </ul>
   );

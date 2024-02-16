@@ -2,12 +2,10 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { HiOutlineDocumentSearch } from "react-icons/hi";
 import { FiExternalLink } from "react-icons/fi";
-import { BsInfoLg } from "react-icons/bs";
 import { RiGithubLine } from "react-icons/ri";
 import Button from "./Button";
 import { redirect } from "@/utils/redirect";
 import { useRouter } from "next/navigation";
-import { FollowerPointerCard } from "./FollowingPointer";
 
 interface ProjectCardProps {
   title: string;
@@ -27,7 +25,7 @@ export default function ProjectCard({
   const router = useRouter();
 
   return (
-    <li className="flex flex-col gap-2 w-full cursor-none">
+    <li className="flex flex-col gap-2 w-full">
       <article className="flex flex-col rounded-xl items-center justify-center border-[1px]  border-zinc-800 bg-zinc-950 transition-all duration-300 group overflow-hidden">
         <div className="flex">
           <Image
@@ -77,7 +75,7 @@ export default function ProjectCard({
             </div>
             <div className="flex flex-row gap-2 w-full mt-6">
               <Button
-                className="cursor-none scale-0 group-hover:scale-100"
+                className=" scale-0 group-hover:scale-100"
                 onClick={() => router.push(`/projects/${id}`)}
                 buttonAction="LINK"
                 icon={<HiOutlineDocumentSearch />}
@@ -85,7 +83,7 @@ export default function ProjectCard({
                 Detalhes
               </Button>
               <Button
-                className="cursor-none scale-0 group-hover:scale-100 bg-transparent "
+                className="e scale-0 group-hover:scale-100 bg-transparent "
                 onClick={() => redirect(github)}
                 buttonAction="LINK"
                 icon={<RiGithubLine />}
