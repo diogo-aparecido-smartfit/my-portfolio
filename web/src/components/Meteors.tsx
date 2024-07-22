@@ -10,19 +10,30 @@ export const Meteors = ({
   number?: number;
   className?: string;
 }) => {
+  const [isVisible, setIsVisible] = useState(false);
   const [prevDocumentHeight, setPrevDocumentHeight] = useState(0);
   const meteors = new Array(number || 20).fill(true);
 
   useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 2000);
+
     const currentDocumentHeight = document.body.offsetHeight;
 
     if (currentDocumentHeight !== prevDocumentHeight) {
       setPrevDocumentHeight(currentDocumentHeight);
     }
+
+    return () => clearTimeout(timer);
   }, [prevDocumentHeight]);
 
   return (
-    <div className="absolute w-full h-full overflow-hidden -z-10">
+    <div
+      className={`absolute w-full h-full overflow-hidden -z-10 transition-opacity duration-2000 ${
+        isVisible ? "opacity-100" : "opacity-0"
+      }`}
+    >
       {meteors.map((el, idx) => (
         <span
           key={"meteor" + idx}

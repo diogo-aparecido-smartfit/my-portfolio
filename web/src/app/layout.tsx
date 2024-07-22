@@ -1,3 +1,4 @@
+import { CookiesProvider } from "next-client-cookies/server";
 import type { Metadata } from "next";
 import { Hanken_Grotesk } from "next/font/google";
 import Favicon from "/public/favicon.ico";
@@ -39,17 +40,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${grotesk.className} bg-zinc-950 text-white flex`}>
-        <Intro />
-        <Sidebar />
-        {children}
-        <ParticlesBackground
-          className="absolute inset-0 -z-10 animate-fade-in"
-          quantity={300}
-        />
-        <Meteors />
-      </body>
-    </html>
+    <CookiesProvider>
+      <html lang="en">
+        <body className={`${grotesk.className} bg-zinc-950 text-white flex`}>
+          <Intro />
+          <Sidebar />
+          {children}
+          <ParticlesBackground
+            className="absolute inset-0 -z-10 animate-fade-in"
+            quantity={300}
+          />
+          <Meteors />
+        </body>
+      </html>
+    </CookiesProvider>
   );
 }

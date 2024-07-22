@@ -1,8 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useCookies } from "next-client-cookies";
 
 const Intro = () => {
+  const cookies = useCookies();
+  const isOldVisitor = cookies.get("oldvisitor");
   const [showIntro, setShowIntro] = useState(true);
   const introText = "Olá, eu me chamo Diogo!";
   const words = introText.split(" ");
@@ -12,7 +15,7 @@ const Intro = () => {
     const timeoutId = setTimeout(() => {
       document.body.style.overflowY = "auto";
       setShowIntro(false);
-    }, 3000);
+    }, 1800);
 
     return () => clearTimeout(timeoutId);
   }, []);
@@ -72,29 +75,37 @@ const Intro = () => {
     },
   };
 
-  return (
-    <AnimatePresence mode="wait">
-      {showIntro && (
-        <motion.div
-          variants={container}
-          animate="visible"
-          initial="hidden"
-          exit="exit"
-          className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-zinc-950 text-white z-50"
-        >
-          {words.map((word, index) => (
-            <motion.span
-              variants={child}
-              className="mr-2 text-xl md:text-4xl"
-              key={index}
-            >
-              {word}
-            </motion.span>
-          ))}
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
+  const setOldVisitor = useCallback(() => {
+    cookies.set("oldvisitor", "true");
+  }, [cookies]);
+
+  if (!isOldVisitor) {
+    return (
+      <AnimatePresence onExitComplete={setOldVisitor} mode="wait">
+        {showIntro && (
+          <motion.div
+            variants={container}
+            animate="visible"
+            initial="hidden"
+            exit="exit"
+            className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-zinc-950 text-white z-50"
+          >
+            {words.map((word, index) => (
+              <motion.span
+                variants={child}
+                className="mr-2 text-xl md:text-4xl"
+                key={index}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    );
+  } else {
+    return null;
+  }
 };
 
 export default Intro;
