@@ -26,9 +26,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
-    - run: cd web && yarn ci
-    - run: cd web && yarn install
-    - run: cd web && yarn run build --if-present
+
+    - name: Install dependencies for web
+      working-directory: web
+      run: yarn install
+
+    - name: Build NextJS App
+      working-directory: web
+      run: yarn run build
 
   build-api:
 
@@ -46,6 +51,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
-    - run: cd api && yarn ci
-    - run: cd api && yarn install
-    - run: cd api && yarn run build --if-present
+
+    - name: Install dependencies for api
+      working-directory: api
+      run: yarn install
+
+    - name: Build Api
+      working-directory: api
+      run: yarn run build
