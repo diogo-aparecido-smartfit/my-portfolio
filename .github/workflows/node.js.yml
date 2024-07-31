@@ -1,0 +1,70 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-web:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Cache Yarn dependencies for web
+      uses: actions/cache@v3
+      with:
+        path: web/node_modules
+        key: ${{ runner.os }}-yarn-web-${{ hashFiles('web/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-web-
+
+    - name: Install dependencies for web
+      working-directory: web
+      run: yarn install
+
+    - name: Build React App
+      working-directory: web
+      run: yarn run build
+
+  build-api:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Cache Yarn dependencies for API
+      uses: actions/cache@v3
+      with:
+        path: api/node_modules
+        key: ${{ runner.os }}-yarn-api-${{ hashFiles('api/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-api-
+
+    - name: Install dependencies for API
+      working-directory: api
+      run: yarn install
+
+    - name: Build API
+      working-directory: api
+      run: yarn run build
