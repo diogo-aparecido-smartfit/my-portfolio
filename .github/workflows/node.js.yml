@@ -27,6 +27,14 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
 
+    - name: Cache Yarn dependencies for web
+      uses: actions/cache@v3
+      with:
+        path: web/node_modules
+        key: ${{ runner.os }}-yarn-web-${{ hashFiles('web/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-web-
+
     - name: Install dependencies for web
       working-directory: web
       run: yarn install
@@ -51,6 +59,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
+
+    - name: Cache Yarn dependencies for API
+      uses: actions/cache@v3
+      with:
+        path: api/node_modules
+        key: ${{ runner.os }}-yarn-api-${{ hashFiles('api/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-api-
 
     - name: Install dependencies for api
       working-directory: api
