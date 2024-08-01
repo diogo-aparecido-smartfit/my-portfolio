@@ -24,7 +24,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-
 defaults:
   run:
     working-directory: web
@@ -54,13 +53,13 @@ jobs:
             echo "Unable to determine package manager"
             exit 1
           fi
-          
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-          cache-dependency-path: '**/yarn.lock'
+          cache-dependency-path: "**/yarn.lock"
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
@@ -88,7 +87,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: web/out
+          path: web/dist
 
   # Deployment job
   deploy:
