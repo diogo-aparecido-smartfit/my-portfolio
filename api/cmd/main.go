@@ -12,24 +12,36 @@ import (
 	"github.com/joho/godotenv"
 )
 
+func ErrorHandler(f func(*gin.Context) error) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		if err := f(c); err != nil {
+			// Log ou tratamento de erro adicional pode ser feito aqui, se necessário
+			c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		}
+	}
+}
+
 func main() {
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
-	db.Connect()
+	_, err = db.Connect()
+	if err != nil {
+		log.Fatalf("Error connecting to database: %v", err)
+	}
 
 	r := gin.Default()
 	projectRepo := repository.NewProjectRepository(db.DB)
 	projectService := service.NewProjectService(projectRepo)
 	projectHandler := handler.NewProjectHandler(projectService)
 
-	r.GET("/projects", projectHandler.GetAll)
+	r.GET("/projects", ErrorHandler(projectHandler.GetAll))
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "pong",
 		})
 	})
 
-	r.Run(":3001")
+	r.Run(":8080")
 }
