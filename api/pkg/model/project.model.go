@@ -13,7 +13,7 @@ type Projects struct {
 	CreatedAt      time.Time      `json:"created_at" gorm:"type:time"`
 	Period         time.Time      `json:"period" gorm:"type:time"`
 	JobType        string         `json:"job_type" gorm:"type:text"`
-	Technologies   []Technologies `gorm:"many2many:projects_technologies" json:"technologies"`
+	Technologies   []Technologies `gorm:"many2many:projects_technologies;foreignkey:Id;joinForeignKey:ProjectId;references:Id;joinReferences:TechnologyId" json:"technologies"`
 	GithubLink     string         `json:"github_link" gorm:"type:text"`
 	DeployLink     string         `json:"deploy_link" gorm:"type:text"`
 	Overview       string         `json:"overview" gorm:"type:text"`
