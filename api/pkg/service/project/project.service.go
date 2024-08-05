@@ -2,11 +2,12 @@ package service
 
 import (
 	"api/pkg/model"
-	"api/pkg/repository"
+	repository "api/pkg/repository/project"
 )
 
 type ProjectService interface {
 	GetAll(projects *[]model.Projects) error
+	Create(body *repository.PostProjectStruct) error
 }
 
 type projectService struct {
@@ -18,5 +19,9 @@ func NewProjectService(repo repository.ProjectRepository) ProjectService {
 }
 
 func (s *projectService) GetAll(projects *[]model.Projects) error {
-	return s.repo.GetAll(projects)
+	return s.repo.GetAllProjects(projects)
+}
+
+func (s *projectService) Create(body *repository.PostProjectStruct) error {
+	return s.repo.CreateProject(body)
 }

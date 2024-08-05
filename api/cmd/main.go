@@ -3,8 +3,8 @@ package main
 import (
 	"api/pkg/db"
 	"api/pkg/handler"
-	"api/pkg/repository"
-	"api/pkg/service"
+	repository "api/pkg/repository/project"
+	service "api/pkg/service/project"
 	"log"
 	"net/http"
 
@@ -37,6 +37,7 @@ func main() {
 	projectHandler := handler.NewProjectHandler(projectService)
 
 	r.GET("/projects", ErrorHandler(projectHandler.GetAll))
+	r.POST("/projects", ErrorHandler(projectHandler.Create))
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "pong",

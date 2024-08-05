@@ -7,7 +7,8 @@ import (
 )
 
 type ProjectRepository interface {
-	GetAll(projects *[]model.Projects) error
+	GetAllProjects(projects *[]model.Projects) error
+	CreateProject(body *PostProjectStruct) error
 }
 
 type projectRepository struct {

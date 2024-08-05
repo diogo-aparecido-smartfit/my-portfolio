@@ -7,15 +7,15 @@ import (
 )
 
 type Projects struct {
-	Id             string         `gorm:"primarykey;type:text"`
-	Title          string         `json:"title" gorm:"type:text"`
-	Subtitle       string         `json:"subtitle" gorm:"type:text"`
-	CreatedAt      time.Time      `json:"created_at" gorm:"type:time"`
-	Period         time.Time      `json:"period" gorm:"type:time"`
-	JobType        string         `json:"job_type" gorm:"type:text"`
-	Technologies   []Technologies `gorm:"many2many:projects_technologies;foreignkey:Id;joinForeignKey:ProjectId;references:Id;joinReferences:TechnologyId" json:"technologies"`
-	GithubLink     string         `json:"github_link" gorm:"type:text"`
-	DeployLink     string         `json:"deploy_link" gorm:"type:text"`
-	Overview       string         `json:"overview" gorm:"type:text"`
-	Specifications pq.StringArray `json:"specifications" gorm:"type:text" `
+	Id             string          `json:"id" gorm:"primarykey;type:uuid;default:uuid_generate_v4()"`
+	Title          string          `json:"title" gorm:"type:text"`
+	Subtitle       string          `json:"subtitle" gorm:"type:text"`
+	CreatedAt      time.Time       `json:"created_at" gorm:"type:time"`
+	Period         time.Time       `json:"period" gorm:"type:time"`
+	JobType        string          `json:"job_type" gorm:"type:text"`
+	Technologies   *[]Technologies `gorm:"many2many:projects_technologies;foreignkey:Id;joinForeignKey:ProjectId;references:Id;joinReferences:TechnologyId" json:"technologies"`
+	GithubLink     string          `json:"github_link" gorm:"type:text"`
+	DeployLink     string          `json:"deploy_link" gorm:"type:text"`
+	Overview       string          `json:"overview" gorm:"type:text"`
+	Specifications pq.StringArray  `json:"specifications" gorm:"type:text" `
 }
