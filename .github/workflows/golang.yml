@@ -20,7 +20,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
 
-      - name: Lint Go code
+      - name: Lint Go Code
         uses: golangci/golangci-lint-action@v3
         with:
           working-directory: ./api
