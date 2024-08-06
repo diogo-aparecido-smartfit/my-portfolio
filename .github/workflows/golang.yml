@@ -8,21 +8,22 @@ on:
   pull_request:
 
 jobs:
-
   golangci:
     name: Lint
     runs-on: ubuntu-latest
     steps:
       - name: Set up Go
-      uses: actions/setup-go@v3
-      with:
-        go-version: 1.18
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.22.0
 
       - name: Check out code
-      uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
-      - name: Lint Go code
-      uses: golangci/golangci-lint-action@v3
+      - name: Lint Go Code
+        uses: golangci/golangci-lint-action@v3
+        with:
+          working-directory: ./api
 
   build:
     name: Build
@@ -30,12 +31,14 @@ jobs:
     needs: [golangci]
     steps:
       - name: Set up Go
-      uses: actions/setup-go@v3
-      with:
-        go-version: 1.18
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.22.0
 
       - name: Check out code
-      uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
       - name: Build
-      run: go build -v ./api/...
+        run: go build -v ./...
+        with:
+          working-directory: ./api
