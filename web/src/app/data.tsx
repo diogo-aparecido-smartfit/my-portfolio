@@ -195,6 +195,20 @@ export const projects = [
 
 export const experiences = [
   {
+    title: "Software Engineer",
+    company: "Grupo Smartfit",
+    period: "Fev 2024 - Hoje",
+    description:
+      "Ingressado no time de desenvolvimento Bioritmo Digital em fevereiro de 2024, sou responsável por participar de reuniões diárias para controle de tarefas, bem como de encontros voltados ao planejamento de futuras mudanças e melhorias. Atuo no desenvolvimento Front-End (Website e App) dos produtos Bioritmo, além de ser encarregado pela análise, comentários, correções e aprovação de Pull Requests em todos os produtos sob responsabilidade do time Bioritmo Digital.",
+  },
+  {
+    title: "Software Engineer",
+    company: "Enthus",
+    period: "Fev 2024 - Jan 2025",
+    description:
+      "Responsável por desenvolver aplicativos utilizando React Native, além de auxiliar no desenvolvimento de APIs com Golang e NodeJS. Também atuo na análise e aprovação de Pull Requests e participo de reuniões com o time para a tomada de decisões relacionadas aos produtos da empresa.",
+  },
+  {
     title: "Desenvolvedor de Software Voluntário",
     company: "Andreza Biquinis",
     period: "Set 2023 - Nov 2023",
